@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamnab's house</title>
+    <title>Discover Luxury Living</title>
     <style>
-        /* --- Global Styles --- */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
         :root {
-            --bg-color: #0f1011;
-            --text-main: #ffffff;
-            --text-muted: #8b8f94;
-            --accent-gold: #e5bc7d;
-            --accent-gold-hover: #cfa86d;
-            --card-bg: #1a1b1d;
-            --border-color: #2a2b2d;
-            --font-serif: 'Playfair Display', 'Times New Roman', serif;
-            --font-sans: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --bg-color: #0f1012;
+            --text-main: #f5f5f5;
+            --text-muted: #9a9a9a;
+            --accent-gold: #d4ae6d;
+            --btn-dark: #1a1a1a;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
         }
 
         * {
@@ -27,71 +26,26 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* --- Typography --- */
-        h1, h2, h3, .logo {
-            font-family: var(--font-serif);
-            font-weight: 500;
-        }
-
-        p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-gold);
-            color: #111;
-            border: 2px solid var(--accent-gold);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-gold-hover);
-            border-color: var(--accent-gold-hover);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--accent-gold);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent-gold);
-            color: #111;
-        }
-
-        /* --- Navbar --- */
+        /* --- Navigation --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 0;
+            padding: 30px 5%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -106,12 +60,13 @@
             color: var(--text-main);
             text-decoration: none;
             font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent-gold);
+            opacity: 1;
         }
 
         .header-actions {
@@ -120,296 +75,384 @@
             gap: 20px;
         }
 
+        .btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            background-color: #c09d60;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
         /* --- Hero Section --- */
         .hero {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-            padding: 60px 0 100px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
             align-items: center;
+            padding: 0 5%;
+            /* Note: reference to image_bea673.png inspiration */
         }
 
-        .hero-content h1 {
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg-color) 0%, rgba(15, 16, 18, 0.8) 30%, transparent 100%);
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, var(--bg-color) 0%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
             font-size: 4.5rem;
             line-height: 1.1;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .hero-buttons {
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 400px;
+        }
+
+        .hero-btns {
             display: flex;
             gap: 15px;
-            margin-top: 30px;
         }
 
-        .hero-image {
-            width: 100%;
-            height: 600px;
-            border-radius: 12px;
-            overflow: hidden;
+        /* --- Properties Section --- */
+        .properties-section {
+            padding: 100px 5%;
         }
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* --- Middle Section: View Bestatendes --- */
-        .middle-section {
-            padding: 80px 0;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .middle-section-header {
-            margin-bottom: 50px;
-        }
-        
-        .middle-section-header h2 {
+        .section-title {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 400;
         }
 
-        .middle-grid {
+        .properties-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
+            align-items: start;
         }
 
-        .cards-wrapper {
+        .cards-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 20px;
         }
 
-        .card {
-            background-color: var(--card-bg);
+        .property-card {
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            position: relative;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            height: 250px;
-            background-color: #2a2b2d;
-        }
-
-        .card-img img {
+        .property-card img {
             width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .card-content p {
-            margin: 0;
-            font-size: 0.85rem;
-        }
-
-        /* Middle Right Side: Features List */
-        .features-content .subheading {
-            color: var(--accent-gold);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
             display: block;
         }
 
-        .features-content h2 {
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .card-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .card-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .details-container {
+            padding-top: 20px;
+        }
+
+        .subtitle-gold {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .details-title {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
 
+        .details-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
         .features-list {
-            margin-top: 40px;
             list-style: none;
         }
 
         .features-list li {
             display: flex;
             justify-content: space-between;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .features-list li .value {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
             color: var(--text-main);
         }
 
-        /* --- Bottom Section: Exclusive Homes --- */
-        .bottom-section {
-            padding: 100px 0;
+        .features-list li:first-child {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-val {
+            color: var(--text-muted);
+        }
+
+        /* --- Exclusive Section --- */
+        .exclusive-section {
+            padding: 100px 5%;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 60px;
             align-items: center;
         }
 
-        .bottom-content h2 {
+        .exclusive-content h2 {
+            font-family: var(--font-heading);
             font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            max-width: 400px;
         }
 
-        .bottom-image {
-            width: 100%;
-            height: 400px;
+        .exclusive-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 450px;
+        }
+
+        .exclusive-image {
             border-radius: 12px;
             overflow: hidden;
-            background-color: var(--border-color);
+            height: 450px;
         }
 
-        .bottom-image img {
+        .exclusive-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        /* Footer Dots */
-        .footer-dots {
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-dots {
             display: flex;
             justify-content: center;
             gap: 15px;
-            padding-bottom: 40px;
         }
-        
-        .footer-dots span {
-            display: block;
+
+        .dot {
             width: 8px;
             height: 8px;
-            background-color: var(--border-color);
             border-radius: 50%;
+            background-color: var(--text-muted);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .dot:hover {
+            opacity: 1;
+            background-color: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .properties-grid, .exclusive-section { grid-template-columns: 1fr; }
+            .hero-bg { width: 100%; opacity: 0.5; }
+            .hero-bg::before { background: linear-gradient(to right, var(--bg-color) 0%, rgba(15, 16, 18, 0.9) 100%); }
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .cards-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+            .exclusive-content h2 { font-size: 2.2rem; }
+            .exclusive-image { height: 300px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header / Navbar -->
-        <header>
-            <div class="logo">FIXTOF CE</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Overview</a></li>
-                    <li><a href="#">Properties</a></li>
-                    <li><a href="#">Story</a></li>
-                    <li><a href="#">Markets</a></li>
-                    <li><a href="#">Agents</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <span>540</span>
-                <a href="#" class="btn btn-primary">Contact us</a>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>DISCOVER<br>LUXURY<br>LIVING</h1>
-                <p>Find your dream home with our premium real estate selection. We offer exclusive properties in the most desirable locations for discerning buyers who seek exceptional living experiences.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Agents Request</a>
-                    <a href="#" class="btn btn-outline">More Details</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <!-- Image referred verbatim per instructions -->
-                <img src="image_30d5a2.png" alt="Luxury Villa with Pool">
-            </div>
-        </section>
-
-        <!-- Middle Section -->
-        <section class="middle-section">
-            <div class="middle-section-header">
-                <h2>View Bestatendes</h2>
-            </div>
-            <div class="middle-grid">
-                <!-- Left: Property Cards -->
-                <div class="cards-wrapper">
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1613490908574-8b63e9c57d59?auto=format&fit=crop&w=400&q=80" alt="Bavahaier">
-                        </div>
-                        <div class="card-content">
-                            <h3>Bavahaier</h3>
-                            <p>The Home District</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80" alt="Ghpont">
-                        </div>
-                        <div class="card-content">
-                            <h3>Ghpont</h3>
-                            <p>Premium Living Space</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Features / Amenities -->
-                <div class="features-content">
-                    <span class="subheading">NESSTL/IINE</span>
-                    <h2>Peverrized</h2>
-                    <p>Discover extensive luxury listings featuring unparalleled design, magnificent views, and modern infrastructure built for your supreme comfort and well-being.</p>
-                    
-                    <ul class="features-list">
-                        <li>
-                            <span>Bedrooms</span>
-                            <span class="value">4 - 6 &gt;</span>
-                        </li>
-                        <li>
-                            <span>Bathrooms</span>
-                            <span class="value">5 - 7 &gt;</span>
-                        </li>
-                        <li>
-                            <span>Garages</span>
-                            <span class="value">3 Cars &gt;</span>
-                        </li>
-                        <li>
-                            <span>Area</span>
-                            <span class="value">4500 Sq Ft</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bottom Section -->
-        <section class="bottom-section">
-            <div class="bottom-content">
-                <h2>Exclusive homes for premium buyers</h2>
-                <p>We handpick only the highest quality modern villas to ensure our clients receive the absolute best. Experience elevated living with unmatched architectural designs and panoramic ocean views.</p>
-                <a href="#" class="btn btn-primary" style="margin-top: 20px;">Contact Us Today</a>
-            </div>
-            <div class="bottom-image">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Modern Luxury Home">
-            </div>
-        </section>
-        
-        <!-- Subtle Footer Dots -->
-        <div class="footer-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+    <header>
+        <div class="logo">FIXTOF CE</div>
+        <nav>
+            <ul>
+                <li><a href="#">Properties</a></li>
+                <li><a href="#">Prestige</a></li>
+                <li><a href="#">Living</a></li>
+                <li><a href="#">Markets</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <span style="font-size: 0.9rem;">S/O</span>
+            <a href="#" class="btn btn-gold">Contact Us</a>
         </div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>DISCOVER<br>LUXURY<br>LIVING</h1>
+            <p>Welcome to our exclusive real estate collection. Experience the perfect blend of modern architecture and serene environments tailored for sophisticated lifestyles.</p>
+            <div class="hero-btns">
+                <a href="#" class="btn btn-gold">View Details</a>
+                <a href="#" class="btn btn-outline">Explore More &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="properties-section">
+        <h2 class="section-title">View Bestatendes</h2>
+        
+        <div class="properties-grid">
+            <div class="cards-container">
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 1">
+                    <div class="card-info">
+                        <h4>Brahmer</h4>
+                        <p>The House Of Calmness</p>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 2">
+                    <div class="card-info">
+                        <h4>Chpont</h4>
+                        <p>Living Near The Ocean</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-container">
+                <span class="subtitle-gold">NESSTLINE</span>
+                <h3 class="details-title">Peverrized</h3>
+                <p class="details-desc">Discover our newest listings offering unmatched luxury and breathtaking views. Every detail has been meticulously crafted to provide a living experience that exceeds expectations, combining comfort, elegance, and cutting-edge design.</p>
+                
+                <ul class="features-list">
+                    <li><span>Bedrooms</span> <span class="feature-val">4 &gt;</span></li>
+                    <li><span>Bathrooms</span> <span class="feature-val">3 &gt;</span></li>
+                    <li><span>Garage</span> <span class="feature-val">2 Cars &gt;</span></li>
+                    <li><span>Pool</span> <span class="feature-val">Yes &gt;</span></li>
+                    <li><span>Area</span> <span class="feature-val">4,500 Sq Ft &gt;</span></li>
+                    <li><span>Price</span> <span class="feature-val">On Request &gt;</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="exclusive-section">
+        <div class="exclusive-content">
+            <h2>Exclusive homes for premium buyers</h2>
+            <p>We curate only the finest properties for our distinguished clientele. Our portfolio includes waterfront villas, modern estates, and private retreats designed for those who appreciate the true essence of luxury living.</p>
+            <a href="#" class="btn btn-gold" style="display: inline-block; margin-top: 10px;">Connect Today</a>
+        </div>
+        <div class="exclusive-image">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80" alt="Premium House Exterior">
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </footer>
 
 </body>
 </html>
