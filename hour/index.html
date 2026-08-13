@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hour's Home</title>
+  <title>Dream Home - Luxury Real Estate</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -20,51 +17,117 @@
     }
 
     :root {
-      --orange: #f4a623;
-      --dark: #111820;
-      --text: #202020;
-      --muted: #888;
+      --orange: #f5a623;
+      --dark: #10151b;
+      --text: #181818;
+      --muted: #777;
       --light: #f7f7f7;
-      --border: #e7e7e7;
+      --border: #e8e8e8;
     }
 
     body {
       font-family: "Inter", sans-serif;
-      background: #ddd;
       color: var(--text);
+      background: #fff;
     }
 
-    img {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: 0;
+      cursor: pointer;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 15px;
+    }
+
+    .logo-mark {
+      width: 17px;
+      height: 17px;
+      position: relative;
+    }
+
+    .logo-mark span {
       display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    .page {
-      width: min(100%, 1200px);
-      margin: 0 auto;
+      height: 2px;
+      margin-bottom: 3px;
       background: white;
-      overflow: hidden;
+      width: 16px;
     }
 
-    /* ================= HERO ================= */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 8px;
+      font-weight: 500;
+    }
+
+    .nav-links a:first-child {
+      color: var(--orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 20px;
+      padding: 8px 15px;
+      color: white;
+      background: rgba(255,255,255,.08);
+      font-size: 8px;
+    }
+
+    .nav-btn.dark {
+      background: #050505;
+      border-color: #050505;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      min-height: 610px;
+      min-height: 520px;
       position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
       color: white;
       background:
-        linear-gradient(
-          90deg,
-          rgba(3, 17, 29, 0.75) 0%,
-          rgba(3, 17, 29, 0.35) 45%,
-          rgba(3, 17, 29, 0.05) 100%
-        ),
-        url("/mnt/data/image.png") center top / cover no-repeat;
+        linear-gradient(90deg, rgba(5,12,18,.88) 0%, rgba(5,12,18,.42) 45%, rgba(5,12,18,.08) 100%),
+        url("design.png") center 10% / cover no-repeat;
     }
 
     .hero::after {
@@ -72,285 +135,239 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.1),
-        rgba(0, 0, 0, 0.05) 65%,
-        rgba(0, 0, 0, 0.3)
+        180deg,
+        rgba(0,0,0,.12),
+        transparent 60%,
+        rgba(0,0,0,.3)
       );
       pointer-events: none;
     }
 
-    .navbar {
-      width: 88%;
-      margin: auto;
-      padding: 30px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      z-index: 2;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .logo-mark {
-      width: 19px;
-      height: 16px;
-      display: grid;
-      gap: 2px;
-    }
-
-    .logo-mark span {
-      display: block;
-      height: 2px;
-      background: white;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      margin-left: auto;
-      margin-right: 28px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 9px;
-      opacity: 0.9;
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .nav-btn {
-      border: 1px solid rgba(255,255,255,.45);
-      background: rgba(255,255,255,.08);
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 8px;
-      cursor: pointer;
-    }
-
-    .nav-btn.dark {
-      background: #080808;
-      border-color: #080808;
-    }
-
     .hero-content {
-      width: 88%;
-      margin: 90px auto 0;
       position: relative;
       z-index: 2;
+      width: 86%;
+      max-width: 1200px;
+      margin: 70px auto 0;
     }
 
     .hero-content h1 {
-      font-size: clamp(42px, 5vw, 72px);
+      max-width: 450px;
+      font-size: clamp(38px, 5vw, 68px);
       line-height: .94;
-      letter-spacing: -3px;
-      font-weight: 800;
-      max-width: 520px;
       text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: -2px;
     }
 
     .hero-content p {
-      margin-top: 22px;
-      font-size: 11px;
-      line-height: 1.7;
+      max-width: 390px;
+      margin-top: 18px;
+      font-size: 12px;
+      line-height: 1.6;
       color: rgba(255,255,255,.75);
-      max-width: 330px;
     }
 
-    .hero-btn {
+    .hero-button {
       margin-top: 24px;
-      border: 0;
-      background: var(--orange);
-      color: white;
       padding: 12px 24px;
       border-radius: 25px;
-      font-size: 10px;
+      background: var(--orange);
+      color: white;
+      font-size: 11px;
       font-weight: 600;
-      cursor: pointer;
     }
 
-    /* Search bar */
+    /* =========================
+       SEARCH BAR
+    ========================= */
 
-    .hero-search {
-      position: absolute;
-      z-index: 4;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(460px, 80%);
+    .search-wrap {
+      position: relative;
+      z-index: 5;
+      margin-top: -25px;
+    }
+
+    .search-box {
+      width: min(480px, 90%);
       height: 50px;
-      border-radius: 30px;
-      background: white;
+      margin: auto;
+      padding: 5px 5px 5px 20px;
       display: flex;
       align-items: center;
-      padding: 5px 6px 5px 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.16);
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
     }
 
-    .hero-search input {
+    .search-box input {
       flex: 1;
-      border: 0;
-      outline: 0;
-      font-size: 10px;
+      border: none;
+      outline: none;
+      font-size: 11px;
       color: #777;
     }
 
-    .hero-search button {
-      width: 65px;
+    .search-box button {
+      width: 70px;
       height: 40px;
-      border: 0;
       border-radius: 22px;
       background: var(--orange);
       color: white;
-      font-weight: 700;
-      cursor: pointer;
+      font-size: 11px;
     }
 
-    /* ================= SEARCH SECTION ================= */
+    /* =========================
+       SEARCH SECTION
+    ========================= */
 
     .search-section {
-      padding: 72px 8% 65px;
+      padding: 70px 7% 75px;
       text-align: center;
     }
 
     .section-title {
-      font-size: 27px;
-      font-weight: 800;
-      letter-spacing: -1px;
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .section-subtitle {
-      margin-top: 8px;
       color: #999;
       font-size: 10px;
+      margin-bottom: 35px;
     }
 
-    .search-cards {
-      margin-top: 35px;
+    .filter-grid {
+      max-width: 1000px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
 
-    .search-card {
-      min-height: 110px;
-      border-radius: 7px;
+    .filter-card {
+      min-height: 90px;
+      padding: 18px 10px;
+      border-radius: 6px;
+      border: 1px solid transparent;
       background: #f7f7f7;
-      border: 1px solid #eee;
-      padding: 20px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: .25s;
+      transition: .25s ease;
     }
 
-    .search-card:first-child {
+    .filter-card:first-child {
       background: white;
-      border: 1px solid #222;
-      box-shadow: 0 5px 12px rgba(0,0,0,.08);
+      border-color: #202020;
+      box-shadow: 0 4px 10px rgba(0,0,0,.06);
     }
 
-    .search-card:hover {
+    .filter-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+      background: white;
+      border-color: #ddd;
     }
 
-    .card-icon {
-      width: 24px;
-      height: 24px;
-      border: 1px solid #555;
+    .filter-icon {
+      width: 25px;
+      height: 25px;
+      margin-bottom: 10px;
+      border: 1px solid #444;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       font-size: 11px;
-      margin-bottom: 11px;
     }
 
-    .search-card h3 {
-      font-size: 11px;
+    .filter-card h3 {
+      font-size: 10px;
       margin-bottom: 6px;
     }
 
-    .search-card p {
+    .filter-card p {
       max-width: 130px;
-      color: #aaa;
       font-size: 7px;
       line-height: 1.5;
+      color: #999;
     }
 
-    /* ================= PROMO ================= */
+    /* =========================
+       FEATURE BANNER
+    ========================= */
 
-    .promo {
-      min-height: 290px;
-      color: white;
+    .feature {
+      min-height: 260px;
       position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 45px 10%;
       background:
-        linear-gradient(90deg, rgba(2,12,20,.8), rgba(2,12,20,.1)),
-        url("/mnt/data/image.png") center 63% / cover no-repeat;
+        linear-gradient(90deg, rgba(4,12,19,.95), rgba(4,12,19,.35)),
+        url("design.png") center 55% / cover no-repeat;
+      color: white;
     }
 
-    .promo-content {
-      max-width: 390px;
+    .feature-content {
+      width: 86%;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .promo h2 {
-      font-size: 21px;
+    .feature-content h2 {
+      max-width: 360px;
+      font-size: 22px;
       line-height: 1.15;
-      font-weight: 800;
-      margin-bottom: 13px;
+      margin-bottom: 12px;
     }
 
-    .promo p {
-      color: rgba(255,255,255,.72);
-      font-size: 8px;
+    .feature-content p {
+      max-width: 380px;
+      color: rgba(255,255,255,.68);
+      font-size: 9px;
       line-height: 1.7;
-      margin-bottom: 20px;
     }
 
-    .promo-btn {
+    .feature-button {
+      margin-top: 18px;
+      padding: 11px 21px;
+      border-radius: 22px;
       background: var(--orange);
       color: white;
-      border: 0;
-      padding: 11px 22px;
-      border-radius: 20px;
-      font-size: 8px;
-      cursor: pointer;
+      font-size: 9px;
     }
 
-    /* ================= AGENTS ================= */
+    /* =========================
+       AGENTS
+    ========================= */
 
     .agents {
-      padding: 62px 10%;
+      padding: 70px 7%;
     }
 
     .agents-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
+    }
+
+    .agents-header h2 {
+      font-size: 24px;
+    }
+
+    .agents-header p {
+      color: #999;
+      font-size: 9px;
+      margin-top: 7px;
     }
 
     .agents-layout {
+      max-width: 1000px;
+      margin: auto;
       display: grid;
-      grid-template-columns: .9fr 1.2fr;
-      gap: 28px;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 25px;
       align-items: stretch;
     }
 
@@ -361,150 +378,136 @@
     }
 
     .agent {
+      padding: 13px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 13px;
+      gap: 13px;
       background: #f7f7f7;
-      border-radius: 7px;
+      border-radius: 6px;
     }
 
-    .agent-photo {
-      width: 42px;
-      height: 42px;
+    .agent-image {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
       border-radius: 50%;
-      object-fit: cover;
-      background: #ddd;
+      background:
+        radial-gradient(circle at 50% 35%, #e4c5a8 0 19%, transparent 20%),
+        linear-gradient(150deg, #ddd 0 50%, #33495b 51%);
     }
 
-    .agent-info h4 {
+    .agent-info h3 {
       font-size: 10px;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+    }
+
+    .agent-info span {
+      font-size: 8px;
+      color: var(--orange);
     }
 
     .agent-info p {
-      color: #999;
+      margin-top: 5px;
       font-size: 7px;
-      line-height: 1.5;
+      color: #999;
+      line-height: 1.4;
     }
 
     .property-image {
-      min-height: 270px;
-      border-radius: 8px;
+      min-height: 290px;
+      border-radius: 7px;
       overflow: hidden;
       background:
-        linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)),
-        url("/mnt/data/image.png") center 25% / cover no-repeat;
+        linear-gradient(180deg, transparent, rgba(0,0,0,.1)),
+        url("design.png") center 18% / cover no-repeat;
     }
 
-    /* ================= FOOTER ================= */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      padding: 30px 8%;
-      background: #111820;
+      background: #11161b;
       color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 35px 7%;
+      text-align: center;
+      font-size: 9px;
+      color: #777;
     }
 
-    footer p {
-      font-size: 8px;
-      color: #aaa;
+    footer strong {
+      color: white;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-links a {
-      color: #aaa;
-      font-size: 8px;
-      text-decoration: none;
-    }
-
-    /* ================= RESPONSIVE ================= */
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
     @media (max-width: 800px) {
-      .hero {
-        min-height: 560px;
-      }
-
       .nav-links {
         display: none;
       }
 
+      .navbar {
+        padding: 0 5%;
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
       .hero-content {
-        margin-top: 100px;
+        width: 90%;
       }
 
-      .hero-content h1 {
-        font-size: 46px;
-      }
-
-      .search-cards {
+      .filter-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .agents-layout {
         grid-template-columns: 1fr;
       }
+
+      .property-image {
+        min-height: 260px;
+      }
     }
 
     @media (max-width: 500px) {
-      body {
-        background: white;
-      }
-
-      .hero {
-        min-height: 570px;
-      }
-
-      .navbar {
-        width: 90%;
-      }
-
       .nav-actions .nav-btn:first-child {
         display: none;
       }
 
-      .hero-content {
-        width: 90%;
-        margin-top: 90px;
-      }
-
       .hero-content h1 {
-        font-size: 39px;
-        letter-spacing: -2px;
+        font-size: 42px;
       }
 
       .hero-content p {
-        max-width: 280px;
+        font-size: 10px;
+      }
+
+      .filter-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
       }
 
       .search-section,
       .agents {
-        padding-left: 6%;
-        padding-right: 6%;
+        padding-left: 5%;
+        padding-right: 5%;
       }
 
-      .search-cards {
-        grid-template-columns: 1fr 1fr;
+      .section-title,
+      .agents-header h2 {
+        font-size: 21px;
       }
 
-      .promo {
-        padding: 40px 7%;
+      .feature {
+        min-height: 300px;
       }
 
-      .promo h2 {
-        font-size: 18px;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 18px;
-        text-align: center;
+      .feature-content h2 {
+        font-size: 20px;
       }
     }
   </style>
@@ -512,242 +515,205 @@
 
 <body>
 
-  <main class="page">
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      DICROW
+    </a>
 
-    <!-- HERO -->
-    <section class="hero">
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Buy</a>
+      <a href="#">Agents</a>
+      <a href="#">Contact</a>
+    </nav>
 
-      <nav class="navbar">
-
-        <div class="logo">
-          <div class="logo-mark">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          DICROW
-        </div>
-
-        <div class="nav-links">
-          <a href="#">Home</a>
-          <a href="#">Listings</a>
-          <a href="#">Agents</a>
-          <a href="#">Contact</a>
-        </div>
-
-        <div class="nav-actions">
-          <button class="nav-btn">Explore</button>
-          <button class="nav-btn dark">Reserve</button>
-        </div>
-
-      </nav>
-
-      <div class="hero-content">
-        <h1>
-          Find Your<br>
-          Luxury Dream<br>
-          Home.
-        </h1>
-
-        <p>
-          Contemporary villas and premium residences
-          designed for exceptional modern living.
-        </p>
-
-        <button class="hero-btn">
-          Explore
-        </button>
-      </div>
-
-      <div class="hero-search">
-        <input
-          type="text"
-          placeholder="Find Your Dream Home"
-        />
-        <button>GO</button>
-      </div>
-
-    </section>
+    <div class="nav-actions">
+      <button class="nav-btn">Explore</button>
+      <button class="nav-btn dark">Reserve</button>
+    </div>
+  </header>
 
 
-    <!-- SEARCH -->
-    <section class="search-section">
-
-      <h2 class="section-title">
-        Yourementzan Honess
-      </h2>
-
-      <p class="section-subtitle">
-        Our luxury platform makes finding your dream home simple.
-      </p>
-
-      <div class="search-cards">
-
-        <div class="search-card">
-          <div class="card-icon">⌄</div>
-          <h3>Location</h3>
-          <p>
-            Choose your preferred neighborhood
-            and surroundings.
-          </p>
-        </div>
-
-        <div class="search-card">
-          <div class="card-icon">⌂</div>
-          <h3>Property Type</h3>
-          <p>
-            Select from villas, homes,
-            apartments and more.
-          </p>
-        </div>
-
-        <div class="search-card">
-          <div class="card-icon">$</div>
-          <h3>Budget</h3>
-          <p>
-            Discover properties matching
-            your desired price range.
-          </p>
-        </div>
-
-        <div class="search-card">
-          <div class="card-icon">☆</div>
-          <h3>Agent Bio</h3>
-          <p>
-            Connect with experienced
-            real-estate professionals.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PROMO -->
-    <section class="promo">
-
-      <div class="promo-content">
-
-        <h2>
-          Secretd Kidg Ceme.
-          Unlimited Features of You.
-        </h2>
-
-        <p>
-          Discover exceptional homes and experience
-          a completely new approach to luxury living.
-          Find your perfect property today.
-        </p>
-
-        <button class="promo-btn">
-          Continue →
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- AGENTS -->
-    <section class="agents">
-
-      <div class="agents-header">
-
-        <h2 class="section-title">
-          Search Premium Near You
-        </h2>
-
-        <p class="section-subtitle">
-          Connect with trusted professionals and discover
-          beautiful luxury properties.
-        </p>
-
-      </div>
-
-      <div class="agents-layout">
-
-        <div class="agent-list">
-
-          <div class="agent">
-
-            <div
-              class="agent-photo"
-              style="
-                background:
-                  linear-gradient(135deg,#d4d4d4,#777);
-              "
-            ></div>
-
-            <div class="agent-info">
-              <h4>FEXGHIE LISTENS</h4>
-              <p>
-                Premium real estate specialist
-                helping clients find exceptional homes.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="agent">
-
-            <div
-              class="agent-photo"
-              style="
-                background:
-                  linear-gradient(135deg,#eee,#888);
-              "
-            ></div>
-
-            <div class="agent-info">
-              <h4>CFARLS CUTTOMNUTALS</h4>
-              <p>
-                Luxury property consultant
-                specializing in modern residences.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="agent">
-
-            <div
-              class="agent-photo"
-              style="
-                background:
-                  linear-gradient(135deg,#bbb,#444);
-              "
-            ></div>
-
-            <div class="agent-info">
-              <h4>MARIA ESTATES</h4>
-              <p>
-                Helping buyers discover
-                premium homes worldwide.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="property-image"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-      <div class="logo">
-        <div class="logo-mark">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        DICROW
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        Find Your<br>
+        Luxury Dream<br>
+        Home.
+      </h1>
 
       <p>
+        Discover exceptional properties and sophisticated homes
+        designed for people who expect more from where they live.
+      </p>
+
+      <button class="hero-button">
+        Explore
+      </button>
+    </div>
+  </section>
+
+
+  <!-- FLOATING SEARCH -->
+  <div class="search-wrap">
+    <form class="search-box">
+      <input
+        type="text"
+        placeholder="Find Your Dream Home"
+      />
+      <button type="submit">GO</button>
+    </form>
+  </div>
+
+
+  <!-- SEARCH / FILTERS -->
+  <section class="search-section">
+    <h2 class="section-title">
+      Yourementzan Honess
+    </h2>
+
+    <p class="section-subtitle">
+      One luxury custom home across your preferences, features
+    </p>
+
+    <div class="filter-grid">
+
+      <div class="filter-card">
+        <div class="filter-icon">⌄</div>
+        <h3>Location</h3>
+        <p>Choose your preferred location and surroundings.</p>
+      </div>
+
+      <div class="filter-card">
+        <div class="filter-icon">⌂</div>
+        <h3>Property Type</h3>
+        <p>Select your dream property type and style.</p>
+      </div>
+
+      <div class="filter-card">
+        <div class="filter-icon">$</div>
+        <h3>Budget</h3>
+        <p>Choose properties matching your budget.</p>
+      </div>
+
+      <div class="filter-card">
+        <div class="filter-icon">☆</div>
+        <h3>Agent Bio</h3>
+        <p>Connect with trusted real estate specialists.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURED PROPERTY -->
+  <section class="feature">
+    <div class="feature-content">
+      <h2>
+        Secluded Ridge Home.
+        Unlimited Facets of You.
+      </h2>
+
+      <p>
+        Discover this remarkable modern residence surrounded by
+        nature, expansive glass walls and sophisticated interiors.
+        Every detail has been carefully designed for contemporary living.
+      </p>
+
+      <button class="feature-button">
+        Continue →
+      </button>
+    </div>
+  </section>
+
+
+  <!-- AGENTS -->
+  <section class="agents">
+
+    <div class="agents-header">
+      <h2>Search Premium Near You</h2>
+      <p>
+        Connect with trusted professionals and discover luxury properties.
+      </p>
+    </div>
+
+    <div class="agents-layout">
+
+      <div class="agent-list">
+
+        <div class="agent">
+          <div class="agent-image"></div>
+
+          <div class="agent-info">
+            <h3>ENLIGHT LISTENS</h3>
+            <span>Expert Real Estate Agent</span>
+            <p>
+              Helping clients discover premium homes
+              tailored to their lifestyle.
+            </p>
+          </div>
+        </div>
+
+        <div class="agent">
+          <div class="agent-image"></div>
+
+          <div class="agent-info">
+            <h3>CARLIS CUTMOUTNALS</h3>
+            <span>Luxury Property Specialist</span>
+            <p>
+              Experienced in luxury homes and
+              exclusive residential properties.
+            </p>
+          </div>
+        </div>
+
+        <div class="agent">
+          <div class="agent-image"></div>
+
+          <div class="agent-info">
+            <h3>JAMES WILSON</h3>
+            <span>Property Consultant</span>
+            <p>
+              Finding exceptional homes in desirable
+              neighborhoods.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="property-image"></div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <strong>DICROW</strong> — Luxury Real Estate
+  </footer>
+
+
+  <script>
+    document.querySelector(".search-box").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const value = this.querySelector("input").value.trim();
+
+      if (value) {
+        alert("Searching for: " + value);
+      } else {
+        alert("Please enter a location or property.");
+      }
+    });
+  </script>
+
+</body>
+</html>
