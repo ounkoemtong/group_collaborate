@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hour's Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --orange: #f4a623;
+      --dark: #111820;
+      --text: #202020;
+      --muted: #888;
+      --light: #f7f7f7;
+      --border: #e7e7e7;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #ddd;
+      color: var(--text);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100%, 1200px);
+      margin: 0 auto;
+      background: white;
+      overflow: hidden;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 610px;
+      position: relative;
+      color: white;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3, 17, 29, 0.75) 0%,
+          rgba(3, 17, 29, 0.35) 45%,
+          rgba(3, 17, 29, 0.05) 100%
+        ),
+        url("/mnt/data/image.png") center top / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.05) 65%,
+        rgba(0, 0, 0, 0.3)
+      );
+      pointer-events: none;
+    }
+
+    .navbar {
+      width: 88%;
+      margin: auto;
+      padding: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo-mark {
+      width: 19px;
+      height: 16px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .logo-mark span {
+      display: block;
+      height: 2px;
+      background: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      margin-left: auto;
+      margin-right: 28px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 9px;
+      opacity: 0.9;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      border: 1px solid rgba(255,255,255,.45);
+      background: rgba(255,255,255,.08);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 8px;
+      cursor: pointer;
+    }
+
+    .nav-btn.dark {
+      background: #080808;
+      border-color: #080808;
+    }
+
+    .hero-content {
+      width: 88%;
+      margin: 90px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: .94;
+      letter-spacing: -3px;
+      font-weight: 800;
+      max-width: 520px;
+      text-transform: uppercase;
+    }
+
+    .hero-content p {
+      margin-top: 22px;
+      font-size: 11px;
+      line-height: 1.7;
+      color: rgba(255,255,255,.75);
+      max-width: 330px;
+    }
+
+    .hero-btn {
+      margin-top: 24px;
+      border: 0;
+      background: var(--orange);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Search bar */
+
+    .hero-search {
+      position: absolute;
+      z-index: 4;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(460px, 80%);
+      height: 50px;
+      border-radius: 30px;
+      background: white;
+      display: flex;
+      align-items: center;
+      padding: 5px 6px 5px 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.16);
+    }
+
+    .hero-search input {
+      flex: 1;
+      border: 0;
+      outline: 0;
+      font-size: 10px;
+      color: #777;
+    }
+
+    .hero-search button {
+      width: 65px;
+      height: 40px;
+      border: 0;
+      border-radius: 22px;
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ================= SEARCH SECTION ================= */
+
+    .search-section {
+      padding: 72px 8% 65px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .section-subtitle {
+      margin-top: 8px;
+      color: #999;
+      font-size: 10px;
+    }
+
+    .search-cards {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .search-card {
+      min-height: 110px;
+      border-radius: 7px;
+      background: #f7f7f7;
+      border: 1px solid #eee;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: .25s;
+    }
+
+    .search-card:first-child {
+      background: white;
+      border: 1px solid #222;
+      box-shadow: 0 5px 12px rgba(0,0,0,.08);
+    }
+
+    .search-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    }
+
+    .card-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #555;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-bottom: 11px;
+    }
+
+    .search-card h3 {
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+
+    .search-card p {
+      max-width: 130px;
+      color: #aaa;
+      font-size: 7px;
+      line-height: 1.5;
+    }
+
+    /* ================= PROMO ================= */
+
+    .promo {
+      min-height: 290px;
+      color: white;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 45px 10%;
+      background:
+        linear-gradient(90deg, rgba(2,12,20,.8), rgba(2,12,20,.1)),
+        url("/mnt/data/image.png") center 63% / cover no-repeat;
+    }
+
+    .promo-content {
+      max-width: 390px;
+    }
+
+    .promo h2 {
+      font-size: 21px;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .promo p {
+      color: rgba(255,255,255,.72);
+      font-size: 8px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .promo-btn {
+      background: var(--orange);
+      color: white;
+      border: 0;
+      padding: 11px 22px;
+      border-radius: 20px;
+      font-size: 8px;
+      cursor: pointer;
+    }
+
+    /* ================= AGENTS ================= */
+
+    .agents {
+      padding: 62px 10%;
+    }
+
+    .agents-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .agents-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.2fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .agent-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .agent {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px;
+      background: #f7f7f7;
+      border-radius: 7px;
+    }
+
+    .agent-photo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .agent-info h4 {
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .agent-info p {
+      color: #999;
+      font-size: 7px;
+      line-height: 1.5;
+    }
+
+    .property-image {
+      min-height: 270px;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)),
+        url("/mnt/data/image.png") center 25% / cover no-repeat;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 30px 8%;
+      background: #111820;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 8px;
+      color: #aaa;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      font-size: 8px;
+      text-decoration: none;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 800px) {
+      .hero {
+        min-height: 560px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        margin-top: 100px;
+      }
+
+      .hero-content h1 {
+        font-size: 46px;
+      }
+
+      .search-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .agents-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        background: white;
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+
+      .navbar {
+        width: 90%;
+      }
+
+      .nav-actions .nav-btn:first-child {
+        display: none;
+      }
+
+      .hero-content {
+        width: 90%;
+        margin-top: 90px;
+      }
+
+      .hero-content h1 {
+        font-size: 39px;
+        letter-spacing: -2px;
+      }
+
+      .hero-content p {
+        max-width: 280px;
+      }
+
+      .search-section,
+      .agents {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .search-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .promo {
+        padding: 40px 7%;
+      }
+
+      .promo h2 {
+        font-size: 18px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <nav class="navbar">
+
+        <div class="logo">
+          <div class="logo-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          DICROW
+        </div>
+
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Listings</a>
+          <a href="#">Agents</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="nav-btn">Explore</button>
+          <button class="nav-btn dark">Reserve</button>
+        </div>
+
+      </nav>
+
+      <div class="hero-content">
+        <h1>
+          Find Your<br>
+          Luxury Dream<br>
+          Home.
+        </h1>
+
+        <p>
+          Contemporary villas and premium residences
+          designed for exceptional modern living.
+        </p>
+
+        <button class="hero-btn">
+          Explore
+        </button>
+      </div>
+
+      <div class="hero-search">
+        <input
+          type="text"
+          placeholder="Find Your Dream Home"
+        />
+        <button>GO</button>
+      </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+      <h2 class="section-title">
+        Yourementzan Honess
+      </h2>
+
+      <p class="section-subtitle">
+        Our luxury platform makes finding your dream home simple.
+      </p>
+
+      <div class="search-cards">
+
+        <div class="search-card">
+          <div class="card-icon">⌄</div>
+          <h3>Location</h3>
+          <p>
+            Choose your preferred neighborhood
+            and surroundings.
+          </p>
+        </div>
+
+        <div class="search-card">
+          <div class="card-icon">⌂</div>
+          <h3>Property Type</h3>
+          <p>
+            Select from villas, homes,
+            apartments and more.
+          </p>
+        </div>
+
+        <div class="search-card">
+          <div class="card-icon">$</div>
+          <h3>Budget</h3>
+          <p>
+            Discover properties matching
+            your desired price range.
+          </p>
+        </div>
+
+        <div class="search-card">
+          <div class="card-icon">☆</div>
+          <h3>Agent Bio</h3>
+          <p>
+            Connect with experienced
+            real-estate professionals.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROMO -->
+    <section class="promo">
+
+      <div class="promo-content">
+
+        <h2>
+          Secretd Kidg Ceme.
+          Unlimited Features of You.
+        </h2>
+
+        <p>
+          Discover exceptional homes and experience
+          a completely new approach to luxury living.
+          Find your perfect property today.
+        </p>
+
+        <button class="promo-btn">
+          Continue →
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- AGENTS -->
+    <section class="agents">
+
+      <div class="agents-header">
+
+        <h2 class="section-title">
+          Search Premium Near You
+        </h2>
+
+        <p class="section-subtitle">
+          Connect with trusted professionals and discover
+          beautiful luxury properties.
+        </p>
+
+      </div>
+
+      <div class="agents-layout">
+
+        <div class="agent-list">
+
+          <div class="agent">
+
+            <div
+              class="agent-photo"
+              style="
+                background:
+                  linear-gradient(135deg,#d4d4d4,#777);
+              "
+            ></div>
+
+            <div class="agent-info">
+              <h4>FEXGHIE LISTENS</h4>
+              <p>
+                Premium real estate specialist
+                helping clients find exceptional homes.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="agent">
+
+            <div
+              class="agent-photo"
+              style="
+                background:
+                  linear-gradient(135deg,#eee,#888);
+              "
+            ></div>
+
+            <div class="agent-info">
+              <h4>CFARLS CUTTOMNUTALS</h4>
+              <p>
+                Luxury property consultant
+                specializing in modern residences.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="agent">
+
+            <div
+              class="agent-photo"
+              style="
+                background:
+                  linear-gradient(135deg,#bbb,#444);
+              "
+            ></div>
+
+            <div class="agent-info">
+              <h4>MARIA ESTATES</h4>
+              <p>
+                Helping buyers discover
+                premium homes worldwide.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="property-image"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+      <div class="logo">
+        <div class="logo-mark">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        DICROW
+      </div>
+
+      <p>
