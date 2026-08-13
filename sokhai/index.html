@@ -1,13 +1,916 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AERO STEP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #eeeeec;
+            color: #222;
+        }
+
+        .container {
+            width: 1100px;
+            max-width: 95%;
+            margin: auto;
+            background: white;
+        }
+
+        /* HEADER */
+        header {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 35px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #777;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .login {
+            border: none;
+            background: transparent;
+            padding: 10px;
+        }
+
+        .cart {
+            background: #555c46;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 18px;
+        }
+
+        /* HERO */
+        .hero {
+            margin: 20px;
+            height: 400px;
+            border-radius: 22px;
+            background: linear-gradient(
+                100deg,
+                #eeeeea,
+                #f7f7f5
+            );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            position: absolute;
+            left: 40px;
+            top: 60px;
+            width: 400px;
+            z-index: 2;
+        }
+
+        .small-title {
+            color: #777;
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 43px;
+            line-height: 0.98;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.5;
+            width: 330px;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .btn-dark {
+            background: #555c46;
+            color: white;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 22px;
+            margin-right: 8px;
+        }
+
+        .btn-light {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 13px 22px;
+            border-radius: 22px;
+        }
+
+        .hero-image {
+            position: absolute;
+            width: 530px;
+            right: 40px;
+            top: 0;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-info {
+            position: absolute;
+            right: 25px;
+            top: 60px;
+            width: 150px;
+            z-index: 3;
+        }
+
+        .info-box {
+            background: rgba(255,255,255,.8);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+            font-size: 11px;
+        }
+
+        .info-box b {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* SEARCH */
+        .search-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 25px 25px;
+        }
+
+        .search {
+            flex: 1;
+            background: #f5f5f2;
+            border-radius: 25px;
+            padding: 14px 20px;
+            border: none;
+            outline: none;
+        }
+
+        .category {
+            background: #f5f5f2;
+            padding: 12px 18px;
+            border-radius: 22px;
+            font-size: 12px;
+        }
+
+        /* PRODUCTS */
+        .section {
+            padding: 0 25px 25px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 16px;
+        }
+
+        .section-title a {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .product {
+            border: 1px solid #eee;
+            border-radius: 14px;
+            padding: 10px;
+            position: relative;
+            background: white;
+        }
+
+        .product img {
+            width: 100%;
+            height: 125px;
+            object-fit: contain;
+        }
+
+        .heart {
+            position: absolute;
+            right: 10px;
+            top: 8px;
+            font-size: 15px;
+        }
+
+        .product-name {
+            font-size: 10px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .product-price {
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .rating {
+            font-size: 9px;
+            color: #777;
+        }
+
+        /* CATEGORIES */
+        .category-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .category-card {
+            height: 125px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: #eee;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,.9),
+                transparent 70%
+            );
+        }
+
+        .category-text {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            z-index: 2;
+        }
+
+        .category-text h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .category-text p {
+            font-size: 9px;
+            color: #666;
+            width: 150px;
+            line-height: 1.4;
+        }
+
+        .category-text a {
+            display: block;
+            margin-top: 10px;
+            font-size: 10px;
+        }
+
+        /* TECHNOLOGY */
+        .technology {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .tech-card {
+            background: #f8f8f5;
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            min-height: 120px;
+        }
+
+        .tech-icon {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .tech-card h4 {
+            font-size: 10px;
+            margin-bottom: 7px;
+        }
+
+        .tech-card p {
+            font-size: 8px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        /* CLUB */
+        .club {
+            margin: 10px 25px 25px;
+            background: #dfe1d2;
+            border-radius: 18px;
+            min-height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px;
+        }
+
+        .club-card {
+            width: 130px;
+            height: 75px;
+            background: #8c9175;
+            border-radius: 8px;
+            transform: rotate(-8deg);
+            color: white;
+            padding: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .club-text {
+            flex: 1;
+            padding-left: 30px;
+        }
+
+        .club-text h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .club-text p {
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* ADVANTAGES */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #eee;
+            padding: 20px 25px;
+            gap: 20px;
+        }
+
+        .advantage {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .advantage b {
+            display: block;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #f7f7f4;
+            padding: 30px 35px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 25px;
+        }
+
+        footer h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        footer h4 {
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            display: block;
+            font-size: 9px;
+            color: #777;
+            margin-bottom: 7px;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            .container {
+                max-width: 100%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero-text {
+                left: 25px;
+                top: 30px;
+            }
+
+            .hero-image {
+                opacity: .35;
+                right: -100px;
+            }
+
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .technology {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            footer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 15px;
+            }
+
+            .hero {
+                margin: 10px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-info {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .technology {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .advantages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .club {
+                margin: 10px;
+            }
+
+            footer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+<div class="container">
 
-    <h1>hello world </h1>
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            ◢ AERO STEP
+            <span>MOVE WITH AIR</span>
+        </div>
+
+        <nav>
+            <a href="#">Каталог</a>
+            <a href="#">Бег</a>
+            <a href="#">Тренинг</a>
+            <a href="#">Аксессуары</a>
+            <a href="#">Технологии</a>
+            <a href="#">О нас</a>
+            <a href="#">Доставка</a>
+        </nav>
+
+        <div class="header-right">
+            <button class="login">◯ Войти</button>
+            <button class="cart">🛒 Корзина</button>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-text">
+            <div class="small-title">ПРЕМИУМ КОЛЛЕКЦИЯ</div>
+
+            <h1>
+                КРОССОВКИ<br>
+                ДЛЯ РИТМА,<br>
+                КОМФОРТА<br>
+                И ДВИЖЕНИЯ<br>
+                ПО ГОРОДУ
+            </h1>
+
+            <p>
+                Легкие модели, которые поддерживают
+                каждый шаг. Выбирайте ритм для себя
+                и своего города.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-dark">Смотреть каталог →</button>
+                <button class="btn-light">Новинки</button>
+            </div>
+        </div>
+
+        <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80"
+            alt="Running shoes"
+        >
+
+        <div class="hero-info">
+
+            <div class="info-box">
+                ⚡
+                <b>Воздушная посадка</b>
+                Комфорт каждый день
+            </div>
+
+            <div class="info-box">
+                ✓
+                <b>Прочная подошва</b>
+                Для любого маршрута
+            </div>
+
+            <div class="info-box">
+                ♧
+                <b>Уверенный шаг</b>
+                Стабильность движения
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <div class="search-area">
+
+        <input
+            class="search"
+            type="text"
+            placeholder="Поиск по модели, размеру или цвету"
+        >
+
+        <div class="category">Бег</div>
+        <div class="category">Баскетбол</div>
+        <div class="category">Тренинг</div>
+        <div class="category">Lifestyle</div>
+        <div class="category">Для зала</div>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+    <section class="section">
+
+        <div class="section-title">
+            <h2>ХИТЫ ПРОДАЖ</h2>
+            <a href="#">Смотреть все →</a>
+        </div>
+
+        <div class="products">
+
+            <div class="product">
+                <span class="heart">♡</span>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">
+                <div class="product-name">AERO STEP VORTEX 3</div>
+                <div class="product-price">12 990 ₽</div>
+                <div class="rating">★ 4.8</div>
+            </div>
+
+            <div class="product">
+                <span class="heart">♡</span>
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=500&q=80">
+                <div class="product-name">AERO STEP PULSE PRO</div>
+                <div class="product-price">15 490 ₽</div>
+                <div class="rating">★ 4.9</div>
+            </div>
+
+            <div class="product">
+                <span class="heart">♡</span>
+                <img src="https://images.unsplash.com/photo-1554130840-8b2e6f0c4f20?auto=format&fit=crop&w=500&q=80">
+                <div class="product-name">AERO STEP CITY FLOW</div>
+                <div class="product-price">13 990 ₽</div>
+                <div class="rating">★ 4.7</div>
+            </div>
+
+            <div class="product">
+                <span class="heart">♡</span>
+                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=500&q=80">
+                <div class="product-name">AERO STEP COURT HIGH</div>
+                <div class="product-price">11 990 ₽</div>
+                <div class="rating">★ 4.6</div>
+            </div>
+
+            <div class="product">
+                <span class="heart">♡</span>
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80">
+                <div class="product-name">AERO STEP TRAINER 21</div>
+                <div class="product-price">12 490 ₽</div>
+                <div class="rating">★ 4.8</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="section">
+
+        <div class="category-grid">
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>БЕГ</h3>
+                    <p>
+                        Легкость, амортизация
+                        и контроль на каждом
+                        километре.
+                    </p>
+                    <a href="#">Смотреть →</a>
+                </div>
+            </div>
+
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>БАСКЕТБОЛ</h3>
+                    <p>
+                        Стабильность, сцепление
+                        и уверенность в каждом
+                        движении.
+                    </p>
+                    <a href="#">Смотреть →</a>
+                </div>
+            </div>
+
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1517964603305-11c0f6f66012?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>ТРЕНИНГ</h3>
+                    <p>
+                        Поддержка и свобода
+                        движения для любых
+                        упражнений.
+                    </p>
+                    <a href="#">Смотреть →</a>
+                </div>
+            </div>
+
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>ЛАЙФСТАЙЛ</h3>
+                    <p>
+                        Стильные модели для
+                        города, прогулок и
+                        активной жизни.
+                    </p>
+                    <a href="#">Смотреть →</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TECHNOLOGY -->
+    <section class="section">
+
+        <div class="section-title">
+            <h2>ТЕХНОЛОГИИ ТВОЕГО ДВИЖЕНИЯ</h2>
+        </div>
+
+        <div class="technology">
+
+            <div class="tech-card">
+                <div class="tech-icon">♧</div>
+                <h4>AERO FOAM</h4>
+                <p>
+                    Мягкая амортизация
+                    для комфортного
+                    движения.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">⌁</div>
+                <h4>FLEX MOTION</h4>
+                <p>
+                    Гибкая подошва
+                    повторяет движение
+                    стопы.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">◉</div>
+                <h4>GRIP CONTROL</h4>
+                <p>
+                    Надежное сцепление
+                    на разных
+                    поверхностях.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">✧</div>
+                <h4>BREATH TECH</h4>
+                <p>
+                    Вентиляция помогает
+                    сохранить комфорт
+                    в любую погоду.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">♡</div>
+                <h4>HEEL SUPPORT</h4>
+                <p>
+                    Поддержка пятки
+                    для уверенного
+                    движения.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CLUB -->
+    <section class="club">
+
+        <div class="club-card">
+            AERO STEP
+            <br><br>
+            CLUB
+        </div>
+
+        <div class="club-text">
+            <h2>Присоединяйся к AERO STEP CLUB</h2>
+            <p>
+                Эксклюзивные предложения, ранний доступ
+                к новинкам и персональные бонусы.
+            </p>
+        </div>
+
+        <button class="btn-dark">
+            Стать участником
+        </button>
+
+    </section>
+
+
+    <!-- ADVANTAGES -->
+    <div class="advantages">
+
+        <div class="advantage">
+            🚚
+            <b>Бесплатная доставка</b>
+            от 7 000 ₽
+        </div>
+
+        <div class="advantage">
+            ↻
+            <b>14 дней на возврат</b>
+            если не подошло
+        </div>
+
+        <div class="advantage">
+            ☆
+            <b>Оригинальная продукция</b>
+            гарантия качества
+        </div>
+
+        <div class="advantage">
+            ♧
+            <b>Поддержка 24/7</b>
+            всегда на связи
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>
+            <h3>◢ AERO STEP</h3>
+            <p>
+                Премиальная спортивная
+                обувь для движения,
+                спорта и города.
+            </p>
+        </div>
+
+        <div>
+            <h4>КАТАЛОГ</h4>
+            <a href="#">Бег</a>
+            <a href="#">Тренинг</a>
+            <a href="#">Баскетбол</a>
+            <a href="#">Lifestyle</a>
+            <a href="#">Для зала</a>
+        </div>
+
+        <div>
+            <h4>ПОКУПАТЕЛЯМ</h4>
+            <a href="#">Доставка и оплата</a>
+            <a href="#">Возврат</a>
+            <a href="#">Таблица размеров</a>
+            <a href="#">Сервис партнеров</a>
+        </div>
+
+        <div>
+            <h4>КОМПАНИЯ</h4>
+            <a href="#">О нас</a>
+            <a href="#">Новости</a>
+            <a href="#">Блог</a>
+            <a href="#">Контакты</a>
+        </div>
+
+        <div>
+            <h4>КОНТАКТЫ</h4>
+            <p>8 800 123-45-67</p>
+            <p>info@aerostep.ru</p>
+            <p>Москва, ул. Ленина, 12</p>
+            <p>Ежедневно 9:00 - 21:00</p>
+        </div>
+
+    </footer>
+
+</div>
+
 </body>
 </html>
