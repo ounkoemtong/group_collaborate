@@ -3,456 +3,1663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Luxury Living</title>
+
+    <title>FIXTOF CE - Luxury Properties</title>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
-        :root {
-            --bg-color: #0f1012;
-            --text-main: #f5f5f5;
-            --text-muted: #9a9a9a;
-            --accent-gold: #d4ae6d;
-            --btn-dark: #1a1a1a;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* --- Navigation --- */
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #090b0d;
+            color: #f5f2eb;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* ================= NAVBAR ================= */
+
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 5%;
-            position: absolute;
+            position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            z-index: 10;
+            z-index: 1000;
+            background: rgba(8, 10, 12, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            max-width: 1250px;
+            margin: auto;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: bold;
             letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
-            list-style: none;
             gap: 30px;
+            list-style: none;
         }
 
-        nav a {
-            color: var(--text-main);
+        .nav-links a {
+            color: #ddd;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 400;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            font-size: 14px;
+            transition: .3s;
         }
 
-        nav a:hover {
-            opacity: 1;
+        .nav-links a:hover {
+            color: #d9a74c;
         }
 
-        .header-actions {
+        .nav-buttons {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 10px;
         }
 
         .btn {
-            padding: 10px 24px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
             border: none;
-            transition: all 0.3s;
+            padding: 11px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 13px;
         }
 
         .btn-gold {
-            background-color: var(--accent-gold);
-            color: #000;
+            background: #d7a548;
+            color: #111;
         }
 
         .btn-gold:hover {
-            background-color: #c09d60;
+            background: #f0c36b;
+            transform: translateY(-2px);
         }
 
         .btn-outline {
-            background-color: transparent;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
+            background: transparent;
+            border: 1px solid #d7a548;
+            color: #d7a548;
         }
 
         .btn-outline:hover {
-            background-color: var(--accent-gold);
-            color: #000;
+            background: #d7a548;
+            color: #111;
         }
 
-        /* --- Hero Section --- */
+        /* ================= HERO ================= */
+
         .hero {
-            position: relative;
-            min-height: 100vh;
+            min-height: 700px;
             display: flex;
             align-items: center;
-            padding: 0 5%;
-            /* Note: reference to image_bea673.png inspiration */
-        }
+            position: relative;
+            overflow: hidden;
 
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 65%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, var(--bg-color) 0%, rgba(15, 16, 18, 0.8) 30%, transparent 100%);
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(to top, var(--bg-color) 0%, transparent 100%);
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(4,6,8,.98) 0%,
+                    rgba(4,6,8,.9) 35%,
+                    rgba(4,6,8,.3) 65%,
+                    rgba(4,6,8,.05) 100%
+                ),
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 500px;
-            margin-top: 80px;
+            width: 1250px;
+            margin: auto;
+            padding: 100px 25px 50px;
+        }
+
+        .hero-text {
+            max-width: 560px;
+        }
+
+        .small-title {
+            color: #d7a548;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-family: var(--font-heading);
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            font-weight: 600;
+            font-size: clamp(50px, 7vw, 88px);
+            line-height: .92;
+            font-weight: 400;
+            margin-bottom: 25px;
         }
 
         .hero p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            max-width: 400px;
+            color: #c7c7c7;
+            line-height: 1.7;
+            max-width: 470px;
+            margin-bottom: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
         }
 
-        .hero-btns {
-            display: flex;
-            gap: 15px;
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            background: rgba(15,17,20,.94);
+            padding: 18px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) auto;
+            gap: 10px;
+            max-width: 1150px;
+            margin: -35px auto 70px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* --- Properties Section --- */
-        .properties-section {
-            padding: 100px 5%;
+        .search-box input,
+        .search-box select {
+            background: #191c20;
+            color: white;
+            border: 1px solid #30343a;
+            padding: 14px;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .search-box input:focus,
+        .search-box select:focus {
+            border-color: #d7a548;
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 70px 25px;
         }
 
         .section-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
             font-weight: 400;
         }
 
-        .properties-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+        .section-title p {
+            color: #aaa;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
         }
 
-        .cards-container {
+        /* ================= PROPERTY CARDS ================= */
+
+        .property-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .property-card {
+            background: #111417;
+            border: 1px solid #262a2f;
             border-radius: 12px;
             overflow: hidden;
+            transition: .35s;
             position: relative;
         }
 
-        .property-card img {
+        .property-card:hover {
+            transform: translateY(-7px);
+            border-color: #d7a548;
+        }
+
+        .property-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            transition: .5s;
         }
 
-        .card-info {
+        .property-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .favorite {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            top: 15px;
+            right: 15px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,.65);
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .favorite.active {
+            color: #d7a548;
+        }
+
+        .property-info {
             padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
         }
 
-        .card-info h4 {
-            font-family: var(--font-heading);
-            font-size: 1.3rem;
-            margin-bottom: 5px;
+        .property-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
         }
 
-        .card-info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .details-container {
-            padding-top: 20px;
-        }
-
-        .subtitle-gold {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .location {
+            color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
             margin-bottom: 15px;
-            display: block;
         }
 
-        .details-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
+        .features {
+            display: flex;
+            gap: 15px;
+            color: #aaa;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
             margin-bottom: 20px;
         }
 
-        .details-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 40px;
-            line-height: 1.8;
+        .price {
+            color: #d7a548;
+            font-size: 21px;
+            margin-bottom: 18px;
         }
 
-        .features-list {
-            list-style: none;
-        }
-
-        .features-list li {
+        .card-actions {
             display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: var(--text-main);
+            gap: 8px;
         }
 
-        .features-list li:first-child {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .card-actions button {
+            flex: 1;
         }
 
-        .feature-val {
-            color: var(--text-muted);
-        }
+        /* ================= FEATURED ================= */
 
-        /* --- Exclusive Section --- */
-        .exclusive-section {
-            padding: 100px 5%;
+        .featured {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
             align-items: center;
         }
 
-        .exclusive-content h2 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            line-height: 1.1;
+        .featured h2 {
+            font-size: 45px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .featured p {
+            color: #999;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
             margin-bottom: 25px;
-            max-width: 400px;
         }
 
-        .exclusive-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            max-width: 450px;
-        }
-
-        .exclusive-image {
+        .featured-image {
+            height: 430px;
             border-radius: 12px;
             overflow: hidden;
-            height: 450px;
         }
 
-        .exclusive-image img {
+        .featured-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* --- Footer --- */
-        footer {
-            padding: 40px 5%;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* ================= SERVICES ================= */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .social-dots {
-            display: flex;
+        .service {
+            padding: 30px;
+            background: #111417;
+            border: 1px solid #25292d;
+            border-radius: 10px;
+        }
+
+        .service span {
+            color: #d7a548;
+            font-size: 30px;
+        }
+
+        .service h3 {
+            margin: 15px 0 10px;
+            font-size: 21px;
+        }
+
+        .service p {
+            color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-size: 45px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #999;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            background: #111417;
+            border: 1px solid #292d32;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: #1b1e22;
+            border: 1px solid #30343a;
+            padding: 13px;
+            color: white;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ================= MODAL ================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.82);
+            z-index: 2000;
+            align-items: center;
             justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #111417;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid #383c40;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .modal-image {
+            height: 350px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body h2 {
+            font-size: 35px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .modal-body p {
+            color: #aaa;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,.7);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        /* ================= BUY MODAL ================= */
+
+        .buy-form {
+            display: grid;
             gap: 15px;
         }
 
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--text-muted);
-            opacity: 0.5;
-            cursor: pointer;
-            transition: opacity 0.3s;
+        .buy-form input,
+        .buy-form select {
+            padding: 13px;
+            background: #1b1e22;
+            border: 1px solid #30343a;
+            color: white;
+            border-radius: 5px;
         }
 
-        .dot:hover {
-            opacity: 1;
-            background-color: var(--accent-gold);
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 40px 25px;
+            text-align: center;
+            color: #777;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 3.5rem; }
-            .properties-grid, .exclusive-section { grid-template-columns: 1fr; }
-            .hero-bg { width: 100%; opacity: 0.5; }
-            .hero-bg::before { background: linear-gradient(to right, var(--bg-color) 0%, rgba(15, 16, 18, 0.9) 100%); }
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-box {
+                grid-template-columns: 1fr 1fr;
+                margin: 20px;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .featured,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @media (max-width: 768px) {
-            nav ul { display: none; }
-            .cards-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.8rem; }
-            .exclusive-content h2 { font-size: 2.2rem; }
-            .exclusive-image { height: 300px; }
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 15px;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+
+            .hero {
+                min-height: 620px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .search-box {
+                grid-template-columns: 1fr;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                display: block;
+            }
+
+            .section-title h2 {
+                margin-bottom: 10px;
+            }
+
+            .featured h2,
+            .contact-info h2 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">FIXTOF CE</div>
-        <nav>
-            <ul>
-                <li><a href="#">Properties</a></li>
-                <li><a href="#">Prestige</a></li>
-                <li><a href="#">Living</a></li>
-                <li><a href="#">Markets</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <span style="font-size: 0.9rem;">S/O</span>
-            <a href="#" class="btn btn-gold">Contact Us</a>
-        </div>
-    </header>
+<!-- ================= NAVIGATION ================= -->
 
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1>DISCOVER<br>LUXURY<br>LIVING</h1>
-            <p>Welcome to our exclusive real estate collection. Experience the perfect blend of modern architecture and serene environments tailored for sophisticated lifestyles.</p>
-            <div class="hero-btns">
-                <a href="#" class="btn btn-gold">View Details</a>
-                <a href="#" class="btn btn-outline">Explore More &rarr;</a>
+<header>
+    <nav>
+
+        <div class="logo">
+            FIXTOF CE
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#buy">Buy</a></li>
+            <li><a href="#view">View House</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+            <button class="btn btn-outline" onclick="scrollToSection('properties')">
+                Properties
+            </button>
+
+            <button class="btn btn-gold" onclick="scrollToSection('contact')">
+                Contact
+            </button>
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                PREMIUM REAL ESTATE
             </div>
-        </div>
-    </section>
 
-    <section class="properties-section">
-        <h2 class="section-title">View Bestatendes</h2>
-        
-        <div class="properties-grid">
-            <div class="cards-container">
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 1">
-                    <div class="card-info">
-                        <h4>Brahmer</h4>
-                        <p>The House Of Calmness</p>
-                    </div>
+            <h1>
+                DISCOVER<br>
+                LUXURY<br>
+                LIVING
+            </h1>
+
+            <p>
+                Discover extraordinary homes designed for people who
+                appreciate architecture, comfort and exceptional living.
+            </p>
+
+            <button class="btn btn-gold"
+                    onclick="scrollToSection('properties')">
+                Explore Properties
+            </button>
+
+            <button class="btn btn-outline"
+                    onclick="scrollToSection('contact')">
+                Contact Agent
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search property..."
+        onkeyup="filterProperties()"
+    >
+
+    <select id="locationFilter" onchange="filterProperties()">
+        <option value="">Location</option>
+        <option value="Miami">Miami</option>
+        <option value="Malibu">Malibu</option>
+        <option value="Dubai">Dubai</option>
+        <option value="Bali">Bali</option>
+    </select>
+
+    <select id="bedFilter" onchange="filterProperties()">
+        <option value="">Bedrooms</option>
+        <option value="3">3+</option>
+        <option value="4">4+</option>
+        <option value="5">5+</option>
+    </select>
+
+    <select id="priceFilter" onchange="filterProperties()">
+        <option value="">Price</option>
+        <option value="2000000">Under $2M</option>
+        <option value="5000000">Under $5M</option>
+        <option value="10000000">Under $10M</option>
+    </select>
+
+    <button class="btn btn-gold" onclick="filterProperties()">
+        Search
+    </button>
+
+</div>
+
+
+<!-- ================= PROPERTIES ================= -->
+
+<section id="properties">
+
+    <div class="section-title">
+
+        <div>
+            <h2>View Bestsellers</h2>
+            <p>Our most requested luxury properties.</p>
+        </div>
+
+        <button class="btn btn-outline"
+                onclick="showAllProperties()">
+            View All
+        </button>
+
+    </div>
+
+
+    <div class="property-grid" id="propertyGrid">
+
+
+        <!-- PROPERTY 1 -->
+
+        <div class="property-card"
+             data-name="Ocean Villa"
+             data-location="Miami"
+             data-bedrooms="5"
+             data-price="4800000">
+
+            <div class="property-image">
+
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80">
+
+                <button class="favorite"
+                        onclick="toggleFavorite(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="property-info">
+
+                <h3>Ocean Villa</h3>
+
+                <div class="location">
+                    Miami, Florida
                 </div>
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Luxury Home 2">
-                    <div class="card-info">
-                        <h4>Chpont</h4>
-                        <p>Living Near The Ocean</p>
-                    </div>
+
+                <div class="features">
+                    <span>5 Beds</span>
+                    <span>4 Baths</span>
+                    <span>5,200 ft²</span>
                 </div>
+
+                <div class="price">
+                    $4,800,000
+                </div>
+
+                <div class="card-actions">
+
+                    <button class="btn btn-outline"
+                            onclick="viewHouse('Ocean Villa')">
+                        View
+                    </button>
+
+                    <button class="btn btn-gold"
+                            onclick="buyProperty('Ocean Villa')">
+                        Buy
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="details-container">
-                <span class="subtitle-gold">NESSTLINE</span>
-                <h3 class="details-title">Peverrized</h3>
-                <p class="details-desc">Discover our newest listings offering unmatched luxury and breathtaking views. Every detail has been meticulously crafted to provide a living experience that exceeds expectations, combining comfort, elegance, and cutting-edge design.</p>
-                
-                <ul class="features-list">
-                    <li><span>Bedrooms</span> <span class="feature-val">4 &gt;</span></li>
-                    <li><span>Bathrooms</span> <span class="feature-val">3 &gt;</span></li>
-                    <li><span>Garage</span> <span class="feature-val">2 Cars &gt;</span></li>
-                    <li><span>Pool</span> <span class="feature-val">Yes &gt;</span></li>
-                    <li><span>Area</span> <span class="feature-val">4,500 Sq Ft &gt;</span></li>
-                    <li><span>Price</span> <span class="feature-val">On Request &gt;</span></li>
-                </ul>
+        </div>
+
+
+        <!-- PROPERTY 2 -->
+
+        <div class="property-card"
+             data-name="Sunset Residence"
+             data-location="Malibu"
+             data-bedrooms="4"
+             data-price="3500000">
+
+            <div class="property-image">
+
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=80">
+
+                <button class="favorite"
+                        onclick="toggleFavorite(this)">
+                    ♡
+                </button>
+
             </div>
-        </div>
-    </section>
 
-    <section class="exclusive-section">
-        <div class="exclusive-content">
-            <h2>Exclusive homes for premium buyers</h2>
-            <p>We curate only the finest properties for our distinguished clientele. Our portfolio includes waterfront villas, modern estates, and private retreats designed for those who appreciate the true essence of luxury living.</p>
-            <a href="#" class="btn btn-gold" style="display: inline-block; margin-top: 10px;">Connect Today</a>
-        </div>
-        <div class="exclusive-image">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80" alt="Premium House Exterior">
-        </div>
-    </section>
+            <div class="property-info">
 
-    <footer>
-        <div class="social-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+                <h3>Sunset Residence</h3>
+
+                <div class="location">
+                    Malibu, California
+                </div>
+
+                <div class="features">
+                    <span>4 Beds</span>
+                    <span>4 Baths</span>
+                    <span>4,600 ft²</span>
+                </div>
+
+                <div class="price">
+                    $3,500,000
+                </div>
+
+                <div class="card-actions">
+
+                    <button class="btn btn-outline"
+                            onclick="viewHouse('Sunset Residence')">
+                        View
+                    </button>
+
+                    <button class="btn btn-gold"
+                            onclick="buyProperty('Sunset Residence')">
+                        Buy
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
-    </footer>
+
+
+        <!-- PROPERTY 3 -->
+
+        <div class="property-card"
+             data-name="Royal Palm House"
+             data-location="Dubai"
+             data-bedrooms="6"
+             data-price="7500000">
+
+            <div class="property-image">
+
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80">
+
+                <button class="favorite"
+                        onclick="toggleFavorite(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="property-info">
+
+                <h3>Royal Palm House</h3>
+
+                <div class="location">
+                    Dubai, UAE
+                </div>
+
+                <div class="features">
+                    <span>6 Beds</span>
+                    <span>7 Baths</span>
+                    <span>8,200 ft²</span>
+                </div>
+
+                <div class="price">
+                    $7,500,000
+                </div>
+
+                <div class="card-actions">
+
+                    <button class="btn btn-outline"
+                            onclick="viewHouse('Royal Palm House')">
+                        View
+                    </button>
+
+                    <button class="btn btn-gold"
+                            onclick="buyProperty('Royal Palm House')">
+                        Buy
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROPERTY 4 -->
+
+        <div class="property-card"
+             data-name="Tropical Estate"
+             data-location="Bali"
+             data-bedrooms="5"
+             data-price="2900000">
+
+            <div class="property-image">
+
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80">
+
+                <button class="favorite"
+                        onclick="toggleFavorite(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="property-info">
+
+                <h3>Tropical Estate</h3>
+
+                <div class="location">
+                    Bali, Indonesia
+                </div>
+
+                <div class="features">
+                    <span>5 Beds</span>
+                    <span>5 Baths</span>
+                    <span>6,000 ft²</span>
+                </div>
+
+                <div class="price">
+                    $2,900,000
+                </div>
+
+                <div class="card-actions">
+
+                    <button class="btn btn-outline"
+                            onclick="viewHouse('Tropical Estate')">
+                        View
+                    </button>
+
+                    <button class="btn btn-gold"
+                            onclick="buyProperty('Tropical Estate')">
+                        Buy
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURED HOUSE ================= -->
+
+<section id="view">
+
+    <div class="featured">
+
+        <div>
+
+            <div class="small-title">
+                FEATURED PROPERTY
+            </div>
+
+            <h2>
+                Exclusive homes for premium buyers
+            </h2>
+
+            <p>
+                Explore carefully selected residences offering
+                beautiful architecture, private pools, ocean views
+                and premium facilities.
+            </p>
+
+            <button class="btn btn-gold"
+                    onclick="viewHouse('Ocean Villa')">
+                View This House
+            </button>
+
+        </div>
+
+        <div class="featured-image">
+
+            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="buy">
+
+    <div class="section-title">
+
+        <div>
+            <h2>Our Services</h2>
+            <p>Everything you need to find your dream home.</p>
+        </div>
+
+    </div>
+
+    <div class="services">
+
+        <div class="service">
+
+            <span>⌂</span>
+
+            <h3>Buy Property</h3>
+
+            <p>
+                Select your favorite property and send a
+                purchase request directly to our team.
+            </p>
+
+            <br>
+
+            <button class="btn btn-gold"
+                    onclick="buyProperty('Selected Property')">
+                Start Buying
+            </button>
+
+        </div>
+
+
+        <div class="service">
+
+            <span>◉</span>
+
+            <h3>View House</h3>
+
+            <p>
+                Explore property information, bedrooms,
+                bathrooms, size and price before making a decision.
+            </p>
+
+            <br>
+
+            <button class="btn btn-outline"
+                    onclick="scrollToSection('properties')">
+                Explore
+            </button>
+
+        </div>
+
+
+        <div class="service">
+
+            <span>✉</span>
+
+            <h3>Contact Agent</h3>
+
+            <p>
+                Have questions? Contact our property specialists
+                and receive more information.
+            </p>
+
+            <br>
+
+            <button class="btn btn-outline"
+                    onclick="scrollToSection('contact')">
+                Contact
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <div class="small-title">
+                GET IN TOUCH
+            </div>
+
+            <h2>
+                Let's find your dream home.
+            </h2>
+
+            <p>
+                Tell us what kind of property you are looking for
+                and our team will help you find the right residence.
+            </p>
+
+        </div>
+
+
+        <form class="contact-form"
+              onsubmit="sendContact(event)">
+
+            <div class="form-group">
+
+                <label>Your Name</label>
+
+                <input
+                    type="text"
+                    id="contactName"
+                    placeholder="Enter your name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Property</label>
+
+                <select id="contactProperty">
+
+                    <option>Ocean Villa</option>
+                    <option>Sunset Residence</option>
+                    <option>Royal Palm House</option>
+                    <option>Tropical Estate</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Message</label>
+
+                <textarea
+                    id="contactMessage"
+                    placeholder="How can we help you?"
+                    required></textarea>
+
+            </div>
+
+
+            <button class="btn btn-gold" type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VIEW HOUSE MODAL ================= -->
+
+<div class="modal" id="viewModal">
+
+    <div class="modal-content">
+
+        <button class="close"
+                onclick="closeModal('viewModal')">
+            ×
+        </button>
+
+        <div class="modal-image">
+
+            <img id="modalHouseImage"
+                 src="">
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="small-title">
+                PROPERTY DETAILS
+            </div>
+
+            <h2 id="modalHouseName">
+                Property
+            </h2>
+
+            <p id="modalHouseDescription">
+                Property description.
+            </p>
+
+            <div class="features"
+                 id="modalFeatures">
+            </div>
+
+            <div class="price"
+                 id="modalPrice">
+            </div>
+
+            <button class="btn btn-gold"
+                    onclick="buyFromView()">
+                Buy This Property
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= BUY MODAL ================= -->
+
+<div class="modal" id="buyModal">
+
+    <div class="modal-content">
+
+        <button class="close"
+                onclick="closeModal('buyModal')">
+            ×
+        </button>
+
+        <div class="modal-body">
+
+            <div class="small-title">
+                PURCHASE REQUEST
+            </div>
+
+            <h2>Buy Property</h2>
+
+            <p>
+                Complete the form below and our property agent
+                will contact you.
+            </p>
+
+            <form class="buy-form"
+                  onsubmit="submitPurchase(event)">
+
+                <input
+                    type="text"
+                    id="buyerName"
+                    placeholder="Full name"
+                    required>
+
+                <input
+                    type="email"
+                    id="buyerEmail"
+                    placeholder="Email address"
+                    required>
+
+                <input
+                    type="tel"
+                    id="buyerPhone"
+                    placeholder="Phone number"
+                    required>
+
+                <input
+                    type="text"
+                    id="selectedProperty"
+                    readonly>
+
+                <select required>
+
+                    <option value="">
+                        Payment preference
+                    </option>
+
+                    <option>
+                        Cash
+                    </option>
+
+                    <option>
+                        Bank Financing
+                    </option>
+
+                    <option>
+                        Mortgage
+                    </option>
+
+                </select>
+
+                <button class="btn btn-gold"
+                        type="submit">
+                    Submit Purchase Request
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 FIXTOF CE — Luxury Real Estate.
+    All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+    /* ================= PROPERTY DATA ================= */
+
+    const properties = {
+
+        "Ocean Villa": {
+            image:
+            "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+
+            description:
+            "A stunning modern ocean villa featuring a private swimming pool, large living spaces, premium bedrooms and beautiful ocean views.",
+
+            features:
+            "5 Bedrooms • 4 Bathrooms • 5,200 ft² • Miami, Florida",
+
+            price:
+            "$4,800,000"
+        },
+
+        "Sunset Residence": {
+            image:
+            "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85",
+
+            description:
+            "A peaceful luxury residence overlooking the California coastline with spacious rooms and a beautiful sunset view.",
+
+            features:
+            "4 Bedrooms • 4 Bathrooms • 4,600 ft² • Malibu, California",
+
+            price:
+            "$3,500,000"
+        },
+
+        "Royal Palm House": {
+            image:
+            "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=85",
+
+            description:
+            "An impressive modern residence with premium facilities, large bedrooms, private outdoor areas and luxurious architecture.",
+
+            features:
+            "6 Bedrooms • 7 Bathrooms • 8,200 ft² • Dubai, UAE",
+
+            price:
+            "$7,500,000"
+        },
+
+        "Tropical Estate": {
+            image:
+            "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+
+            description:
+            "A tropical luxury estate designed for relaxing and comfortable living with a private pool and natural surroundings.",
+
+            features:
+            "5 Bedrooms • 5 Bathrooms • 6,000 ft² • Bali, Indonesia",
+
+            price:
+            "$2,900,000"
+        }
+
+    };
+
+
+    let currentProperty = "";
+
+
+    /* ================= SCROLL ================= */
+
+    function scrollToSection(id) {
+
+        document.getElementById(id)
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ================= VIEW HOUSE ================= */
+
+    function viewHouse(propertyName) {
+
+        const property = properties[propertyName];
+
+        if (!property) return;
+
+        currentProperty = propertyName;
+
+        document.getElementById("modalHouseName")
+            .textContent = propertyName;
+
+        document.getElementById("modalHouseImage")
+            .src = property.image;
+
+        document.getElementById("modalHouseDescription")
+            .textContent = property.description;
+
+        document.getElementById("modalFeatures")
+            .textContent = property.features;
+
+        document.getElementById("modalPrice")
+            .textContent = property.price;
+
+        document.getElementById("viewModal")
+            .classList.add("show");
+
+    }
+
+
+    /* ================= BUY PROPERTY ================= */
+
+    function buyProperty(propertyName) {
+
+        currentProperty = propertyName;
+
+        document.getElementById("selectedProperty")
+            .value = propertyName;
+
+        document.getElementById("buyModal")
+            .classList.add("show");
+
+    }
+
+
+    function buyFromView() {
+
+        closeModal("viewModal");
+
+        buyProperty(currentProperty);
+
+    }
+
+
+    /* ================= CLOSE MODAL ================= */
+
+    function closeModal(modalId) {
+
+        document.getElementById(modalId)
+            .classList.remove("show");
+
+    }
+
+
+    /* ================= FAVORITE ================= */
+
+    function toggleFavorite(button) {
+
+        button.classList.toggle("active");
+
+        if (button.classList.contains("active")) {
+
+            button.textContent = "♥";
+
+        } else {
+
+            button.textContent = "♡";
+
+        }
+
+    }
+
+
+    /* ================= FILTER ================= */
+
+    function filterProperties() {
+
+        const search =
+            document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+        const location =
+            document.getElementById("locationFilter")
+                .value;
+
+        const bedrooms =
+            document.getElementById("bedFilter")
+                .value;
+
+        const maxPrice =
+            document.getElementById("priceFilter")
+                .value;
+
+        const cards =
+            document.querySelectorAll(".property-card");
+
+
+        cards.forEach(card => {
+
+            const name =
+                card.dataset.name.toLowerCase();
+
+            const cardLocation =
+                card.dataset.location;
+
+            const cardBedrooms =
+                Number(card.dataset.bedrooms);
+
+            const cardPrice =
+                Number(card.dataset.price);
+
+
+            const matchesSearch =
+                name.includes(search);
+
+            const matchesLocation =
+                !location ||
+                cardLocation === location;
+
+            const matchesBedrooms =
+                !bedrooms ||
+                cardBedrooms >= Number(bedrooms);
+
+            const matchesPrice =
+                !maxPrice ||
+                cardPrice <= Number(maxPrice);
+
+
+            if (
+                matchesSearch &&
+                matchesLocation &&
+                matchesBedrooms &&
+                matchesPrice
+            ) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    /* ================= SHOW ALL ================= */
+
+    function showAllProperties() {
+
+        document.getElementById("searchInput")
+            .value = "";
+
+        document.getElementById("locationFilter")
+            .value = "";
+
+        document.getElementById("bedFilter")
+            .value = "";
+
+        document.getElementById("priceFilter")
+            .value = "";
+
+        filterProperties();
+
+        scrollToSection("properties");
+
+    }
+
+
+    /* ================= CONTACT ================= */
+
+    function sendContact(event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("contactName").value;
+
+        const property =
+            document.getElementById("contactProperty").value;
+
+        alert(
+            "Thank you, " +
+            name +
+            "!\n\nYour message about " +
+            property +
+            " has been received."
+        );
+
+        event.target.reset();
+
+    }
+
+
+    /* ================= PURCHASE ================= */
+
+    function submitPurchase(event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("buyerName").value;
+
+        const property =
+            document.getElementById("selectedProperty").value;
+
+        alert(
+            "Thank you, " +
+            name +
+            "!\n\n" +
+            "Your purchase request for " +
+            property +
+            " has been submitted.\n\n" +
+            "Our agent will contact you."
+        );
+
+        closeModal("buyModal");
+
+        event.target.reset();
+
+    }
+
+
+    /* ================= CLICK OUTSIDE MODAL ================= */
+
+    window.addEventListener("click", function(event) {
+
+        if (event.target.classList.contains("modal")) {
+
+            event.target.classList.remove("show");
+
+        }
+
+    });
+
+</script>
 
 </body>
 </html>
