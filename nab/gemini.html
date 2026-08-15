@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIXTOF CE | Luxury Real Estate</title>
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080a0d;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: rgba(8, 10, 13, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #292d32;
+    z-index: 999;
+}
+
+.nav-container {
+    max-width: 1250px;
+    height: 100%;
+    margin: auto;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d5a552;
+    font-size: 11px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-menu button {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-menu button:hover,
+.nav-menu button.active {
+    color: #d5a552;
+}
+
+.nav-explore {
+    background: #d5a552;
+    color: #111;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding-top: 75px;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.gold-btn {
+    display: inline-block;
+    background: #d5a552;
+    color: #111;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.gold-btn:hover {
+    background: #edc474;
+    transform: translateY(-2px);
+}
+
+.outline-btn {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    border: 1px solid #777;
+    padding: 13px 22px;
+    border-radius: 5px;
+}
+
+.outline-btn:hover {
+    border-color: #d5a552;
+    color: #d5a552;
+}
+
+
+/* =====================================================
+   HOME PAGE
+===================================================== */
+
+.home-hero {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #080a0d 10%,
+            rgba(8,10,13,.88) 38%,
+            rgba(8,10,13,.15) 100%
+        ),
+        url("reference-design.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-container {
+    width: 1250px;
+    max-width: 100%;
+    margin: auto;
+    padding: 50px 25px;
+}
+
+.eyebrow {
+    color: #d5a552;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.home-hero h1 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(55px, 7vw, 90px);
+    line-height: .9;
+    margin-bottom: 28px;
+}
+
+.home-hero h1 span {
+    color: #d5a552;
+}
+
+.hero-description {
+    max-width: 440px;
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+
+/* =====================================================
+   HOME BESTSELLERS
+===================================================== */
+
+.home-section {
+    max-width: 1250px;
+    margin: auto;
+    padding: 90px 25px;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.gold {
+    color: #d5a552;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.property-card {
+    background: #111519;
+    border: 1px solid #292e33;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.property-card:hover {
+    transform: translateY(-6px);
+    border-color: #d5a552;
+}
+
+.property-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.property-content {
+    padding: 20px;
+}
+
+.property-content h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 7px;
+}
+
+.location {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: #d5a552;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.card-buttons button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background: transparent;
+    color: white;
+}
+
+.card-buttons .view-btn {
+    background: #d5a552;
+    border-color: #d5a552;
+    color: #111;
+}
+
+
+/* =====================================================
+   PROPERTIES PAGE
+===================================================== */
+
+.page-header {
+    padding: 90px 25px 60px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.page-header h1 {
+    font-family: Georgia, serif;
+    font-size: 60px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    color: #999;
+}
+
+.filters {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 25px 35px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.filters input,
+.filters select {
+    background: #111519;
+    color: white;
+    border: 1px solid #333;
+    padding: 14px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.filters input:focus,
+.filters select:focus {
+    border-color: #d5a552;
+}
+
+.properties-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 25px 90px;
+}
+
+
+/* =====================================================
+   VIEW HOUSE PAGE
+===================================================== */
+
+.house-page {
+    min-height: calc(100vh - 75px);
+}
+
+.house-container {
+    min-height: calc(100vh - 75px);
+
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+}
+
+.house-image {
+    background:
+        linear-gradient(
+            90deg,
+            transparent 60%,
+            #080a0d
+        ),
+        url("https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.house-information {
+    padding: 80px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #0d1013;
+}
+
+.house-information h1 {
+    font-family: Georgia, serif;
+    font-size: 55px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.house-location {
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.house-price {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    color: #d5a552;
+    margin-bottom: 25px;
+}
+
+.house-description {
+    color: #999;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.specifications {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 30px;
+}
+
+.spec {
+    background: #080a0d;
+    padding: 17px;
+}
+
+.spec strong {
+    display: block;
+    color: #d5a552;
+    margin-bottom: 5px;
+}
+
+.spec small {
+    color: #888;
+}
+
+
+/* =====================================================
+   BUY PAGE
+===================================================== */
+
+.form-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 80px 25px 100px;
+}
+
+.form-card {
+    background: #111519;
+    border: 1px solid #292e33;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.form-card h1 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: #080a0d;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #d5a552;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-message {
+    color: #d5a552;
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   CONTACT PAGE
+===================================================== */
+
+.contact-container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 80px 25px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.contact-container h1 {
+    font-family: Georgia, serif;
+    font-size: 55px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.contact-description {
+    color: #999;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.contact-details {
+    border-top: 1px solid #292e33;
+}
+
+.contact-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #292e33;
+}
+
+.contact-item span {
+    display: block;
+    color: #d5a552;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.contact-item strong {
+    font-weight: normal;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    border-top: 1px solid #292e33;
+    padding: 35px 25px;
+    color: #777;
+    text-align: center;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 850px) {
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-menu button {
+        font-size: 11px;
+    }
+
+    .nav-explore {
+        display: none;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .house-container {
+        grid-template-columns: 1fr;
+    }
+
+    .house-image {
+        min-height: 450px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    .nav-container {
+        padding: 0 12px;
+    }
+
+    .nav-menu {
+        gap: 8px;
+    }
+
+    .nav-menu button {
+        font-size: 9px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .home-hero h1 {
+        font-size: 50px;
+    }
+
+    .page-header h1 {
+        font-size: 45px;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 25px;
+    }
+
+    .house-information h1 {
+        font-size: 43px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+            FIXTOF <span>CE</span>
+        </div>
+
+        <div class="nav-menu">
+
+            <button onclick="showPage('home')" id="nav-home">
+                Home
+            </button>
+
+            <button onclick="showPage('properties')" id="nav-properties">
+                Properties
+            </button>
+
+            <button onclick="showPage('buy')" id="nav-buy">
+                Buy
+            </button>
+
+            <button onclick="showPage('view')" id="nav-view">
+                View House
+            </button>
+
+            <button onclick="showPage('contact')" id="nav-contact">
+                Contact
+            </button>
+
+        </div>
+
+        <button
+            class="nav-explore"
+            onclick="showPage('properties')">
+
+            Explore
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HOME PAGE
+===================================================== -->
+
+<div class="page active" id="home">
+
+    <section class="home-hero">
+
+        <div class="hero-container">
+
+            <div class="eyebrow">
+                PRIVATE COLLECTION
+            </div>
+
+            <h1>
+                DISCOVER<br>
+                <span>LUXURY</span><br>
+                LIVING
+            </h1>
+
+            <p class="hero-description">
+
+                Explore exceptional residences designed
+                for people who appreciate architecture,
+                privacy and beautiful surroundings.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="gold-btn"
+                    onclick="showPage('properties')">
+
+                    Explore Properties
+
+                </button>
+
+                <button
+                    class="outline-btn"
+                    onclick="showPage('view')">
+
+                    View a House →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="home-section">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                CURATED COLLECTION
+            </div>
+
+            <h2>
+                View <span class="gold">Bestsellers</span>
+            </h2>
+
+        </div>
+
+
+        <div class="property-grid">
+
+            <!-- Ocean Villa -->
+
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Ocean Villa
+                    </h3>
+
+                    <div class="location">
+                        Phuket, Thailand
+                    </div>
+
+                    <div class="price">
+                        $2,450,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Ocean Villa')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Ocean Villa')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Sunset Residence -->
+
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Sunset Residence
+                    </h3>
+
+                    <div class="location">
+                        Bali, Indonesia
+                    </div>
+
+                    <div class="price">
+                        $1,890,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Sunset Residence')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Sunset Residence')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Modern Cove -->
+
+            <div class="property-card">
+
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Modern Cove
+                    </h3>
+
+                    <div class="location">
+                        Da Nang, Vietnam
+                    </div>
+
+                    <div class="price">
+                        $1,250,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Modern Cove')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Modern Cove')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROPERTIES PAGE
+===================================================== -->
+
+<div class="page" id="properties">
+
+    <div class="page-header">
+
+        <div class="eyebrow">
+            THE COLLECTION
+        </div>
+
+        <h1>
+            Luxury Properties
+        </h1>
+
+        <p>
+            Search and choose your perfect luxury home.
+        </p>
+
+    </div>
+
+
+    <div class="filters">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search property or location..."
+            oninput="filterProperties()">
+
+
+        <select
+            id="locationFilter"
+            onchange="filterProperties()">
+
+            <option value="">
+                All Locations
+            </option>
+
+            <option value="Phuket">
+                Phuket
+            </option>
+
+            <option value="Bali">
+                Bali
+            </option>
+
+            <option value="Da Nang">
+                Da Nang
+            </option>
+
+            <option value="Maldives">
+                Maldives
+            </option>
+
+        </select>
+
+
+        <select
+            id="typeFilter"
+            onchange="filterProperties()">
+
+            <option value="">
+                All Types
+            </option>
+
+            <option value="Villa">
+                Villa
+            </option>
+
+            <option value="Residence">
+                Residence
+            </option>
+
+            <option value="House">
+                House
+            </option>
+
+        </select>
+
+
+        <select
+            id="priceFilter"
+            onchange="filterProperties()">
+
+            <option value="">
+                Any Price
+            </option>
+
+            <option value="low">
+                Under $1.5M
+            </option>
+
+            <option value="medium">
+                $1.5M - $2.5M
+            </option>
+
+            <option value="high">
+                Over $2.5M
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="properties-container">
+
+        <div class="property-grid" id="propertyList">
+
+
+            <!-- PROPERTY -->
+
+            <div
+                class="property-card property-item"
+                data-name="Ocean Villa"
+                data-location="Phuket"
+                data-type="Villa"
+                data-price="2450000">
+
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Ocean Villa
+                    </h3>
+
+                    <div class="location">
+                        Phuket, Thailand · Villa
+                    </div>
+
+                    <div class="price">
+                        $2,450,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Ocean Villa')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Ocean Villa')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROPERTY -->
+
+            <div
+                class="property-card property-item"
+                data-name="Sunset Residence"
+                data-location="Bali"
+                data-type="Residence"
+                data-price="1890000">
+
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Sunset Residence
+                    </h3>
+
+                    <div class="location">
+                        Bali, Indonesia · Residence
+                    </div>
+
+                    <div class="price">
+                        $1,890,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Sunset Residence')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Sunset Residence')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROPERTY -->
+
+            <div
+                class="property-card property-item"
+                data-name="Modern Cove"
+                data-location="Da Nang"
+                data-type="House"
+                data-price="1250000">
+
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Modern Cove
+                    </h3>
+
+                    <div class="location">
+                        Da Nang, Vietnam · House
+                    </div>
+
+                    <div class="price">
+                        $1,250,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Modern Cove')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Modern Cove')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROPERTY -->
+
+            <div
+                class="property-card property-item"
+                data-name="Private Island Villa"
+                data-location="Maldives"
+                data-type="Villa"
+                data-price="4200000">
+
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=85">
+
+                <div class="property-content">
+
+                    <h3>
+                        Private Island Villa
+                    </h3>
+
+                    <div class="location">
+                        Maldives · Villa
+                    </div>
+
+                    <div class="price">
+                        $4,200,000
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="openHouse('Private Island Villa')">
+
+                            View House
+
+                        </button>
+
+                        <button
+                            onclick="saveProperty('Private Island Villa')">
+
+                            ♡ Save
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VIEW HOUSE PAGE
+===================================================== -->
+
+<div class="page house-page" id="view">
+
+    <div class="house-container">
+
+        <div class="house-image"></div>
+
+
+        <div class="house-information">
+
+            <div class="eyebrow">
+                FEATURED RESIDENCE
+            </div>
+
+            <h1 id="houseTitle">
+                Ocean Villa
+            </h1>
+
+            <div class="house-location" id="houseLocation">
+                Phuket, Thailand
+            </div>
+
+            <div class="house-price" id="housePrice">
+                $2,450,000
+            </div>
+
+
+            <div class="specifications">
+
+                <div class="spec">
+                    <strong>5</strong>
+                    <small>Bedrooms</small>
+                </div>
+
+                <div class="spec">
+                    <strong>6</strong>
+                    <small>Bathrooms</small>
+                </div>
+
+                <div class="spec">
+                    <strong>640 m²</strong>
+                    <small>Living Area</small>
+                </div>
+
+                <div class="spec">
+                    <strong>2026</strong>
+                    <small>Built</small>
+                </div>
+
+            </div>
+
+
+            <p class="house-description">
+
+                A private modern villa where architecture,
+                water and natural light come together.
+                Enjoy an infinity pool, ocean views,
+                private garden and luxurious interiors.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="gold-btn"
+                    onclick="buyCurrentHouse()">
+
+                    Buy This House
+
+                </button>
+
+                <button
+                    class="outline-btn"
+                    onclick="showPage('contact')">
+
+                    Ask a Question
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BUY PAGE
+===================================================== -->
+
+<div class="page" id="buy">
+
+    <div class="form-page">
+
+        <div class="form-card">
+
+            <div class="eyebrow">
+                PURCHASE REQUEST
+            </div>
+
+            <h1>
+                Buy a <span class="gold">Luxury Home</span>
+            </h1>
+
+
+            <form onsubmit="submitBuy(event)">
+
+                <div class="form-group">
+
+                    <label>
+                        Select Property
+                    </label>
+
+                    <select
+                        id="buyProperty"
+                        required>
+
+                        <option value="">
+                            Select a property
+                        </option>
+
+                        <option>
+                            Ocean Villa
+                        </option>
+
+                        <option>
+                            Sunset Residence
+                        </option>
+
+                        <option>
+                            Modern Cove
+                        </option>
+
+                        <option>
+                            Private Island Villa
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="you@example.com"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        placeholder="+855 ...">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Budget
+                    </label>
+
+                    <select required>
+
+                        <option value="">
+                            Select your budget
+                        </option>
+
+                        <option>
+                            Under $1,500,000
+                        </option>
+
+                        <option>
+                            $1,500,000 - $2,500,000
+                        </option>
+
+                        <option>
+                            $2,500,000 - $4,000,000
+                        </option>
+
+                        <option>
+                            $4,000,000+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        rows="6"
+                        placeholder="Tell us what you are looking for..."></textarea>
+
+                </div>
+
+
+                <button
+                    class="gold-btn"
+                    type="submit">
+
+                    Submit Purchase Request
+
+                </button>
+
+
+                <div
+                    class="form-message"
+                    id="buyMessage">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTACT PAGE
+===================================================== -->
+
+<div class="page" id="contact">
+
+    <div class="contact-container">
+
+        <div>
+
+            <div class="eyebrow">
+                PRIVATE CONCIERGE
+            </div>
+
+            <h1>
+                Let's <span class="gold">talk.</span>
+            </h1>
+
+            <p class="contact-description">
+
+                Have a question, want a private viewing,
+                or need help choosing a property?
+
+                Our team is ready to help you find
+                your perfect luxury home.
+
+            </p>
+
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+
+                    <span>
+                        EMAIL
+                    </span>
+
+                    <strong>
+                        hello@fixtofce.com
+                    </strong>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>
+                        PHONE
+                    </span>
+
+                    <strong>
+                        +855 12 345 678
+                    </strong>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>
+                        OFFICE
+                    </span>
+
+                    <strong>
+                        Phnom Penh, Cambodia
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <div class="eyebrow">
+                SEND A MESSAGE
+            </div>
+
+            <h1>
+                Contact Us
+            </h1>
+
+
+            <form onsubmit="sendContact(event)">
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Your name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="you@example.com"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Subject
+                    </label>
+
+                    <select>
+
+                        <option>
+                            General Question
+                        </option>
+
+                        <option>
+                            Private Viewing
+                        </option>
+
+                        <option>
+                            Property Information
+                        </option>
+
+                        <option>
+                            Buying Help
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        rows="6"
+                        placeholder="How can we help?"
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    class="gold-btn"
+                    type="submit">
+
+                    Send Message
+
+                </button>
+
+                <div
+                    class="form-message"
+                    id="contactMessage">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="logo">
+        FIXTOF <span>CE</span>
+    </div>
+
+    <p>
+        Luxury homes for modern living.
+    </p>
+
+    <p>
+        © 2026 FIXTOF CE
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageName) {
+
+    // Hide every page
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+
+        page.classList.remove("active");
+
+    });
+
+
+    // Show selected page
+    const selectedPage =
+        document.getElementById(pageName);
+
+    if (selectedPage) {
+
+        selectedPage.classList.add("active");
+
+    }
+
+
+    // Update navigation
+    const navButtons =
+        document.querySelectorAll(".nav-menu button");
+
+    navButtons.forEach(function(button) {
+
+        button.classList.remove("active");
+
+    });
+
+
+    const activeButton =
+        document.getElementById("nav-" + pageName);
+
+    if (activeButton) {
+
+        activeButton.classList.add("active");
+
+    }
+
+
+    // Move page to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   PROPERTY DATA
+===================================================== */
+
+const properties = {
+
+    "Ocean Villa": {
+
+        location: "Phuket, Thailand",
+
+        price: "$2,450,000"
+
+    },
+
+    "Sunset Residence": {
+
+        location: "Bali, Indonesia",
+
+        price: "$1,890,000"
+
+    },
+
+    "Modern Cove": {
+
+        location: "Da Nang, Vietnam",
+
+        price: "$1,250,000"
+
+    },
+
+    "Private Island Villa": {
+
+        location: "Maldives",
+
+        price: "$4,200,000"
+
+    }
+
+};
+
+
+/* =====================================================
+   OPEN HOUSE
+===================================================== */
+
+function openHouse(name) {
+
+    const property =
+        properties[name];
+
+    if (!property) return;
+
+
+    document.getElementById("houseTitle")
+        .innerText = name;
+
+
+    document.getElementById("houseLocation")
+        .innerText = property.location;
+
+
+    document.getElementById("housePrice")
+        .innerText = property.price;
+
+
+    showPage("view");
+
+}
+
+
+/* =====================================================
+   BUY CURRENT HOUSE
+===================================================== */
+
+function buyCurrentHouse() {
+
+    const house =
+        document.getElementById("houseTitle")
+            .innerText;
+
+
+    document.getElementById("buyProperty")
+        .value = house;
+
+
+    showPage("buy");
+
+}
+
+
+/* =====================================================
+   SAVE PROPERTY
+===================================================== */
+
+function saveProperty(name) {
+
+    let saved =
+        JSON.parse(
+            localStorage.getItem("savedProperties") || "[]"
+        );
+
+
+    if (!saved.includes(name)) {
+
+        saved.push(name);
+
+        localStorage.setItem(
+            "savedProperties",
+            JSON.stringify(saved)
+        );
+
+
+        alert(
+            name +
+            " has been added to your saved properties."
+        );
+
+    } else {
+
+        alert(
+            name +
+            " is already in your saved properties."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PROPERTY FILTER
+===================================================== */
+
+function filterProperties() {
+
+    const search =
+        document.getElementById("search")
+            .value
+            .toLowerCase();
+
+
+    const location =
+        document.getElementById("locationFilter")
+            .value;
+
+
+    const type =
+        document.getElementById("typeFilter")
+            .value;
+
+
+    const price =
+        document.getElementById("priceFilter")
+            .value;
+
+
+    const cards =
+        document.querySelectorAll(".property-item");
+
+
+    cards.forEach(function(card) {
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        const cardLocation =
+            card.dataset.location;
+
+        const cardType =
+            card.dataset.type;
+
+        const cardPrice =
+            Number(card.dataset.price);
+
+
+        let matchesSearch =
+            name.includes(search) ||
+            cardLocation
+                .toLowerCase()
+                .includes(search);
+
+
+        let matchesLocation =
+            !location ||
+            cardLocation === location;
+
+
+        let matchesType =
+            !type ||
+            cardType === type;
+
+
+        let matchesPrice = true;
+
+
+        if (price === "low") {
+
+            matchesPrice =
+                cardPrice < 1500000;
+
+        }
+
+
+        if (price === "medium") {
+
+            matchesPrice =
+                cardPrice >= 1500000 &&
+                cardPrice <= 2500000;
+
+        }
+
+
+        if (price === "high") {
+
+            matchesPrice =
+                cardPrice > 2500000;
+
+        }
+
+
+        if (
+            matchesSearch &&
+            matchesLocation &&
+            matchesType &&
+            matchesPrice
+        ) {
+
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   BUY FORM
+===================================================== */
+
+function submitBuy(event) {
+
+    event.preventDefault();
+
+
+    const property =
+        document.getElementById("buyProperty")
+            .value;
+
+
+    document.getElementById("buyMessage")
+        .innerText =
+        "Thank you! Your purchase request for " +
+        property +
+        " has been submitted. Our team will contact you soon.";
+
+
+    event.target.reset();
+
+}
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+function sendContact(event) {
+
+    event.preventDefault();
+
+
+    document.getElementById("contactMessage")
+        .innerText =
+        "Your message has been sent successfully. We will contact you soon.";
+
+
+    event.target.reset();
+
+}
+
+
+/* =====================================================
+   START WEBSITE
+===================================================== */
+
+showPage("home");
+
+</script>
+
+</body>
+</html>
