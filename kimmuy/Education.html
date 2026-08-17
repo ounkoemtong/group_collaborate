@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education - ACZONE</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6ef;
+            color: #173019;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 70px;
+            background: #062b13;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            color: #9bc51f;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo-text strong {
+            font-size: 17px;
+        }
+
+        .logo-text small {
+            display: block;
+            font-size: 7px;
+            color: #b7c2b8;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #9bc51f;
+        }
+
+        .donate-btn {
+            background: #9bc51f;
+            border: none;
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .education-hero {
+
+            height: 430px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(2, 40, 15, .96),
+                    rgba(2, 40, 15, .65),
+                    rgba(2, 40, 15, .15)
+                ),
+                url("https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 7%;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            background: rgba(255,255,255,.12);
+
+            padding: 8px 16px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 {
+            font-size: 55px;
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #9bc51f;
+        }
+
+        .hero-content p {
+            color: #d5ddd5;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            max-width: 540px;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        main {
+            width: 86%;
+            max-width: 1200px;
+
+            margin: 40px auto;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            text-align: center;
+
+            max-width: 750px;
+
+            margin: 0 auto 45px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .green-line {
+            width: 50px;
+            height: 4px;
+
+            background: #9bc51f;
+
+            margin: 0 auto 15px;
+
+            border-radius: 5px;
+        }
+
+        .intro p {
+            color: #737b73;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= EDUCATION PROGRAMS ================= */
+
+        .section-title {
+            margin-bottom: 22px;
+        }
+
+        .section-title h2 {
+            font-size: 25px;
+        }
+
+        .section-title p {
+            color: #777;
+
+            font-size: 11px;
+
+            margin-top: 6px;
+        }
+
+        .program-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-bottom: 50px;
+        }
+
+        .program-card {
+            background: white;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,.06);
+
+            transition: .3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,.12);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 190px;
+
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 20px;
+        }
+
+        .program-icon {
+            font-size: 26px;
+
+            margin-bottom: 10px;
+        }
+
+        .program-content h3 {
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+        .program-content p {
+            color: #777;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+        .learn-more {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: #789718;
+
+            font-size: 10px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= FEATURE ================= */
+
+        .education-feature {
+
+            min-height: 350px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(2,40,15,.96),
+                    rgba(2,40,15,.55)
+                ),
+                url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1500&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            padding: 50px;
+
+            color: white;
+
+            margin-bottom: 50px;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+        .feature-content {
+            max-width: 560px;
+        }
+
+        .feature-label {
+            color: #9bc51f;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .feature-content h2 {
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+        .feature-content p {
+            color: #d5ddd5;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        .feature-content button {
+            margin-top: 20px;
+
+            background: #9bc51f;
+
+            color: white;
+
+            border: none;
+
+            padding: 11px 23px;
+
+            border-radius: 22px;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= LEARNING TOPICS ================= */
+
+        .topics-title {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .topics-title h2 {
+            font-size: 30px;
+        }
+
+        .topics-title p {
+            color: #777;
+
+            font-size: 11px;
+
+            margin-top: 7px;
+        }
+
+        .topics-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 50px;
+        }
+
+        .topic-card {
+            background: white;
+
+            padding: 25px 18px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+                0 2px 10px rgba(0,0,0,.05);
+
+            transition: .3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .topic-icon {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #edf5d8;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            font-size: 25px;
+        }
+
+        .topic-card h3 {
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+        .topic-card p {
+            color: #777;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= HOW WE TEACH ================= */
+
+        .teaching-section {
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 40px;
+
+            margin-bottom: 50px;
+        }
+
+        .teaching-header {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .teaching-header h2 {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .teaching-header p {
+            color: #777;
+
+            font-size: 11px;
+        }
+
+        .teaching-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .teaching-card {
+            text-align: center;
+
+            position: relative;
+        }
+
+        .teaching-number {
+            width: 45px;
+            height: 45px;
+
+            background: #063016;
+
+            color: #9bc51f;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 13px;
+
+            font-weight: bold;
+        }
+
+        .teaching-card h3 {
+            font-size: 13px;
+
+            margin-bottom: 7px;
+        }
+
+        .teaching-card p {
+            color: #777;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= EDUCATION FOR EVERYONE ================= */
+
+        .audience-section {
+            margin-bottom: 50px;
+        }
+
+        .audience-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .audience-card {
+            min-height: 280px;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            color: white;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+        }
+
+        .students {
+            background:
+                linear-gradient(
+                    rgba(2,40,15,.15),
+                    rgba(2,40,15,.9)
+                ),
+                url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .communities {
+            background:
+                linear-gradient(
+                    rgba(2,40,15,.15),
+                    rgba(2,40,15,.9)
+                ),
+                url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=900&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .audience-card h3 {
+            font-size: 22px;
+
+            margin-bottom: 8px;
+        }
+
+        .audience-card p {
+            color: #dce4dc;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= EDUCATION STATS ================= */
+
+        .stats {
+            background: #063016;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            color: white;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 50px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            color: #9bc51f;
+
+            font-size: 28px;
+
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: #bdc9bd;
+
+            font-size: 10px;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+
+            background:
+                linear-gradient(
+                    rgba(2,40,15,.88),
+                    rgba(2,40,15,.88)
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1500&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 15px;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 50px;
+
+            margin-bottom: 35px;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #d2dbd2;
+
+            max-width: 620px;
+
+            margin: auto;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        .cta button {
+            margin-top: 20px;
+
+            background: #9bc51f;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 22px;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #03240f;
+
+            color: white;
+
+            padding: 40px 7% 15px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        footer h3 {
+            color: #9bc51f;
+
+            margin-bottom: 12px;
+        }
+
+        footer h4 {
+            font-size: 12px;
+
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            color: #aab7aa;
+
+            font-size: 10px;
+
+            line-height: 1.9;
+
+            text-decoration: none;
+
+            display: block;
+        }
+
+        footer a:hover {
+            color: #9bc51f;
+        }
+
+        .social {
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+        .social span {
+            width: 28px;
+            height: 28px;
+
+            border-radius: 50%;
+
+            background: #17451f;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .copyright {
+            border-top: 1px solid #17451f;
+
+            margin-top: 30px;
+
+            padding-top: 15px;
+
+            text-align: center;
+
+            color: #718074;
+
+            font-size: 9px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .teaching-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            main {
+                width: 92%;
+            }
+
+            .education-hero {
+                padding: 0 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .program-grid,
+            .topics-grid,
+            .teaching-grid,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .education-feature {
+                padding: 30px;
+            }
+
+            .teaching-section {
+                padding: 25px;
+            }
+
+            .audience-card {
+                min-height: 250px;
+            }
+
+            .cta {
+                padding: 35px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                AC
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    ACZONE
+                </strong>
+
+                <small>
+                    WILDLIFE FOUNDATION
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="wildlife.html">
+                Wildlife
+            </a>
+
+            <a href="conservation.html">
+                Conservation
+            </a>
+
+            <a href="education.html" class="active">
+                Education
+            </a>
+
+            <a href="#">
+                News
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+            <button class="donate-btn">
+                Donate Now
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="education-hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                📚 Learn • Explore • Protect
+            </div>
+
+            <h1>
+                Learn Today.
+                <span>Protect Tomorrow.</span>
+            </h1>
+
+            <p>
+                Education is one of the most powerful tools
+                for protecting wildlife. We inspire students,
+                communities, and future conservation leaders
+                to understand nature and take action.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <main>
+
+
+        <!-- ================= INTRO ================= -->
+
+        <section class="intro">
+
+            <h2>
+                Education for a Better Future
+            </h2>
+
+            <div class="green-line"></div>
+
+            <p>
+                At ACZONE, we believe that knowledge creates
+                action. Our education programs help people
+                understand wildlife, ecosystems, conservation,
+                and the importance of protecting our planet.
+            </p>
+
+        </section>
+
+
+        <!-- ================= PROGRAMS ================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2>
+                    Our Education Programs
+                </h2>
+
+                <p>
+                    Learning opportunities for people of all ages.
+                </p>
+
+            </div>
+
+
+            <div class="program-grid">
+
+
+                <!-- SCHOOL -->
+
+                <div class="program-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80"
+                        alt="School Education"
+                    >
+
+                    <div class="program-content">
+
+                        <div class="program-icon">
+                            🎓
+                        </div>
+
+                        <h3>
+                            School Programs
+                        </h3>
+
+                        <p>
+                            Interactive wildlife lessons,
+                            activities, and educational
+                            experiences for students.
+                        </p>
+
+                        <a href="#" class="learn-more">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WORKSHOPS -->
+
+                <div class="program-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80"
+                        alt="Workshop"
+                    >
+
+                    <div class="program-content">
+
+                        <div class="program-icon">
+                            🧑‍🏫
+                        </div>
+
+                        <h3>
+                            Conservation Workshops
+                        </h3>
+
+                        <p>
+                            Practical workshops that teach
+                            conservation skills and environmental
+                            awareness.
+                        </p>
+
+                        <a href="#" class="learn-more">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMMUNITY -->
+
+                <div class="program-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=700&q=80"
+                        alt="Community Education"
+                    >
+
+                    <div class="program-content">
+
+                        <div class="program-icon">
+                            🤝
+                        </div>
+
+                        <h3>
+                            Community Education
+                        </h3>
+
+                        <p>
+                            Working with local communities to
+                            promote sustainable living and
+                            wildlife protection.
+                        </p>
+
+                        <a href="#" class="learn-more">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- YOUTH -->
+
+                <div class="program-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=700&q=80"
+                        alt="Youth Program"
+                    >
+
+                    <div class="program-content">
+
+                        <div class="program-icon">
+                            🌱
+                        </div>
+
+                        <h3>
+                            Youth Conservation
+                        </h3>
+
+                        <p>
+                            Helping young people become future
+                            environmental leaders and wildlife
+                            advocates.
+                        </p>
+
+                        <a href="#" class="learn-more">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ONLINE -->
+
+                <div class="program-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80"
+                        alt="Online Learning"
+                    >
+
+                    <div class="program-content">
+
+                        <div class="program-icon">
+                            💻
+                        </div>
+
+                        <h3>
+                            Online Learning
+                        </h3>
+
+                        <p>
+                            Access wildlife knowledge and
+                            conservation resources from anywhere.
+                        </p>
+
+                        <a href="#" class="learn-more">
+                            Start Learning →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEACHERS -->
+
+                <div class="program-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=700&q=80"
+                        alt="Teacher Training"
+                    >
+
+                    <div class="program-content">
+
+                        <div class="program-icon">
+                            📖
+                        </div>
+
+                        <h3>
+                            Teacher Resources
+                        </h3>
+
+                        <p>
+                            Educational materials and resources
+                            for teachers and environmental educators.
+                        </p>
+
+                        <a href="#" class="learn-more">
+                            View Resources →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURE ================= -->
+
+        <section class="education-feature">
+
+            <div class="feature-content">
+
+                <div class="feature-label">
+                    FEATURED EDUCATION PROGRAM
+                </div>
+
+                <h2>
+                    Young Wildlife Leaders
+                </h2>
+
+                <p>
+                    Our youth program gives students the
+                    opportunity to learn about wildlife,
+                    explore nature, participate in conservation
+                    activities, and develop leadership skills.
+
+                    <br><br>
+
+                    We believe today's young people can become
+                    tomorrow's conservation leaders.
+                </p>
+
+                <button>
+                    Discover the Program →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TOPICS ================= -->
+
+        <section>
+
+            <div class="topics-title">
+
+                <h2>
+                    What You Can Learn
+                </h2>
+
+                <p>
+                    Explore important topics about wildlife and our planet.
+                </p>
+
+            </div>
+
+
+            <div class="topics-grid">
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        🐅
+                    </div>
+
+                    <h3>
+                        Wildlife
+                    </h3>
+
+                    <p>
+                        Learn about animal species,
+                        behavior, and their habitats.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        🌳
+                    </div>
+
+                    <h3>
+                        Ecosystems
+                    </h3>
+
+                    <p>
+                        Understand how plants, animals,
+                        and environments work together.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        🌎
+                    </div>
+
+                    <h3>
+                        Climate
+                    </h3>
+
+                    <p>
+                        Discover how climate change
+                        affects wildlife and ecosystems.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        ♻️
+                    </div>
+
+                    <h3>
+                        Sustainability
+                    </h3>
+
+                    <p>
+                        Learn how everyday choices can
+                        help protect our environment.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                            💧
+                    </div>
+
+                    <h3>
+                        Water
+                    </h3>
+
+                    <p>
+                        Understand the importance of
+                        clean water for people and wildlife.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Conservation
+                    </h3>
+
+                    <p>
+                        Learn practical ways to protect
+                        nature and endangered species.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        🐢
+                    </div>
+
+                    <h3>
+                        Endangered Species
+                    </h3>
+
+                    <p>
+                        Discover why species become
+                        endangered and how we can help.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">
+                        🔬
+                    </div>
+
+                    <h3>
+                        Science
+                    </h3>
+
+                    <p>
+                        Explore the science behind
+                        wildlife and conservation.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW WE TEACH ================= -->
+
+        <section class="teaching-section">
+
+            <div class="teaching-header">
+
+                <h2>
+                    How We Teach
+                </h2>
+
+                <p>
+                    Making environmental education interesting and practical.
+                </p>
+
+            </div>
+
+
+            <div class="teaching-grid">
+
+
+                <div class="teaching-card">
+
+                    <div class="teaching-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <p>
+                        Discover wildlife and nature through
+                        observation and exploration.
+                    </p>
+
+                </div>
+
+
+                <div class="teaching-card">
+
+                    <div class="teaching-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Learn
+                    </h3>
+
+                    <p>
+                        Learn through lessons, workshops,
+                        stories, and scientific information.
+                    </p>
+
+                </div>
+
+
+                <div class="teaching-card">
+
+                    <div class="teaching-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Experience
+                    </h3>
+
+                    <p>
+                        Connect learning with real-world
+                        conservation activities.
+                    </p>
+
+                </div>
+
+
+                <div class="teaching-card">
+
+                    <div class="teaching-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Take Action
+                    </h3>
+
+                    <p>
+                        Turn knowledge into positive action
+                        for wildlife and nature.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AUDIENCE ================= -->
+
+        <section class="audience-section">
+
+            <div class="section-title">
+
+                <h2>
+                    Education for Everyone
+                </h2>
+
+                <p>
+                    Everyone has a role to play in protecting nature.
+                </p>
+
+            </div>
+
+
+            <div class="audience-grid">
+
+
+                <div class="audience-card students">
+
+                    <h3>
+                        For Students
+                    </h3>
+
+                    <p>
+                        Discover wildlife, learn about nature,
+                        participate in activities, and develop
+                        the knowledge needed to become a future
+                        conservation leader.
+                    </p>
+
+                </div>
+
+
+                <div class="audience-card communities">
+
+                    <h3>
+                        For Communities
+                    </h3>
+
+                    <p>
+                        Learn sustainable practices and work
+                        together to protect local ecosystems
+                        and wildlife.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats">
+
+            <div class="stat">
+
+                <h3>
+                    10K+
+                </h3>
+
+                <p>
+                    Students Reached
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    120+
+                </h3>
+
+                <p>
+                    Schools Supported
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    50+
+                </h3>
+
+                <p>
+                    Education Programs
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    25K+
+                </h3>
+
+                <p>
+                    People Educated
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta">
+
+            <h2>
+                Start Learning. Start Protecting.
+            </h2>
+
+            <p>
+                Knowledge can inspire change. Join our
+                education programs and discover how you
+                can help protect wildlife and create a
+                sustainable future.
+            </p>
+
+            <button>
+                Join Our Education Program →
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    ACZONE
+                </h3>
+
+                <p>
+                    Together, we can protect wildlife
+                    and build a sustainable future.
+                </p>
+
+                <div class="social">
+
+                    <span>f</span>
+                    <span>𝕏</span>
+                    <span>◎</span>
+                    <span>▶</span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="wildlife.html">
+                    Wildlife
+                </a>
+
+                <a href="conservation.html">
+                    Conservation
+                </a>
+
+                <a href="education.html">
+                    Education
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Education
+                </h4>
+
+                <a href="#">
+                    School Programs
+                </a>
+
+                <a href="#">
+                    Youth Programs
+                </a>
+
+                <a href="#">
+                    Workshops
+                </a>
+
+                <a href="#">
+                    Online Learning
+                </a>
+
+                <a href="#">
+                    Teacher Resources
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contact Us
+                </h4>
+
+                <p>
+                    📞 +855 12 123 456
+                </p>
+
+                <p>
+                    ✉ info@aczone.org
+                </p>
+
+                <p>
+                    📍 Phnom Penh, Cambodia
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 ACZONE. All rights reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
