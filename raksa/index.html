@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweetwish 🎀 Save the Cuties (Ultimate Expanded Edition)</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Quicksand', sans-serif; scroll-behavior:smooth; overflow-x:hidden; cursor:default; transition: background 0.8s ease, color 0.8s ease; }
+
+  /* Night Mode Theme Overrides */
+  body.night-mode { background:#120e17; color:#d2c4dc; }
+  body.night-mode section .bg-overlay { background:linear-gradient(120deg, rgba(15,12,22,0.92), rgba(8,6,12,0.88)) !important; }
+  body.night-mode .modal-card, body.night-mode #menu-drawer, body.night-mode .burrow-drawer { background:#1a1520; color:#d2c4dc; border-color:#3a2d45; box-shadow:0 25px 60px rgba(0,0,0,0.6); }
+  body.night-mode .modal-card h2, body.night-mode .drawer-title { color:#a895be; }
+  body.night-mode .modal-card p, body.night-mode .drawer-links a, body.night-mode .burrow-text { color:#a493b2; }
+  body.night-mode .amount-btn, body.night-mode .map-card, body.night-mode .goal-container, body.night-mode .treat-item, body.night-mode .adopt-name-input, body.night-mode .animal-select-pill, body.night-mode .burrow-textarea, body.night-mode .puzzle-piece, body.night-mode .tribute-input { background:#241d2c; border-color:#3f324d; color:#c7b2d6; }
+  body.night-mode .animal-select-pill.selected { background:#68527a; color:#fff; }
+  body.night-mode .btn { background:linear-gradient(135deg,#68527a,#4c3b5c); box-shadow:0 8px 20px rgba(76,59,92,0.3); }
+  body.night-mode .btn.secondary-btn { background:rgba(40,32,48,0.9); color:#c7b2d6; }
+  body.night-mode .sticker { background:#221a2b; border-color:#4a3b5c; animation: slowBob 6s ease-in-out infinite; }
+  body.night-mode .speech-bubble { background:#221a2b; color:#d2c4dc; border:1px solid #4a3b5c; }
+  body.night-mode #impact-ticker { background:rgba(50, 40, 60, 0.9); color:#d2c4dc; }
+
+  section {
+    position:relative;
+    height:100vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    color:#5b3a4d;
+  }
+
+  .bg-photo {
+    position:absolute; inset:0;
+    background-size:cover;
+    background-position:center;
+    transition: transform 1s ease, filter 0.8s ease;
+  }
+  body.night-mode .bg-photo { filter: saturate(0.45) brightness(0.7); }
+  section:hover .bg-photo { transform:scale(1.03); }
+
+  .bg-overlay {
+    position:absolute; inset:0;
+    z-index:1;
+  }
+
+  /* Navbar */
+  .navbar {
+    position:absolute; top:0; left:0; right:0;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 40px;
+    z-index:10;
+  }
+  .logo {
+    font-family:'Baloo 2', cursive;
+    font-size:1.6rem;
+    font-weight:800;
+    color:#fff;
+    text-shadow:0 2px 8px rgba(0,0,0,0.25);
+    cursor:pointer;
+    transition:transform 0.3s;
+  }
+  .logo:hover { transform:scale(1.05); }
+  .logo span { color:#ffd6e8; }
+  .menu-icon { 
+    font-size:1.5rem; color:#fff; cursor:pointer; 
+    text-shadow:0 2px 8px rgba(0,0,0,0.25); 
+    transition:transform 0.3s;
+  }
+  .menu-icon:hover { transform:rotate(90deg) scale(1.1); }
+
+  /* Navigation Dots */
+  .dots {
+    position:absolute; right:36px; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:14px; z-index:10;
+  }
+  .dot {
+    width:12px; height:12px; border-radius:50%;
+    background:rgba(255,255,255,0.55);
+    border:2px solid rgba(255,255,255,0.85);
+    transition:0.3s;
+    cursor:pointer;
+  }
+  .dot:hover { transform:scale(1.4); background:#fff; }
+  .dot.active { background:#ff8fb1; border-color:#fff; transform:scale(1.3); }
+
+  /* Content Block */
+  .content {
+    position:relative;
+    z-index:5;
+    max-width:540px;
+    margin-left:8%;
+    padding:20px;
+    animation:fadeInLeft 0.8s ease-out;
+  }
+  @keyframes fadeInLeft {
+    from { opacity:0; transform:translateX(-30px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  .content h1 {
+    font-family:'Baloo 2', cursive;
+    font-size:3rem;
+    font-weight:800;
+    line-height:1.15;
+    color:#fff;
+    text-shadow:0 3px 14px rgba(0,0,0,0.35);
+    margin-bottom:14px;
+  }
+  .content .divider {
+    width:60px; height:4px;
+    background:#fff;
+    border-radius:10px;
+    margin-bottom:16px;
+    opacity:0.9;
+  }
+  .content p {
+    font-size:1.05rem;
+    color:#fff;
+    line-height:1.6;
+    margin-bottom:24px;
+    text-shadow:0 1px 8px rgba(0,0,0,0.3);
+    max-width:430px;
+  }
+
+  /* Button layout */
+  .btn-group { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn {
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:linear-gradient(135deg,#ff9fc0,#ff7aa8);
+    color:#fff;
+    font-weight:700;
+    font-family:'Baloo 2', cursive;
+    padding:12px 26px;
+    border-radius:50px;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(255,122,168,0.5);
+    transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border:none;
+    cursor:pointer;
+    font-size:0.95rem;
+    z-index:2;
+  }
+  .btn.secondary-btn {
+    background:rgba(255,255,255,0.85);
+    color:#d04877;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  }
+  .btn:hover { transform:translateY(-4px) scale(1.05); box-shadow:0 12px 26px rgba(255,122,168,0.65); }
+  .btn:active { transform:translateY(-1px) scale(0.97); }
+
+  /* Sticker Mascots + Speech Bubbles */
+  .sticker-container {
+    position:absolute; right:8%; bottom:8%; z-index:6;
+    display:flex; flex-direction:column; align-items:flex-end;
+  }
+  .sticker {
+    width:170px; height:170px;
+    background:#fff; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:5.5rem;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25), 0 0 0 8px rgba(255,255,255,0.4);
+    animation:bob 4s ease-in-out infinite;
+    border:5px dashed #ffb6cf; cursor:pointer;
+    transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s, background 0.3s;
+    user-select:none;
+  }
+  .sticker:hover { transform:scale(1.18) rotate(-6deg); }
+  .speech-bubble {
+    background:#fff; color:#e0578a; font-family:'Baloo 2', cursive; font-weight:700;
+    padding:8px 16px; border-radius:20px; font-size:0.95rem; margin-bottom:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15); opacity:0;
+    transform:translateY(10px) scale(0.8);
+    transition:all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events:none; max-width:210px; text-align:center;
+  }
+  .speech-bubble.show { opacity:1; transform:translateY(0) scale(1); }
+
+  @keyframes bob {
+    0%,100% { transform:translateY(0) rotate(-4deg); }
+    50% { transform:translateY(-14px) rotate(4deg); }
+  }
+  @keyframes slowBob {
+    0%,100% { transform:translateY(0) rotate(-1deg); }
+    50% { transform:translateY(-6px) rotate(1deg); }
+  }
+
+  .float-deco {
+    position:absolute; font-size:2rem; opacity:0.8;
+    animation:float 6s ease-in-out infinite; z-index:2; pointer-events:none;
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0) rotate(0deg); }
+    50% { transform:translateY(-18px) rotate(8deg); }
+  }
+
+  /* Floating Controls Menu - split left/right, anchored top */
+  .floating-controls-left,
+  .floating-controls-right {
+    position:fixed; top:70px;
+    display:flex; flex-direction:column; gap:8px; z-index:999;
+    max-height:70vh; overflow-y:auto; padding-bottom:10px;
+  }
+  .floating-controls-left { left:20px; align-items:flex-start; }
+  .floating-controls-right { right:20px; align-items:flex-end; }
+
+  @media (max-width: 768px){
+    .floating-controls-left, .floating-controls-right {
+      max-width:150px;
+    }
+    .floating-pill { font-size:0.75rem; padding:6px 10px; }
+  }
+  .floating-pill {
+    background:rgba(255,255,255,0.9); backdrop-filter:blur(5px);
+    border:2px solid #ffb6cf; color:#d04877; padding:8px 14px;
+    border-radius:30px; font-family:'Baloo 2', cursive; font-weight:700;
+    font-size:0.85rem; cursor:pointer; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s; display:flex; align-items:center; gap:6px;
+  }
+  body.night-mode .floating-pill { background:rgba(26,21,32,0.9); border-color:#3f324d; color:#c7b2d6; }
+  .floating-pill:hover { background:#fff; transform:scale(1.05); }
+  body.night-mode .floating-pill:hover { background:#241d2c; }
+
+  /* Impact Ticker Banner Top */
+  #impact-ticker {
+    position:fixed; top:0; left:0; right:0; height:32px;
+    background:rgba(255, 143, 177, 0.9); backdrop-filter:blur(6px);
+    z-index:9998; color:#fff; font-family:'Baloo 2', cursive; font-weight:700;
+    font-size:0.85rem; display:flex; align-items:center; justify-content:center;
+    overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    transition:transform 0.3s ease, background 0.3s ease;
+  }
+  .ticker-content { display:inline-block; white-space:nowrap; animation:tickerScroll 16s linear infinite; }
+  @keyframes tickerScroll {
+    0% { transform:translateX(40vw); }
+    100% { transform:translateX(-50vw); }
+  }
+
+  /* Slide-out Menu Drawer */
+  #menu-drawer {
+    position:fixed; top:0; right:-320px; width:300px; height:100%;
+    background:rgba(255, 240, 245, 0.95); backdrop-filter:blur(12px);
+    z-index:10000; box-shadow:-5px 0 30px rgba(0,0,0,0.15);
+    transition:right 0.4s cubic-bezier(0.77, 0, 0.175, 1), background 0.3s ease;
+    display:flex; flex-direction:column; padding:40px 30px;
+  }
+  #menu-drawer.open { right:0; }
+  .drawer-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; }
+  .drawer-title { font-family:'Baloo 2', cursive; font-size:1.5rem; font-weight:800; color:#d04877; }
+  .close-drawer { font-size:1.5rem; cursor:pointer; color:#d04877; transition:transform 0.3s; }
+  .close-drawer:hover { transform:rotate(90deg); }
+  .drawer-links { display:flex; flex-direction:column; gap:16px; }
+  .drawer-links a {
+    text-decoration:none; color:#5b3a4d; font-family:'Baloo 2', cursive;
+    font-size:1.2rem; font-weight:600; transition:0.2s; display:flex; align-items:center; gap:10px;
+  }
+  .drawer-links a:hover { color:#ff7aa8; transform:translateX(6px); }
+
+  /* General Modals */
+  .modal-overlay {
+    position:fixed; inset:0; background:rgba(91, 58, 77, 0.4);
+    backdrop-filter:blur(5px); z-index:20000;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden; transition:0.3s ease;
+  }
+  .modal-overlay.active { opacity:1; visibility:visible; }
+  .modal-card {
+    background:#fff; width:90%; max-width:440px; border-radius:30px;
+    padding:35px 30px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.2);
+    border:6px solid #ffe3ec; position:relative;
+    transform:scale(0.8); transition:transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s;
+  }
+  .modal-overlay.active .modal-card { transform:scale(1); }
+  .modal-card h2 { font-family:'Baloo 2', cursive; color:#d04877; font-size:2rem; margin-bottom:10px; }
+  .modal-card p { color:#7a5c6d; font-size:0.95rem; margin-bottom:20px; }
+  .close-modal { position:absolute; top:15px; right:20px; font-size:1.3rem; color:#bfa2b3; cursor:pointer; transition:0.2s; }
+  .close-modal:hover { color:#d04877; }
+
+  /* Donation specific styles */
+  .amount-options { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-bottom:20px; }
+  .amount-btn {
+    background:#fff5f8; border:2px solid #ffb6cf; border-radius:15px; padding:10px;
+    font-family:'Baloo 2', cursive; font-size:1.1rem; font-weight:700; color:#d04877; cursor:pointer; transition:0.2s;
+  }
+  .amount-btn:hover, .amount-btn.selected { background:#ff7aa8; color:#fff; border-color:#ff7aa8; transform:translateY(-2px); }
+  body.night-mode .amount-btn:hover, body.night-mode .amount-btn.selected { background:#68527a; border-color:#68527a; color:#fff; }
+  
+  .modal-submit {
+    width:100%; padding:14px; border-radius:20px; background:linear-gradient(135deg,#ff9fc0,#ff7aa8);
+    color:#fff; font-family:'Baloo 2', cursive; font-size:1.1rem; font-weight:700; border:none; cursor:pointer;
+    box-shadow:0 6px 15px rgba(255,122,168,0.4); transition:0.2s;
+  }
+  .modal-submit:hover { transform:scale(1.02); }
+
+  .goal-container { background:#fff5f8; border-radius:15px; padding:12px; margin-bottom:20px; }
+  .goal-text { font-size:0.85rem; font-weight:700; color:#d04877; margin-bottom:6px; display:flex; justify-content:space-between; }
+  body.night-mode .goal-text { color:#c7b2d6; }
+  .progress-bar-bg { width:100%; height:10px; background:#ffd6e8; border-radius:5px; overflow:hidden; }
+  body.night-mode .progress-bar-bg { background:#3a2d45; }
+  .progress-bar-fill { width:0%; height:100%; background:linear-gradient(90deg,#ff7aa8,#ffb6cf); border-radius:5px; transition:width 0.3s ease; }
+  body.night-mode .progress-bar-fill { background:linear-gradient(90deg,#68527a,#a895be); }
+
+  /* Mini-Game Updated Styling */
+  .game-treat-area { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:20px 0; }
+  .treat-item { cursor:pointer; padding:12px; background:#fff5f8; border:2px dashed #ffb6cf; border-radius:15px; font-size:1.8rem; transition:0.2s; text-align:center; }
+  .treat-item:hover { transform:scale(1.1) rotate(5deg); background:#ffd6e8; }
+  body.night-mode .treat-item:hover { background:#3a2d45; }
+
+  /* Adoption Modal Custom Animal Selectors & Cute Message Pop */
+  .animal-select-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-bottom:15px; }
+  .animal-select-pill {
+    background:#fff5f8; border:2px solid #ffb6cf; border-radius:12px; padding:8px 4px;
+    font-family:'Baloo 2', cursive; font-size:0.9rem; font-weight:700; color:#d04877; cursor:pointer; transition:0.2s;
+  }
+  .animal-select-pill:hover, .animal-select-pill.selected { background:#ff7aa8; color:#fff; border-color:#ff7aa8; transform:scale(1.05); }
+
+  .cert-box {
+    border:4px dashed #ff7aa8; padding:18px; border-radius:20px; background:#fff9fb; margin-bottom:15px; text-align:center;
+  }
+  body.night-mode .cert-box { background:#241d2c; border-color:#4a3b5c; }
+  .cert-box h3 { font-family:'Baloo 2', cursive; color:#d04877; font-size:1.4rem; }
+  body.night-mode .cert-box h3 { color:#a895be; }
+  .cert-box p { font-size:0.85rem; color:#5b3a4d; margin:4px 0; }
+  body.night-mode .cert-box p { color:#a493b2; }
+  .adopt-name-input {
+    width:100%; padding:12px; border-radius:15px; border:2px solid #ffb6cf;
+    font-family:'Quicksand', sans-serif; font-size:1rem; margin-bottom:12px; text-align:center; outline:none; background:#fff;
+  }
+
+  /* Cute Adoption Pop-up Modal (Success Banner) */
+  .cute-popup-card {
+    background:linear-gradient(135deg, #fff5f9, #ffe3ec);
+    border:5px solid #ff7aa8; border-radius:35px; padding:30px; text-align:center;
+    animation:popupBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow:0 25px 60px rgba(255,122,168,0.4);
+  }
+  body.night-mode .cute-popup-card { background:linear-gradient(135deg, #1a1520, #241d2c); border-color:#4a3b5c; }
+  @keyframes popupBounce {
+    0% { transform:scale(0.5); opacity:0; }
+    100% { transform:scale(1); opacity:1; }
+  }
+  .cute-popup-card h2 { font-family:'Baloo 2', cursive; color:#d04877; font-size:2.2rem; margin-bottom:10px; }
+  body.night-mode .cute-popup-card h2 { color:#a895be; }
+  .cute-popup-card p { color:#7a5c6d; font-size:1.05rem; margin-bottom:20px; line-height:1.5; }
+  body.night-mode .cute-popup-card p { color:#a493b2; }
+
+  /* Habitat Map */
+  .map-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; margin-bottom:15px; }
+  .map-card {
+    background:#fff5f8; border:2px solid #ffb6cf; border-radius:18px; padding:15px;
+    cursor:pointer; transition:0.2s; text-align:center;
+  }
+  .map-card:hover { background:#ff7aa8; color:#fff; transform:translateY(-3px); border-color:#ff7aa8; }
+  body.night-mode .map-card:hover { background:#68527a; border-color:#68527a; }
+  .map-card h4 { font-family:'Baloo 2', cursive; font-size:1.1rem; margin-top:4px; }
+  .map-card span { font-size:2rem; }
+
+  /* Pet Booth Photo Frame */
+  .booth-preview {
+    width:160px; height:160px; border-radius:50%; margin:0 auto 15px auto;
+    border:4px dashed #ffb6cf; overflow:hidden; position:relative; background:#fff5f8;
+    display:flex; align-items:center; justify-content:center;
+  }
+  body.night-mode .booth-preview { background:#241d2c; border-color:#4a3b5c; }
+  .booth-preview img { width:100%; height:100%; object-fit:cover; display:none; }
+  .booth-preview .placeholder-text { font-size:0.8rem; color:#bfa2b3; padding:10px; text-align:center; }
+  .overlay-sticker { position:absolute; top:5px; right:15px; font-size:2.3rem; filter:drop-shadow(0 2px 5px rgba(0,0,0,0.2)); }
+  .sticker-select-group { display:flex; justify-content:center; gap:10px; margin-bottom:15px; }
+  .sticker-option-btn { background:#fff5f8; border:2px solid #ffb6cf; border-radius:12px; padding:6px 12px; cursor:pointer; font-size:1.3rem; transition:0.2s; }
+  body.night-mode .sticker-option-btn { background:#241d2c; border-color:#3f324d; color:#c7b2d6; }
+  .sticker-option-btn.active { background:#ff7aa8; border-color:#ff7aa8; transform:scale(1.1); }
+  body.night-mode .sticker-option-btn.active { background:#68527a; border-color:#68527a; }
+
+  /* Constellation Sky Overlay & Secret Burrow */
+  .constellation-layer {
+    position:absolute; inset:0; pointer-events:none; z-index:3; overflow:hidden; opacity:0; transition:opacity 0.8s ease;
+  }
+  body.night-mode .constellation-layer { opacity:1; }
+  .star-node {
+    position:absolute; font-size:1.2rem; cursor:pointer; pointer-events:auto;
+    animation:starTwinkle 3s ease-in-out infinite; transition:transform 0.3s;
+  }
+  .star-node:hover { transform:scale(1.5); }
+  @keyframes starTwinkle {
+    0%, 100% { opacity:0.4; transform:scale(0.9); }
+    50% { opacity:1; transform:scale(1.2); filter:drop-shadow(0 0 8px #fff); }
+  }
+
+  /* Secret Burrow Time Capsule */
+  .burrow-textarea {
+    width:100%; height:90px; padding:12px; border-radius:15px; border:2px solid #ffb6cf;
+    font-family:'Quicksand', sans-serif; font-size:0.95rem; margin-bottom:12px; outline:none; resize:none; background:#fff;
+  }
+  .burrow-list { max-height:140px; overflow-y:auto; text-align:left; margin-bottom:15px; display:flex; flex-direction:column; gap:8px; }
+  .burrow-item { background:#fff5f8; padding:8px 12px; border-radius:12px; border:1px solid #ffd6e8; font-size:0.85rem; color:#7a5c6d; }
+  body.night-mode .burrow-item { background:#241d2c; border-color:#3f324d; color:#a493b2; }
+
+  /* Feature Additions Styling (Puzzle, Weather Overlay, Night Safari Flashlight, Tributes) */
+  #weather-overlay {
+    position:fixed; inset:0; pointer-events:none; z-index:9990; overflow:hidden; display:none;
+  }
+  #weather-overlay.active { display:block; }
+  .weather-particle {
+    position:absolute; top:-20px; font-size:1.2rem; animation:weatherFall linear infinite;
+  }
+  @keyframes weatherFall {
+    0% { transform:translateY(0) rotate(0deg); opacity:0.8; }
+    100% { transform:translateY(105vh) rotate(360deg); opacity:0.2; }
+  }
+
+  .puzzle-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; width:220px; height:220px; margin:0 auto 15px auto; background:#ffd6e8; padding:6px; border-radius:15px; }
+  .puzzle-piece {
+    background:#fff5f8; border:2px solid #ffb6cf; border-radius:10px; font-family:'Baloo 2', cursive;
+    font-size:1.4rem; font-weight:700; color:#d04877; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:0.2s;
+  }
+  .puzzle-piece:hover { background:#ff7aa8; color:#fff; }
+
+  #flashlight-layer {
+    position:fixed; inset:0; pointer-events:none; z-index:9995; display:none;
+    background:radial-gradient(circle 130px at 50% 50%, rgba(0,0,0,0) 0%, rgba(5,3,8,0.92) 100%);
+  }
+  #flashlight-layer.active { display:block; }
+
+  .tribute-list { max-height:130px; overflow-y:auto; margin-bottom:12px; display:flex; flex-direction:column; gap:6px; text-align:left; }
+  .tribute-item { background:#fff5f8; border:1px solid #ffd6e8; padding:8px 12px; border-radius:12px; font-size:0.85rem; color:#7a5c6d; }
+  body.night-mode .tribute-item { background:#241d2c; border-color:#3f324d; color:#a493b2; }
+  .tribute-input { width:100%; padding:10px; border-radius:12px; border:2px solid #ffb6cf; font-family:'Quicksand',sans-serif; margin-bottom:10px; outline:none; }
+
+  /* Loading screen */
+  #loading-screen {
+    position:fixed; inset:0; background:linear-gradient(135deg,#ffc1d9,#ffe3ec);
+    z-index:99999; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.6s ease, visibility 0.6s ease;
+  }
+  #loading-screen.hidden { opacity:0; visibility:hidden; }
+  .loading-heart { font-size:4rem; animation:heartbeat 1.1s ease-in-out infinite; }
+  @keyframes heartbeat {
+    0%, 100% { transform:scale(1); }
+    25% { transform:scale(1.25); }
+    40% { transform:scale(0.95); }
+    60% { transform:scale(1.15); }
+  }
+  .loading-text { margin-top:14px; font-family:'Baloo 2', cursive; font-weight:700; color:#e0578a; font-size:1.1rem; }
+
+  /* Confetti and cursor sparkles */
+  .cursor-sparkle {
+    position:fixed; font-size:1rem; pointer-events:none; z-index:40000;
+    animation:sparkleFade 0.6s ease-out forwards;
+  }
+  @keyframes sparkleFade {
+    0% { transform:scale(1) translateY(0); opacity:1; }
+    100% { transform:scale(0.3) translateY(-25px); opacity:0; }
+  }
+
+  @media (max-width: 768px){
+    .content { margin-left:6%; max-width:82%; }
+    .content h1 { font-size:2rem; }
+    .sticker-container { right:6%; bottom:6%; }
+    .sticker { width:110px; height:110px; font-size:3.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loading-heart">💗</div>
+  <div class="loading-text">loading cuteness...</div>
+</div>
+
+<!-- Weather Particles Overlay -->
+<div id="weather-overlay"></div>
+
+<!-- Night Safari Flashlight Overlay -->
+<div id="flashlight-layer"></div>
+
+<!-- Impact Ticker Banner -->
+<div id="impact-ticker">
+  <div class="ticker-content" id="ticker-text-content">✨ Welcome to Sweetwish! 🎀 Maya from Tokyo just adopted a bunny 2 mins ago! 🌸 Liam from London sent $30 to protect Panda Forests! 🐼 Over 1,420 habitat acres secured this week! 🎉</div>
+</div>
+
+<!-- Floating Side Menu Drawer -->
+<div id="menu-drawer">
+  <div class="drawer-header">
+    <div class="drawer-title" id="drawer-title-text">Sweetwish Menu 🎀</div>
+    <div class="close-drawer" id="close-drawer-btn">✕</div>
+  </div>
+  <div class="drawer-links">
+    <a href="#hero">🐰 Cute Bunnies</a>
+    <a href="#panda">🐼 Giant Pandas</a>
+    <a href="#fox">🦊 Arctic Foxes</a>
+    <a href="#hedgehog">🦔 Tiny Hedgehogs</a>
+    <a href="#cat">🐱 Rescue Kittens</a>
+    <a href="#hamster">🐹 Hamster Hub</a>
+  </div>
+</div>
+
+<!-- Donation Modal -->
+<div class="modal-overlay" id="donation-modal-overlay">
+  <div class="modal-card">
+    <div class="close-modal" id="close-donate-modal">✕</div>
+    <h2 id="donate-modal-title">Spread the Love 💖</h2>
+    <p id="donate-modal-desc">Choose an amount to support safe wild habitats & rescue care!</p>
+    
+    <div class="goal-container">
+      <div class="goal-text"><span id="goal-label-text">Daily Rescue Goal: $720</span><span id="current-raised">$520 raised</span></div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:72%;"></div></div>
+    </div>
+
+    <div class="amount-options">
+      <button class="amount-btn" data-amt="5">$5 🥕</button>
+      <button class="amount-btn selected" data-amt="15">$15 🍓</button>
+      <button class="amount-btn" data-amt="30">$30 🍯</button>
+    </div>
+    <button class="modal-submit" id="confirm-donate-btn">Send $15 Donation ✨</button>
+  </div>
+</div>
+
+<!-- Mini-Game Modal -->
+<div class="modal-overlay" id="game-modal-overlay">
+  <div class="modal-card">
+    <div class="close-modal" id="close-game-modal">✕</div>
+    <h2>Feed the <span id="game-animal-name">Bunny</span>! 🥕</h2>
+    <p id="game-instructions">Feed favorite treats (+20%), avoid disliked snacks (-20%)!</p>
+    
+    <div class="goal-container">
+      <div class="goal-text"><span>Happy Level</span><span id="happy-meter-text">0% Full</span></div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="happy-progress-fill"></div></div>
+    </div>
+
+    <div class="game-treat-area">
+      <div class="treat-item" data-food="good" data-name="Carrot">🥕 Carrot</div>
+      <div class="treat-item" data-food="good" data-name="Berry">🍓 Berry</div>
+      <div class="treat-item" data-food="bad" data-name="Lemon">🍋 Lemon ⚡</div>
+      <div class="treat-item" data-food="good" data-name="Honey">🍯 Honey</div>
+      <div class="treat-item" data-food="bad" data-name="Pepper">🌶️ Pepper 🔥</div>
+      <div class="treat-item" data-food="good" data-name="Clover">🌿 Clover</div>
+    </div>
+    <p id="game-reward-msg" style="font-family:'Baloo 2', cursive; font-weight:700; color:#d04877; min-height:24px; font-size:0.95rem;"></p>
+  </div>
+</div>
+
+<!-- Virtual Adoption Certificate Modal -->
+<div class="modal-overlay" id="adopt-modal-overlay">
+  <div class="modal-card">
+    <div class="close-modal" id="close-adopt-modal">✕</div>
+    <h2>Adopt Any Cutie 🐾</h2>
+    <p>Choose your companion and type your name for your official certificate!</p>
+    
+    <div class="animal-select-grid">
+      <div class="animal-select-pill selected" data-animal="Bunny" data-emoji="🐰">🐰 Bunny</div>
+      <div class="animal-select-pill" data-animal="Panda" data-emoji="🐼">🐼 Panda</div>
+      <div class="animal-select-pill" data-animal="Fox" data-emoji="🦊">🦊 Fox</div>
+      <div class="animal-select-pill" data-animal="Hedgehog" data-emoji="🦔">🦔 Hedgehog</div>
+      <div class="animal-select-pill" data-animal="Kitten" data-emoji="🐱">🐱 Kitten</div>
+      <div class="animal-select-pill" data-animal="Hamster" data-emoji="🐹">🐹 Hamster</div>
+    </div>
+
+    <input type="text" class="adopt-name-input" id="adopter-name-input" placeholder="Your wonderful name...">
+    
+    <div class="cert-box" id="cert-box">
+      <h3>🌸 Sweetwish Official Certificate 🌸</h3>
+      <p>This certifies that <b><span id="display-adopter-name">Kind Friend</span></b></p>
+      <p>is the proud guardian of a sweet <span id="display-chosen-animal">Bunny</span> 🐰!</p>
+      <p style="font-size:0.75rem; color:#bfa2b3; margin-top:6px;">Serial No: SW-2026-LOVE</p>
+    </div>
+
+    <button class="modal-submit" id="download-cert-btn">Claim Adoption Badge 🎉</button>
+  </div>
+</div>
+
+<!-- Cute Adoption Success Pop-up UI/UX Modal -->
+<div class="modal-overlay" id="success-popup-overlay">
+  <div class="cute-popup-card">
+    <div style="font-size:4rem; margin-bottom:10px;" id="success-popup-emoji">🐰🎉</div>
+    <h2>Yay! Welcome Home!</h2>
+    <p><b><span id="success-adopter-display">Friend</span></b> has officially adopted <span id="success-animal-display">Bunny</span> into the Sweetwish family with endless love! 💖✨</p>
+    <button class="modal-submit" id="close-success-popup">Aww, So Sweet! 🌸</button>
+  </div>
+</div>
+
+<!-- Habitat Map Modal -->
+<div class="modal-overlay" id="map-modal-overlay">
+  <div class="modal-card">
+    <div class="close-modal" id="close-map-modal">✕</div>
+    <h2>Habitat Teleport 🗺️</h2>
+    <p>Click any sanctuary region to instantly visit!</p>
+    <div class="map-grid">
+      <div class="map-card" data-target="hero"><span>🌿</span><h4>Bunny Meadows</h4></div>
+      <div class="map-card" data-target="panda"><span>🎋</span><h4>Bamboo Peaks</h4></div>
+      <div class="map-card" data-target="fox"><span>❄️</span><h4>Arctic Tundra</h4></div>
+      <div class="map-card" data-target="hedgehog"><span>🌸</span><h4>Garden Patch</h4></div>
+      <div class="map-card" data-target="cat"><span>🧶</span><h4>Rescue Haven</h4></div>
+      <div class="map-card" data-target="hamster"><span>🌻</span><h4>Hamster Home</h4></div>
+    </div>
+  </div>
+</div>
+
+<!-- Pet Booth Photo Frame Modal -->
+<div class="modal-overlay" id="booth-modal-overlay">
+  <div class="modal-card">
+    <div class="close-modal" id="close-booth-modal">✕</div>
+    <h2>Pet Booth Mode 📸</h2>
+    <p>Upload your photo and add cute Sweetwish animal ears!</p>
+    
+    <div class="booth-preview" id="booth-frame">
+      <span class="placeholder-text" id="booth-placeholder">Upload photo below 👇</span>
+      <img id="user-photo-preview" src="" alt="User photo">
+      <div class="overlay-sticker" id="active-booth-sticker">🐰</div>
+    </div>
+
+    <div class="sticker-select-group">
+      <button class="sticker-option-btn active" data-sticker="🐰">🐰</button>
+      <button class="sticker-option-btn" data-sticker="🐼">🐼</button>
+      <button class="sticker-option-btn" data-sticker="🦊">🦊</button>
+      <button class="sticker-option-btn" data-sticker="🐱">🐱</button>
+    </div>
+
+    <input type="file" id="photo-upload-input" accept="image/*" style="display:none;">
+    <button class="modal-submit" id="upload-photo-trigger-btn">Upload Your Photo 📷</button>
+  </div>
+</div>
+
+<!-- Secret Burrow Time Capsule Modal -->
+<div class="modal-overlay" id="burrow-modal-overlay">
+  <div class="modal-card" style="max-width:480px;">
+    <div class="close-modal" id="close-burrow-modal">✕</div>
+    <h2>💌 Secret Burrow Time Capsule</h2>
+    <p>Bury a supportive note or wish in the virtual burrow for future visitors to discover!</p>
+    
+    <div class="burrow-list" id="burrow-notes-container">
+      <div class="burrow-item">✨ "Never lose hope, little foxes! Brighter days are coming!" – Sophie</div>
+      <div class="burrow-item">🎋 "Sending warm bamboo hugs from Canada to all the pandas!" – Leo</div>
+    </div>
+
+    <textarea class="burrow-textarea" id="burrow-input-text" placeholder="Write a kind message for a stranger or animal friend..."></textarea>
+    <button class="modal-submit" id="bury-note-btn">Bury Note in Sanctuary 🌸</button>
+  </div>
+</div>
+
+<!-- Rainbow Bridge Tribute Modal -->
+<div class="modal-overlay" id="tribute-modal-overlay">
+  <div class="modal-card" style="max-width:460px;">
+    <div class="close-modal" id="close-tribute-modal">✕</div>
+    <h2>🌈 Rainbow Bridge Tributes</h2>
+    <p>Honor beloved animal companions with floating lanterns and heartfelt messages.</p>
+    <div class="tribute-list" id="tribute-container">
+      <div class="tribute-item">🏮 "Rest peacefully, sweet Max. You brought immense joy to our lives." – Clara</div>
+    </div>
+    <input type="text" class="tribute-input" id="tribute-name-input" placeholder="Companion name (e.g., Barnaby)...">
+    <textarea class="tribute-input" id="tribute-msg-input" placeholder="Your loving remembrance message..." style="height:70px; resize:none;"></textarea>
+    <button class="modal-submit" id="send-tribute-btn">Release Floating Lantern 🏮</button>
+  </div>
+</div>
+
+<!-- Puzzle Mini-Game Modal -->
+<div class="modal-overlay" id="puzzle-modal-overlay">
+  <div class="modal-card">
+    <div class="close-modal" id="close-puzzle-modal">✕</div>
+    <h2>🧩 Habitat Rescue Puzzle</h2>
+    <p>Click adjacent pieces to slide and restore the sanctuary image layout!</p>
+    <div class="puzzle-grid" id="puzzle-board">
+      <!-- Generated dynamically -->
+    </div>
+    <p id="puzzle-status-msg" style="font-family:'Baloo 2', cursive; font-weight:700; color:#d04877; font-size:0.95rem;"></p>
+  </div>
+</div>
+
+<!-- Floating Controls: games/features on the LEFT -->
+<div class="floating-controls-left">
+  <div class="floating-pill" id="open-game-btn">🎮 Feed Game</div>
+  <div class="floating-pill" id="open-puzzle-btn">🧩 Puzzle Game</div>
+  <div class="floating-pill" id="open-map-btn">🗺️ Habitat Map</div>
+  <div class="floating-pill" id="open-booth-btn">📸 Pet Booth</div>
+  <div class="floating-pill" id="open-burrow-btn">💌 Secret Burrow</div>
+  <div class="floating-pill" id="open-tribute-btn">🌈 Rainbow Bridge</div>
+</div>
+
+<!-- Floating Controls: toggle switches on the RIGHT -->
+<div class="floating-controls-right">
+  <div class="floating-pill" id="safari-toggle">🔦 Night Safari: <span id="safari-status">Off</span></div>
+  <div class="floating-pill" id="weather-toggle">🌦️ Eco-Weather: <span id="weather-status">Off</span></div>
+  <div class="floating-pill" id="vibe-toggle">🎶 Sound: <span id="vibe-status">Off</span></div>
+  <div class="floating-pill" id="night-mode-toggle">🌙 Mood: <span id="night-status">Day ☀️</span></div>
+</div>
+
+<!-- HERO / BUNNY -->
+<section id="hero" data-animal="Bunnies" data-emoji="🐰">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=1600&q=80');"></div>
+  <div class="bg-overlay" style="background:linear-gradient(120deg, rgba(255,140,180,0.75), rgba(255,225,235,0.35));"></div>
+  <div class="constellation-layer">
+    <div class="star-node" style="top:20%; left:25%;" data-note="✨ Star #1: 'A warm light for every stray bunny.' – Elena">⭐</div>
+    <div class="star-node" style="top:35%; left:65%;" data-note="💖 Star #2: 'May all forest friends find shelter.' – Marcus">🌟</div>
+    <div class="star-node" style="top:65%; left:30%;" data-note="✨ Star #3: 'You are never truly alone in the dark.' – Yuki">⭐</div>
+  </div>
+  <div class="navbar"><div class="logo">Sweet<span>wish</span> 🎀</div><div class="menu-icon" id="menu-btn-1">☰</div></div>
+  <span class="float-deco" style="top:15%; left:78%;">🌸</span>
+  <span class="float-deco" style="top:75%; left:70%; animation-delay:2s;">✨</span>
+  
+  <div class="sticker-container">
+    <div class="speech-bubble" id="bubble-hero">Hop hop! Feed me carrots! 🥕</div>
+    <div class="sticker" data-day-quotes='["Hop hop! Feed me carrots! 🥕", "Did someone say clover time? 🌿", "Boop my little pink nose! 💕"]' data-night-quotes='["The cold wind is howling outside...", "Nobody has visited me all night...", "I am so tired of waiting in the dark... 🌧️"]'>🐰</div>
+  </div>
+
+  <div class="content">
+    <h1 id="hero-title">Let's Save the<br>Cutest Little Bunnies!</h1>
+    <div class="divider"></div>
+    <p id="hero-desc">Every bunny deserves a safe, fluffy home. Help us protect wild rabbit habitats from disappearing forever~</p>
+    <div class="btn-group">
+      <button class="btn donate-btn">💗 Donate with Love</button>
+      <button class="btn secondary-btn adopt-btn">🐾 Adopt Bunny</button>
+    </div>
+  </div>
+  <div class="dots"><div class="dot active" data-index="0"></div><div class="dot" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div></div>
+</section>
+
+<!-- PANDA -->
+<section id="panda" data-animal="Pandas" data-emoji="🐼">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=1600&q=80');"></div>
+  <div class="bg-overlay" style="background:linear-gradient(120deg, rgba(180,150,255,0.7), rgba(240,235,255,0.35));"></div>
+  <div class="constellation-layer">
+    <div class="star-node" style="top:25%; left:45%;" data-note="🎋 Star #4: 'Protect the bamboo sanctuaries at all costs!' – Chen">🌟</div>
+    <div class="star-node" style="top:70%; left:80%;" data-note="💜 Star #5: 'Sending quiet strength to the mountains.' – Sarah">⭐</div>
+  </div>
+  <div class="navbar"><div class="logo">Sweet<span>wish</span> 🎀</div><div class="menu-icon" id="menu-btn-2">☰</div></div>
+  <span class="float-deco" style="top:18%; left:75%;">💜</span>
+  
+  <div class="sticker-container">
+    <div class="speech-bubble">Got any bamboo snacks? 🎋</div>
+    <div class="sticker" data-day-quotes='["Got any bamboo snacks? 🎋", "Naptime is my superpower! 🐼", "Chubby hugs incoming! 💜"]' data-night-quotes='["The bamboo forest is so empty now...", "I miss the warm sun so much...", "Will anyone remember me tomorrow? 🐼💧"]'>🐼</div>
+  </div>
+
+  <div class="content">
+    <h1 id="panda-title">Giant Panda</h1>
+    <div class="divider"></div>
+    <p id="panda-desc">Pandas munch on bamboo all day and are one of the most beloved endangered species. Let's give them more forest to roam and play in!</p>
+    <div class="btn-group">
+      <button class="btn donate-btn">💗 Donate with Love</button>
+      <button class="btn secondary-btn adopt-btn">🐾 Adopt Panda</button>
+    </div>
+  </div>
+  <div class="dots"><div class="dot" data-index="0"></div><div class="dot active" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div></div>
+</section>
+
+<!-- FOX -->
+<section id="fox" data-animal="Foxes" data-emoji="🦊">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=1600&q=80');"></div>
+  <div class="bg-overlay" style="background:linear-gradient(120deg, rgba(255,170,110,0.7), rgba(255,240,220,0.35));"></div>
+  <div class="constellation-layer">
+    <div class="star-node" style="top:40%; left:15%;" data-note="❄️ Star #6: 'Warm fires for the arctic snow.' – Liam">⭐</div>
+  </div>
+  <div class="navbar"><div class="logo">Sweet<span>wish</span> 🎀</div><div class="menu-icon" id="menu-btn-3">☰</div></div>
+  <span class="float-deco" style="top:18%; left:75%;">🧡</span>
+  
+  <div class="sticker-container">
+    <div class="speech-bubble">Stay cozy in the snow! ❄️</div>
+    <div class="sticker" data-day-quotes='["Stay cozy in the snow! ❄️", "Look at my fluffy tail! 🦊", "Quick paws on the frost! ✨"]' data-night-quotes='["The frost bites deep tonight...", "My footprints wash away in the blizzard...", "So lonely under the pale moon... 🦊❄️"]'>🦊</div>
+  </div>
+
+  <div class="content">
+    <h1 id="fox-title">Arctic Fox</h1>
+    <div class="divider"></div>
+    <p id="fox-desc">With their snow-white winter coats, arctic foxes are true survivors of the cold. Climate change is shrinking their icy home fast.</p>
+    <div class="btn-group">
+      <button class="btn donate-btn">💗 Donate with Love</button>
+      <button class="btn secondary-btn adopt-btn">🐾 Adopt Fox</button>
+    </div>
+  </div>
+  <div class="dots"><div class="dot" data-index="0"></div><div class="dot" data-index="1"></div><div class="dot active" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div></div>
+</section>
+
+<!-- HEDGEHOG -->
+<section id="hedgehog" data-animal="Hedgehogs" data-emoji="🦔">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1504006833117-8886a355efbf?w=1600&q=80');"></div>
+  <div class="bg-overlay" style="background:linear-gradient(120deg, rgba(120,220,180,0.7), rgba(230,255,245,0.35));"></div>
+  <div class="constellation-layer">
+    <div class="star-node" style="top:30%; left:70%;" data-note="🌸 Star #7: 'Safe gardens for all tiny quill friends.' – Chloe">🌟</div>
+  </div>
+  <div class="navbar"><div class="logo">Sweet<span>wish</span> 🎀</div><div class="menu-icon" id="menu-btn-4">☰</div></div>
+  <span class="float-deco" style="top:18%; left:75%;">💚</span>
+  
+  <div class="sticker-container">
+    <div class="speech-bubble">Prickly on the outside! 🦔</div>
+    <div class="sticker" data-day-quotes='["Prickly on the outside! 🦔", "Soft belly scratches please~", "Sniffing out lovely gardens! 🌸"]' data-night-quotes='["I curl into a ball so nobody sees...", "The garden is abandoned and dark...", "My quills feel heavy with sorrow... 🦔"]'>🦔</div>
+  </div>
+
+  <div class="content">
+    <h1 id="hedgehog-title">Tiny Hedgehog</h1>
+    <div class="divider"></div>
+    <p id="hedgehog-desc">These pint-sized cuties help control garden pests naturally! Sadly, hedgehog numbers are dropping due to habitat loss.</p>
+    <div class="btn-group">
+      <button class="btn donate-btn">💗 Donate with Love</button>
+      <button class="btn secondary-btn adopt-btn">🐾 Adopt Hedgehog</button>
+    </div>
+  </div>
+  <div class="dots"><div class="dot" data-index="0"></div><div class="dot" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot active" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot" data-index="5"></div></div>
+</section>
+
+<!-- CAT -->
+<section id="cat" data-animal="Kittens" data-emoji="🐱">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=1600&q=80');"></div>
+  <div class="bg-overlay" style="background:linear-gradient(120deg, rgba(255,150,190,0.7), rgba(255,235,245,0.35));"></div>
+  <div class="constellation-layer">
+    <div class="star-node" style="top:55%; left:20%;" data-note="🐾 Star #8: 'Every rescue kitty deserves a cozy blanket.' – Maya">⭐</div>
+  </div>
+  <div class="navbar"><div class="logo">Sweet<span>wish</span> 🎀</div><div class="menu-icon" id="menu-btn-5">☰</div></div>
+  <span class="float-deco" style="top:18%; left:75%;">🎀</span>
+  
+  <div class="sticker-container">
+    <div class="speech-bubble">Purrfectly adoptable! 🐾</div>
+    <div class="sticker" data-day-quotes='["Purrfectly adoptable! 🐾", "Meow means I love you! 💖", "Got milk and warm blankets?"]' data-night-quotes='["Shivering by the rain-streaked window...", "Nobody came to the shelter today...", "Is anyone ever going to pick me? 😿"]'>🐱</div>
+  </div>
+
+  <div class="content">
+    <h1 id="cat-title">Rescue Kittens</h1>
+    <div class="divider"></div>
+    <p id="cat-desc">Every year, thousands of stray kittens need a warm home and a loving family. Your donation helps us rescue, heal, and rehome them.</p>
+    <div class="btn-group">
+      <button class="btn donate-btn">💗 Donate with Love</button>
+      <button class="btn secondary-btn adopt-btn">🐾 Adopt Kitten</button>
+    </div>
+  </div>
+  <div class="dots"><div class="dot" data-index="0"></div><div class="dot" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot active" data-index="4"></div><div class="dot" data-index="5"></div></div>
+</section>
+
+<!-- HAMSTER -->
+<section id="hamster" data-animal="Hamsters" data-emoji="🐹">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=1600&q=80');"></div>
+  <div class="bg-overlay" style="background:linear-gradient(120deg, rgba(255,190,210,0.75), rgba(255,240,245,0.35));"></div>
+  <div class="constellation-layer">
+    <div class="star-node" style="top:22%; left:82%;" data-note="🐹 Star #9: 'Pocket sized joy, forever protected.' – Kenji">🌟</div>
+  </div>
+  <div class="navbar"><div class="logo">Sweet<span>wish</span> 🎀</div><div class="menu-icon" id="menu-btn-6">☰</div></div>
+  <span class="float-deco" style="top:18%; left:75%;">💗</span>
+  
+  <div class="sticker-container">
+    <div class="speech-bubble">Pocket sized joy! 🐹</div>
+    <div class="sticker" data-day-quotes='["Pocket sized joy! 🐹", "Stuffing cheeks with seeds!", "Thank you for visiting us! 🎀"]' data-night-quotes='["My little wheel spins in endless silence...", "The cage is so quiet and dark...", "I just want a safe hand to hold... 🐹💧"]'>🐹</div>
+  </div>
+
+  <div class="content">
+    <h1 id="closing-title">Every Little Life<br>Matters~</h1>
+    <div class="divider"></div>
+    <p id="closing-desc">Join our sweet community of animal lovers making a real difference, one tiny paw at a time.</p>
+    <div class="btn-group">
+      <button class="btn donate-btn">💗 Join Sweetwish</button>
+      <button class="btn secondary-btn adopt-btn">🐾 Adopt Hamster</button>
+    </div>
+  </div>
+  <div class="dots"><div class="dot" data-index="0"></div><div class="dot" data-index="1"></div><div class="dot" data-index="2"></div><div class="dot" data-index="3"></div><div class="dot" data-index="4"></div><div class="dot active" data-index="5"></div></div>
+</section>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loading-screen');
+    setTimeout(() => { loader.classList.add('hidden'); }, 700);
+  });
+
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let musicInterval = null;
+  let isNightMode = false;
+
+  function playNote(freq, duration = 0.2, type = 'sine', volume = 0.1) {
+    if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+  }
+
+  function startBackgroundMusic() {
+    if (musicInterval) clearInterval(musicInterval);
+    const lightMelody = [523.25, 587.33, 659.25, 783.99, 880, 783.99, 659.25, 587.33];
+    const nightRainMelody = [164.81, 196.00, 220.00, 146.83, 130.81, 185.00];
+
+    let step = 0;
+    musicInterval = setInterval(() => {
+      if (isNightMode) {
+        const freq = nightRainMelody[Math.floor(Math.random() * nightRainMelody.length)];
+        playNote(freq, 1.2, 'triangle', 0.04);
+        if(Math.random() > 0.5) {
+          playNote(freq * 1.5, 0.4, 'sine', 0.02);
+        }
+      } else {
+        const freq = lightMelody[step % lightMelody.length];
+        playNote(freq, 0.25, 'sine', 0.1);
+        step++;
+      }
+    }, isNightMode ? 600 : 350);
+  }
+
+  function stopBackgroundMusic() {
+    if (musicInterval) {
+      clearInterval(musicInterval);
+      musicInterval = null;
+    }
+  }
+
+  const sparkleSymbols = ['✨', '💖', '⭐', '🌸'];
+  let lastSparkleTime = 0;
+  window.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastSparkleTime > 90) {
+      const sparkle = document.createElement('span');
+      sparkle.className = 'cursor-sparkle';
+      sparkle.textContent = isNightMode ? '💧' : sparkleSymbols[Math.floor(Math.random() * sparkleSymbols.length)];
+      sparkle.style.left = `${e.clientX}px`;
+      sparkle.style.top = `${e.clientY}px`;
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 600);
+      lastSparkleTime = now;
+    }
+  });
+
+  const sections = document.querySelectorAll('section');
+  const dotsGroups = document.querySelectorAll('.dots');
+  
+  window.addEventListener('scroll', () => {
+    let index = Math.round(window.scrollY / window.innerHeight);
+    dotsGroups.forEach(group => {
+      group.querySelectorAll('.dot').forEach((d,i)=>{
+        d.classList.toggle('active', i===index);
+      });
+    });
+  });
+
+  document.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      playNote(600, 0.15);
+      const idx = dot.getAttribute('data-index');
+      sections[idx].scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const drawer = document.getElementById('menu-drawer');
+  document.querySelectorAll('.menu-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      playNote(500, 0.2);
+      drawer.classList.add('open');
+    });
+  });
+  document.getElementById('close-drawer-btn').addEventListener('click', () => {
+    playNote(400, 0.2);
+    drawer.classList.remove('open');
+  });
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => drawer.classList.remove('open'));
+  });
+
+  document.querySelectorAll('.sticker').forEach(sticker => {
+    const container = sticker.parentElement;
+    const bubble = container.querySelector('.speech-bubble');
+
+    sticker.addEventListener('click', () => {
+      playNote(isNightMode ? 180 : 850, isNightMode ? 0.6 : 0.25, isNightMode ? 'triangle' : 'sine');
+      const quoteAttr = isNightMode ? 'data-night-quotes' : 'data-day-quotes';
+      const quotes = JSON.parse(sticker.getAttribute(quoteAttr));
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      bubble.textContent = randomQuote;
+      bubble.classList.add('show');
+      
+      sticker.style.transform = isNightMode ? 'scale(1.05) rotate(-2deg)' : 'scale(1.25) rotate(12deg)';
+      setTimeout(() => { sticker.style.transform = 'none'; }, 350);
+      setTimeout(() => { bubble.classList.remove('show'); }, 3000);
+    });
+  });
+
+  document.querySelectorAll('.star-node').forEach(star => {
+    star.addEventListener('click', () => {
+      playNote(1200, 0.3, 'sine', 0.15);
+      const note = star.getAttribute('data-note');
+      alert(note);
+    });
+  });
+
+  const donationModal = document.getElementById('donation-modal-overlay');
+  document.querySelectorAll('.donate-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      playNote(700, 0.2);
+      donationModal.classList.add('active');
+    });
+  });
+  document.getElementById('close-donate-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    donationModal.classList.remove('active');
+  });
+
+  let happyScore = 0;
+  const gameModal = document.getElementById('game-modal-overlay');
+  const happyProgressFill = document.getElementById('happy-progress-fill');
+  const happyMeterText = document.getElementById('happy-meter-text');
+  const gameRewardMsg = document.getElementById('game-reward-msg');
+  const gameAnimalName = document.getElementById('game-animal-name');
+
+  document.getElementById('open-game-btn').addEventListener('click', () => {
+    playNote(650, 0.2);
+    let currentIdx = Math.round(window.scrollY / window.innerHeight);
+    gameAnimalName.textContent = sections[currentIdx].getAttribute('data-animal');
+    happyScore = 0;
+    updateHappyMeter();
+    gameRewardMsg.textContent = '';
+    gameModal.classList.add('active');
+  });
+  document.getElementById('close-game-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    gameModal.classList.remove('active');
+  });
+
+  document.querySelectorAll('.treat-item').forEach(treat => {
+    treat.addEventListener('click', () => {
+      const foodType = treat.getAttribute('data-food');
+      const foodName = treat.getAttribute('data-name');
+      
+      if(foodType === 'good') {
+        playNote(900, 0.2);
+        happyScore = Math.min(100, happyScore + 20);
+        gameRewardMsg.textContent = isNightMode ? `A small comfort in the dark... (+20%) 💧` : `Yummy! Loved the ${foodName}! (+20%) 💖`;
+      } else {
+        playNote(220, 0.3, 'sawtooth');
+        happyScore = Math.max(0, happyScore - 20);
+        gameRewardMsg.textContent = isNightMode ? `Even this tastes bitter tonight... (-20%)` : `Ew! Disliked the ${foodName}! (-20%) ⚡`;
+      }
+      
+      updateHappyMeter();
+    });
+  });
+
+  function updateHappyMeter() {
+    happyProgressFill.style.width = happyScore + '%';
+    happyMeterText.textContent = happyScore + '% Full';
+  }
+
+  const adoptModal = document.getElementById('adopt-modal-overlay');
+  const adopterNameInput = document.getElementById('adopter-name-input');
+  const displayAdopterName = document.getElementById('display-adopter-name');
+  const displayChosenAnimal = document.getElementById('display-chosen-animal');
+  const successPopupOverlay = document.getElementById('success-popup-overlay');
+  const successAdopterDisplay = document.getElementById('success-adopter-display');
+  const successAnimalDisplay = document.getElementById('success-animal-display');
+  const successPopupEmoji = document.getElementById('success-popup-emoji');
+
+  let selectedAdoptAnimal = 'Bunny';
+  let selectedAdoptEmoji = '🐰';
+
+  document.querySelectorAll('.adopt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      playNote(700, 0.2);
+      adoptModal.classList.add('active');
+    });
+  });
+  document.getElementById('close-adopt-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    adoptModal.classList.remove('active');
+  });
+
+  document.querySelectorAll('.animal-select-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      playNote(750, 0.15);
+      document.querySelectorAll('.animal-select-pill').forEach(p => p.classList.remove('selected'));
+      pill.classList.add('selected');
+      selectedAdoptAnimal = pill.getAttribute('data-animal');
+      selectedAdoptEmoji = pill.getAttribute('data-emoji');
+      displayChosenAnimal.textContent = selectedAdoptAnimal + ' ' + selectedAdoptEmoji;
+    });
+  });
+
+  adopterNameInput.addEventListener('input', (e) => {
+    displayAdopterName.textContent = e.target.value.trim() || 'Kind Friend';
+  });
+
+  document.getElementById('download-cert-btn').addEventListener('click', () => {
+    playNote(950, 0.3);
+    adoptModal.classList.remove('active');
+    
+    const finalName = adopterNameInput.value.trim() || 'Kind Friend';
+    successAdopterDisplay.textContent = finalName;
+    successAnimalDisplay.textContent = selectedAdoptAnimal + ' ' + selectedAdoptEmoji;
+    successPopupEmoji.textContent = selectedAdoptEmoji + (isNightMode ? ' 🌧️ 💜' : ' 💖 ✨');
+    
+    successPopupOverlay.classList.add('active');
+  });
+
+  document.getElementById('close-success-popup').addEventListener('click', () => {
+    playNote(500, 0.2);
+    successPopupOverlay.classList.remove('active');
+  });
+
+  const mapModal = document.getElementById('map-modal-overlay');
+  document.getElementById('open-map-btn').addEventListener('click', () => {
+    playNote(650, 0.2);
+    mapModal.classList.add('active');
+  });
+  document.getElementById('close-map-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    mapModal.classList.remove('active');
+  });
+  document.querySelectorAll('.map-card').forEach(card => {
+    card.addEventListener('click', () => {
+      playNote(750, 0.2);
+      mapModal.classList.remove('active');
+      const targetId = card.getAttribute('data-target');
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const boothModal = document.getElementById('booth-modal-overlay');
+  document.getElementById('open-booth-btn').addEventListener('click', () => {
+    playNote(650, 0.2);
+    boothModal.classList.add('active');
+  });
+  document.getElementById('close-booth-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    boothModal.classList.remove('active');
+  });
+
+  const photoInput = document.getElementById('photo-upload-input');
+  const uploadTriggerBtn = document.getElementById('upload-photo-trigger-btn');
+  const userPhotoPreview = document.getElementById('user-photo-preview');
+  const boothPlaceholder = document.getElementById('booth-placeholder');
+
+  uploadTriggerBtn.addEventListener('click', () => {
+    playNote(550, 0.2);
+    photoInput.click();
+  });
+
+  photoInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        userPhotoPreview.src = evt.target.result;
+        userPhotoPreview.style.display = 'block';
+        boothPlaceholder.style.display = 'none';
+        uploadTriggerBtn.textContent = 'Change Photo 📷';
+        playNote(850, 0.2);
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+
+  const activeBoothSticker = document.getElementById('active-booth-sticker');
+  document.querySelectorAll('.sticker-option-btn').forEach(sbtn => {
+    sbtn.addEventListener('click', () => {
+      playNote(600, 0.15);
+      document.querySelectorAll('.sticker-option-btn').forEach(b => b.classList.remove('active'));
+      sbtn.classList.add('active');
+      activeBoothSticker.textContent = sbtn.getAttribute('data-sticker');
+    });
+  });
+
+  const burrowModal = document.getElementById('burrow-modal-overlay');
+  const burrowInputText = document.getElementById('burrow-input-text');
+  const burrowNotesContainer = document.getElementById('burrow-notes-container');
+
+  document.getElementById('open-burrow-btn').addEventListener('click', () => {
+    playNote(680, 0.2);
+    burrowModal.classList.add('active');
+  });
+  document.getElementById('close-burrow-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    burrowModal.classList.remove('active');
+  });
+
+  document.getElementById('bury-note-btn').addEventListener('click', () => {
+    const textVal = burrowInputText.value.trim();
+    if(textVal) {
+      playNote(1000, 0.3);
+      const newNote = document.createElement('div');
+      newNote.className = 'burrow-item';
+      newNote.textContent = `🌸 "${textVal}" – Kind Visitor`;
+      burrowNotesContainer.prepend(newNote);
+      burrowInputText.value = '';
+      burrowModal.classList.remove('active');
+    } else {
+      alert('Please write a sweet message first! 💌');
+    }
+  });
+
+  // Rainbow Bridge Memorial Tributes
+  const tributeModal = document.getElementById('tribute-modal-overlay');
+  const tributeContainer = document.getElementById('tribute-container');
+  const tributeNameInput = document.getElementById('tribute-name-input');
+  const tributeMsgInput = document.getElementById('tribute-msg-input');
+
+  document.getElementById('open-tribute-btn').addEventListener('click', () => {
+    playNote(720, 0.2);
+    tributeModal.classList.add('active');
+  });
+  document.getElementById('close-tribute-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    tributeModal.classList.remove('active');
+  });
+
+  document.getElementById('send-tribute-btn').addEventListener('click', () => {
+    const nameVal = tributeNameInput.value.trim();
+    const msgVal = tributeMsgInput.value.trim();
+    if(nameVal && msgVal) {
+      playNote(1100, 0.4, 'sine', 0.2);
+      const newTribute = document.createElement('div');
+      newTribute.className = 'tribute-item';
+      newTribute.textContent = `🏮 "${msgVal}" – For ${nameVal}`;
+      tributeContainer.prepend(newTribute);
+      tributeNameInput.value = '';
+      tributeMsgInput.value = '';
+      tributeModal.classList.remove('active');
+    } else {
+      alert('Please fill out both your companion\'s name and message! 🌈');
+    }
+  });
+
+  // Habitat Rescue Jigsaw Puzzle
+  const puzzleModal = document.getElementById('puzzle-modal-overlay');
+  const puzzleBoard = document.getElementById('puzzle-board');
+  const puzzleStatusMsg = document.getElementById('puzzle-status-msg');
+  let puzzleTiles = [1, 2, 3, 4, 5, 6, 7, 8, ''];
+
+  document.getElementById('open-puzzle-btn').addEventListener('click', () => {
+    playNote(700, 0.2);
+    shufflePuzzle();
+    renderPuzzle();
+    puzzleStatusMsg.textContent = 'Match numbers 1 through 8 in order!';
+    puzzleModal.classList.add('active');
+  });
+  document.getElementById('close-puzzle-modal').addEventListener('click', () => {
+    playNote(350, 0.2);
+    puzzleModal.classList.remove('active');
+  });
+
+  function shufflePuzzle() {
+    for (let i = puzzleTiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [puzzleTiles[i], puzzleTiles[j]] = [puzzleTiles[j], puzzleTiles[i]];
+    }
+  }
+
+  function renderPuzzle() {
+    puzzleBoard.innerHTML = '';
+    puzzleTiles.forEach((tile, idx) => {
+      const piece = document.createElement('div');
+      piece.className = 'puzzle-piece';
+      piece.textContent = tile;
+      piece.addEventListener('click', () => {
+        handlePuzzleClick(idx);
+      });
+      puzzleBoard.appendChild(piece);
+    });
+  }
+
+  // FIXED: now checks row boundaries so tiles can't "wrap" between rows
+  function handlePuzzleClick(idx) {
+    const emptyIdx = puzzleTiles.indexOf('');
+    const emptyRow = Math.floor(emptyIdx / 3);
+    const emptyCol = emptyIdx % 3;
+    const idxRow = Math.floor(idx / 3);
+    const idxCol = idx % 3;
+
+    const isAdjacent =
+      (idxRow === emptyRow && Math.abs(idxCol - emptyCol) === 1) || // same row, one column apart
+      (idxCol === emptyCol && Math.abs(idxRow - emptyRow) === 1);   // same column, one row apart
+
+    if (isAdjacent) {
+      playNote(850, 0.15);
+      [puzzleTiles[emptyIdx], puzzleTiles[idx]] = [puzzleTiles[idx], puzzleTiles[emptyIdx]];
+      renderPuzzle();
+      checkPuzzleWin();
+    } else {
+      playNote(250, 0.15, 'sawtooth');
+    }
+  }
+
+  function checkPuzzleWin() {
+    const winningState = [1, 2, 3, 4, 5, 6, 7, 8, ''];
+    if (puzzleTiles.every((val, i) => val === winningState[i])) {
+      playNote(1200, 0.4);
+      puzzleStatusMsg.textContent = '🎉 Yay! Sanctuary Habitat Restored!';
+    }
+  }
+
+  // Night Safari Flashlight Mode
+  const safariToggle = document.getElementById('safari-toggle');
+  const safariStatus = document.getElementById('safari-status');
+  const flashlightLayer = document.getElementById('flashlight-layer');
+
+  window.addEventListener('mousemove', (e) => {
+    if (flashlightLayer.classList.contains('active')) {
+      flashlightLayer.style.background = `radial-gradient(circle 140px at ${e.clientX}px ${e.clientY}px, rgba(0,0,0,0) 0%, rgba(5,3,8,0.94) 100%)`;
+    }
+  });
+
+  safariToggle.addEventListener('click', () => {
+    playNote(450, 0.2);
+    if(safariStatus.textContent === 'Off') {
+      safariStatus.textContent = 'On 🔦';
+      flashlightLayer.classList.add('active');
+    } else {
+      safariStatus.textContent = 'Off';
+      flashlightLayer.classList.remove('active');
+    }
+  });
+
+  // Real-World Eco-Weather Sync Simulator
+  const weatherToggle = document.getElementById('weather-toggle');
+  const weatherStatus = document.getElementById('weather-status');
+  const weatherOverlay = document.getElementById('weather-overlay');
+
+  weatherToggle.addEventListener('click', () => {
+    playNote(600, 0.2);
+    if(weatherStatus.textContent === 'Off') {
+      weatherStatus.textContent = isNightMode ? 'Snow ❄️' : 'Gentle Rain 🌦️';
+      weatherOverlay.classList.add('active');
+      initWeatherParticles();
+    } else {
+      weatherStatus.textContent = 'Off';
+      weatherOverlay.classList.remove('active');
+      weatherOverlay.innerHTML = '';
+    }
+  });
+
+  function initWeatherParticles() {
+    weatherOverlay.innerHTML = '';
+    const particleCount = 30;
+    const symbol = isNightMode ? '❄️' : '💧';
+    for(let i=0; i<particleCount; i++) {
+      const p = document.createElement('div');
+      p.className = 'weather-particle';
+      p.textContent = symbol;
+      p.style.left = `${Math.random() * 100}vw`;
+      p.style.animationDuration = `${2 + Math.random() * 3}s`;
+      p.style.animationDelay = `${Math.random() * 2}s`;
+      weatherOverlay.appendChild(p);
+    }
+  }
+
+  let selectedAmount = 15;
+  const amountBtns = document.querySelectorAll('.amount-btn');
+  const confirmDonateBtn = document.getElementById('confirm-donate-btn');
+  
+  amountBtns.forEach(abtn => {
+    abtn.addEventListener('click', () => {
+      playNote(600, 0.15);
+      amountBtns.forEach(b => b.classList.remove('selected'));
+      abtn.classList.add('selected');
+      selectedAmount = abtn.getAttribute('data-amt');
+      confirmDonateBtn.textContent = `Send $${selectedAmount} Donation ✨`;
+    });
+  });
+
+  confirmDonateBtn.addEventListener('click', () => {
+    playNote(900, 0.3);
+    const progressFill = document.getElementById('progress-fill');
+    const currentRaised = document.getElementById('current-raised');
+    let currentVal = 520 + parseInt(selectedAmount);
+    progressFill.style.width = Math.min(100, (currentVal / 720) * 100) + '%';
+    currentRaised.textContent = `$${currentVal} raised`;
+
+    confirmDonateBtn.textContent = isNightMode ? '🌧️ A quiet blessing in the dark...' : '💖 Thank You So Much! 🎉';
+    
+    setTimeout(() => {
+      donationModal.classList.remove('active');
+      confirmDonateBtn.textContent = `Send $${selectedAmount} Donation ✨`;
+    }, 2000);
+  });
+
+  const vibeToggle = document.getElementById('vibe-toggle');
+  const vibeStatus = document.getElementById('vibe-status');
+  
+  vibeToggle.addEventListener('click', () => {
+    playNote(700, 0.2);
+    if(vibeStatus.textContent === 'Off') {
+      vibeStatus.textContent = 'On 🎶';
+      startBackgroundMusic();
+    } else {
+      vibeStatus.textContent = 'Off';
+      stopBackgroundMusic();
+    }
+  });
+
+  const nightToggle = document.getElementById('night-mode-toggle');
+  const nightStatus = document.getElementById('night-status');
+  const heroTitle = document.getElementById('hero-title');
+  const heroDesc = document.getElementById('hero-desc');
+  const pandaTitle = document.getElementById('panda-title');
+  const pandaDesc = document.getElementById('panda-desc');
+  const foxTitle = document.getElementById('fox-title');
+  const foxDesc = document.getElementById('fox-desc');
+  const hedgehogTitle = document.getElementById('hedgehog-title');
+  const hedgehogDesc = document.getElementById('hedgehog-desc');
+  const catTitle = document.getElementById('cat-title');
+  const catDesc = document.getElementById('cat-desc');
+  const tickerTextContent = document.getElementById('ticker-text-content');
+  const closingTitle = document.getElementById('closing-title');
+  const closingDesc = document.getElementById('closing-desc');
+
+  nightToggle.addEventListener('click', () => {
+    playNote(300, 0.5, 'triangle');
+    document.body.classList.toggle('night-mode');
+    isNightMode = document.body.classList.contains('night-mode');
+    
+    if(isNightMode) {
+      nightStatus.textContent = 'Midnight Rain & Stars 🌧️⭐';
+      
+      heroTitle.innerHTML = 'Will Someone Find<br>Us in the Dark?';
+      heroDesc.textContent = 'The forests grow colder every night, and the little ones wait quietly, hoping someone remembers they exist...';
+      
+      pandaTitle.innerHTML = 'Forgotten in<br>the Mist';
+      pandaDesc.textContent = 'The bamboo stalks stand bare and empty, and nobody listens to our quiet sighs in the dark...';
+      
+      foxTitle.innerHTML = 'Lost in the<br>Endless Blizzard';
+      foxDesc.textContent = 'The freezing winds erase our tracks, leaving us entirely alone beneath the weeping moon...';
+      
+      hedgehogTitle.innerHTML = 'Crying Under<br>Hidden Leaves';
+      hedgehogDesc.textContent = 'Our tiny paws tremble with fear as the shadows stretch long and cold around us...';
+      
+      catTitle.innerHTML = 'Abandoned Behind<br>Locked Doors';
+      catDesc.textContent = 'We press our paws against the cold glass, crying out for a warmth that never comes...';
+      
+      closingTitle.innerHTML = 'So Lonely Here<br>Without You...';
+      closingDesc.textContent = 'Even the smallest heartbeat echoes loudly in an empty room. Thank you for staying by their side tonight.';
+      
+      tickerTextContent.textContent = '🌧️ Constellations shine bright in the night sky... 1,420 animals sleep alone tonight waiting for a miracle. 💧 Click the stars to view community love notes. 🌙';
+      
+      if(weatherStatus.textContent.includes('Rain')) {
+        weatherStatus.textContent = 'Snow ❄️';
+        if(weatherOverlay.classList.contains('active')) initWeatherParticles();
+      }
+    } else {
+      nightStatus.textContent = 'Day ☀️';
+      
+      heroTitle.innerHTML = "Let's Save the<br>Cutest Little Bunnies!";
+      heroDesc.textContent = 'Every bunny deserves a safe, fluffy home. Help us protect wild rabbit habitats from disappearing forever~';
+      
+      pandaTitle.innerHTML = 'Giant Panda';
+      pandaDesc.textContent = 'Pandas munch on bamboo all day and are one of the most beloved endangered species. Let\'s give them more forest to roam and play in!';
+      
+      foxTitle.innerHTML = 'Arctic Fox';
+      foxDesc.textContent = 'With their snow-white winter coats, arctic foxes are true survivors of the cold. Climate change is shrinking their icy home fast.';
+      
+      hedgehogTitle.innerHTML = 'Tiny Hedgehog';
+      hedgehogDesc.textContent = 'These pint-sized cuties help control garden pests naturally! Sadly, hedgehog numbers are dropping due to habitat loss.';
+      
+      catTitle.innerHTML = 'Rescue Kittens';
+      catDesc.textContent = 'Every year, thousands of stray kittens need a warm home and a loving family. Your donation helps us rescue, heal, and rehome them.';
+      
+      closingTitle.innerHTML = 'Every Little Life<br>Matters~';
+      closingDesc.textContent = 'Join our sweet community of animal lovers making a real difference, one tiny paw at a time.';
+      
+      tickerTextContent.textContent = '✨ Welcome to Sweetwish! 🎀 Maya from Tokyo just adopted a bunny 2 mins ago! 🌸 Liam from London sent $30 to protect Panda Forests! 🐼 Over 1,420 habitat acres secured this week! 🎉';
+      
+      if(weatherStatus.textContent.includes('Snow')) {
+        weatherStatus.textContent = 'Gentle Rain 🌦️';
+        if(weatherOverlay.classList.contains('active')) initWeatherParticles();
+      }
+    }
+
+    if(vibeStatus.textContent.includes('On')) {
+      startBackgroundMusic();
+    }
+  });
+</script>
+
+</body>
+</html>
