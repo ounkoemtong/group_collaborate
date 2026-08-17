@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loem Somavattey | Botanical Sanctuary</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --accent: #52b788;
+            --light-green: #d8f3dc;
+            --dark-bg: #0b130e;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-dark: #1b4332;
+            --text-muted: #6c757d;
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f4f9f5;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #2d6a4f, #52b788);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+            background: var(--light-green);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Page View Controller */
+        .page-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+            flex: 1;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Banner */
+        .hero {
+            margin: 20px 8%;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+            border-radius: 30px;
+            padding: 60px 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(45, 106, 79, 0.15);
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: var(--light-green);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            background: var(--light-green);
+        }
+
+        /* Section Styling */
+        .section-header {
+            padding: 40px 8% 20px 8%;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Product Grids */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 0 8% 40px 8%;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 25px rgba(45, 106, 79, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .card h3 { font-size: 1.05rem; font-weight: 700; }
+        .card .subtext { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }
+        .card .price { font-size: 1.2rem; font-weight: 800; color: var(--primary); }
+
+        /* Care Guide Layout */
+        .guide-container {
+            padding: 0 8% 40px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .guide-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .guide-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .guide-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-box {
+            margin: 20px 8% 40px 8%;
+            background: white;
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-box h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0b130e;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        footer strong { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="showPage('home')">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Loem Somavattey</span>
+        </div>
+        <ul class="nav-links">
+            <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+            <li><a id="nav-plants" onclick="showPage('plants')">Plants Shop</a></li>
+            <li><a id="nav-care" onclick="showPage('care')">Care Guide</a></li>
+            <li><a id="nav-about" onclick="showPage('about')">About Us</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </nav>
+
+    <!-- PAGE 1: HOME -->
+    <div id="page-home" class="page-content active">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Discover Our Various Collections of Houseplants 🌿</h1>
+                <p>Curated aesthetic houseplants to brighten your study space and room.</p>
+                <button class="btn-main" onclick="showPage('plants')">Explore Shop</button>
+            </div>
+            <div style="font-size: 10rem; opacity: 0.2;">🪴</div>
+        </section>
+
+        <div class="section-header">
+            <h2>Featured Best Sellers ✨</h2>
+        </div>
+
+        <section class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Anthurium Red</h3>
+                <p class="subtext">Pot Included</p>
+                <div class="price">$49.99</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Peperomia Green</h3>
+                <p class="subtext">Pot Included</p>
+                <div class="price">$29.99</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Succulent Bowl</h3>
+                <p class="subtext">Ceramic Bowl</p>
+                <div class="price">$39.99</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE 2: PLANTS SHOP -->
+    <div id="page-plants" class="page-content">
+        <div class="section-header">
+            <h2>All Plant Collections 🪴</h2>
+        </div>
+
+        <section class="product-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Anthurium Red</h3>
+                <p class="subtext">Low Maintenance</p>
+                <div class="price">$49.99</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Peperomia Green</h3>
+                <p class="subtext">Pet Friendly</p>
+                <div class="price">$29.99</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Succulent Trio</h3>
+                <p class="subtext">Bright Sunlight Needed</p>
+                <div class="price">$39.99</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Snake Plant Trio</h3>
+                <p class="subtext">Air Purifier</p>
+                <div class="price">$45.00</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1597055181300-e362395553a0?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Birds of Paradise</h3>
+                <p class="subtext">Statement Plant</p>
+                <div class="price">$119.99</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?w=400&auto=format&fit=crop&q=60" alt="Plant">
+                <h3>Fiddle Leaf Fig</h3>
+                <p class="subtext">Indoor Tree</p>
+                <div class="price">$159.99</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE 3: CARE GUIDE -->
+    <div id="page-care" class="page-content">
+        <div class="section-header">
+            <h2>Plant Care & Maintenance 📖</h2>
+        </div>
+
+        <div class="guide-container">
+            <div class="guide-card">
+                <i class="fa-solid fa-droplet"></i>
+                <h3>Watering Routine</h3>
+                <p>Overwatering is the #1 plant issue! Always check if the top 2 inches of soil are dry before giving your plant a drink.</p>
+            </div>
+            <div class="guide-card">
+                <i class="fa-solid fa-sun"></i>
+                <h3>Sunlight Tips</h3>
+                <p>Most indoor plants love bright, indirect sunlight. Avoid placing delicate leaves under direct harsh sunlight.</p>
+            </div>
+            <div class="guide-card">
+                <i class="fa-solid fa-wind"></i>
+                <h3>Humidity & Air</h3>
+                <p>Tropical plants love humidity! Mist their leaves regularly or keep them near a humidifier for optimal growth.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: ABOUT -->
+    <div id="page-about" class="page-content">
+        <div class="about-box">
+            <h2>Welcome to Botanical Sanctuary 🌱</h2>
+            <p>Designed and created by <strong>Loem Somavattey</strong>. This digital sanctuary is built to bring clean design, high-quality plant inspiration, and simple greenery care tips straight to your screen.</p>
+            <p>Thank you for stopping by and checking out our page!</p>
+            <button class="btn-main" style="background: var(--primary); color: white;" onclick="showPage('plants')">Check Our Plants</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created by <strong>Loem Somavattey</strong> &copy; 2026. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dynamic Page Switching -->
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById('page-' + pageName).classList.add('active');
+
+            // Highlight active nav link
+            document.getElementById('nav-' + pageName).classList.add('active');
+
+            // Scroll smoothly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
