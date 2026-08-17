@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Travel Tips | TravelGo</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      height: 75px;
+      padding: 0 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0f172a;
+    }
+
+    .logo {
+      color: #00df9a;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #00df9a;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(
+          rgba(15, 23, 42, 0.8),
+          rgba(15, 23, 42, 0.8)
+        ),
+        url("image/travel-tips.jpg") center/cover;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #00df9a;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cbd5e1;
+    }
+
+    /* Tips Section */
+    .tips {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 span {
+      color: #00a878;
+    }
+
+    .section-title p {
+      color: #64748b;
+    }
+
+    .tips-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    /* Tip Card */
+    .tip-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      transition: 0.3s;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e6fff7;
+      border-radius: 50%;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .tip-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .tip-card p {
+      color: #64748b;
+    }
+
+    /* Checklist */
+    .checklist-section {
+      background: #0f172a;
+      color: white;
+      padding: 70px 8%;
+    }
+
+    .checklist-container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .checklist-container h2 {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 40px;
+    }
+
+    .checklist-container h2 span {
+      color: #00df9a;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 18px;
+      background: #1e293b;
+      border-radius: 10px;
+    }
+
+    .check {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #00df9a;
+      color: #0f172a;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      padding: 25px;
+      text-align: center;
+      background: #020617;
+      color: #94a3b8;
+    }
+
+    footer span {
+      color: #00df9a;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 0 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .tips {
+        padding: 50px 5%;
+      }
+
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">TravelGo.</div>
+
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="destinations.html">Destinations</a>
+      </li>
+
+      <li>
+        <a href="travel-tips.html" class="active">Travel Tips</a>
+      </li>
+
+      <li>
+        <a href="about.html">About</a>
+      </li>
+
+      <li>
+        <a href="contact.html">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Smart <span>Travel Tips</span></h1>
+    <p>Simple tips to make your journey safer, easier, and more enjoyable.</p>
+  </section>
+
+  <!-- Tips -->
+  <section class="tips">
+
+    <div class="section-title">
+      <h2>Travel <span>Tips</span></h2>
+      <p>Prepare well and enjoy your adventure.</p>
+    </div>
+
+    <div class="tips-grid">
+
+      <div class="tip-card">
+        <div class="icon">🎒</div>
+        <h3>Pack Smart</h3>
+        <p>
+          Pack only what you need. Choose comfortable clothes
+          and keep important items easy to access.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="icon">💰</div>
+        <h3>Manage Your Budget</h3>
+        <p>
+          Set a travel budget before your trip and keep some
+          extra money available for unexpected expenses.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="icon">📱</div>
+        <h3>Keep Your Phone Ready</h3>
+        <p>
+          Charge your phone before traveling and save important
+          addresses, maps, and emergency contacts.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="icon">🛂</div>
+        <h3>Check Documents</h3>
+        <p>
+          Make sure your passport, visa, tickets, and other
+          required travel documents are ready.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="icon">🗺️</div>
+        <h3>Plan Your Route</h3>
+        <p>
+          Research your destination and plan transportation,
+          accommodation, and important places before leaving.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="icon">🌍</div>
+        <h3>Respect Local Culture</h3>
+        <p>
+          Learn about local customs, traditions, and rules.
+          Respect the people and environment you visit.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <section class="checklist-section">
+
+    <div class="checklist-container">
+      <h2>Before You <span>Travel</span></h2>
+
+      <div class="checklist">
+
+        <div class="check-item">
+          <div class="check">✓</div>
+          <p>Check your passport and travel documents</p>
+        </div>
+
+        <div class="check-item">
+          <div class="check">✓</div>
+          <p>Book your accommodation</p>
+        </div>
+
+        <div class="check-item">
+          <div class="check">✓</div>
+          <p>Prepare your travel budget</p>
+        </div>
+
+        <div class="check-item">
+          <div class="check">✓</div>
+          <p>Check the weather at your destination</p>
+        </div>
+
+        <div class="check-item">
+          <div class="check">✓</div>
+          <p>Save important phone numbers</p>
+        </div>
+
+        <div class="check-item">
+          <div class="check">✓</div>
+          <p>Charge your phone and power bank</p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 <span>TravelGo</span>. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

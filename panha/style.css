@@ -1,0 +1,875 @@
+[8/12/2026 12:07 PM] Yang Sotheapanha: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Globe Trekker</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="nav container">
+
+      <a href="#" class="logo">
+        <span>✕</span> GLOBE TREKKER
+      </a>
+
+      <nav class="desktop-menu">
+        <a href="#">Destinations</a>
+        <a href="#">Travel Tips</a>
+        <a href="#">Inspiration</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+      </nav>
+
+      <div class="nav-right">
+        <button class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Search
+        </button>
+
+        <button class="signin">Sign in</button>
+
+        <button class="menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero container">
+
+      <div class="hero-content">
+
+        <div class="hero-text">
+          <h1>
+            Discover the World's
+            <span>Hidden</span>
+            Wonders
+          </h1>
+
+          <p>
+            Find the unique treasures and hidden gems that
+            inspire unforgettable adventures. From rare
+            encounters to remarkable destinations, we're here
+            to help you explore the world in your own way.
+          </p>
+
+          <a href="#" class="primary-btn">
+            Start exploring
+          </a>
+        </div>
+
+        <div class="hero-images">
+
+          <img
+            src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=600&q=80"
+            class="hero-img big"
+            alt="Travel destination"
+          />
+
+          <div class="hero-small">
+            <img
+              src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80"
+              alt="Mountain"
+            />
+
+            <img
+              src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=400&q=80"
+              alt="Temple"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DESTINATIONS ================= -->
+    <section class="section container">
+
+      <div class="section-heading">
+        <h2>Top Destinations</h2>
+
+        <a href="#" class="outline-btn">
+          Explore all destinations
+        </a>
+      </div>
+
+      <div class="categories">
+        <span class="active">Popular</span>
+        <span>Asia</span>
+        <span>Europe</span>
+        <span>Americas</span>
+        <span>Africa</span>
+        <span>Australia</span>
+      </div>
+
+
+      <div class="destination-grid">
+
+        <article class="destination-card">
+          <img
+            src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=600&q=80"
+            alt="Golden Bridge"
+          />
+
+          <h3>Golden Bridge, Ba Na Hills</h3>
+          <p>Vietnam</p>
+        </article>
+
+
+        <article class="destination-card">
+          <img
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80"
+            alt="Dubrovnik"
+          />
+
+          <h3>Dubrovnik</h3>
+          <p>Croatia</p>
+        </article>
+
+
+        <article class="destination-card">
+          <img
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80"
+            alt="Hot Air Balloons"
+          />
+
+          <h3>Hot Air Balloon Cappadocia</h3>
+          <p>Turkey</p>
+        </article>
+[8/12/2026 12:09 PM] Yang Sotheapanha: /* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fbf8f5;
+  color: #171717;
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  background: #fbf8f5;
+  border-bottom: 1px solid #eee8e3;
+}
+
+.nav {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.logo span {
+  margin-right: 5px;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 30px;
+  font-size: 13px;
+}
+
+.desktop-menu a {
+  transition: 0.3s;
+}
+
+.desktop-menu a:hover {
+  color: #ed7758;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.search i {
+  margin-right: 5px;
+}
+
+.signin {
+  border: 0;
+  background: #171717;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  padding: 70px 0 40px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-text h1 {
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1.05;
+  max-width: 620px;
+  margin-bottom: 25px;
+}
+
+.hero-text h1 span {
+  color: #e7795b;
+}
+
+.hero-text p {
+  max-width: 520px;
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: #ed7758;
+  color: white;
+  padding: 13px 24px;
+  border-radius: 30px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  background: #d96345;
+}
+
+
+/* Hero images */
+
+.hero-images {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 14px;
+  height: 450px;
+}
+
+.hero-img {
+  height: 100%;
+  border-radius: 18px;
+}
+
+.hero-small {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-small img {
+  height: calc(50% - 7px);
+  border-radius: 18px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  padding: 50px 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  font-size: 30px;
+}
+
+.outline-btn {
+  border: 1px solid #aaa;
+  border-radius: 30px;
+  padding: 9px 18px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.outline-btn:hover {
+  background: #171717;
+  color: white;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  font-size: 13px;
+  color: #777;
+}
+
+.categories span {
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.categories .active {
+  color: #171717;
+  font-weight: bold;
+}
+
+
+/* =========================
+   DESTINATIONS
+========================= */
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.destination-card img {
+  height: 230px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+
+.destination-card h3 {
+  font-size: 14px;
+}
+
+.destination-card p {
+  color: #777;
+  font-size: 12px;
+}
+
+
+/* =========================
+   STORIES
+========================= */
+
+.stories {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 35px;
+}
+
+.main-story img {
+  height: 360px;
+  border-radius: 18px;
+  margin-bottom: 15px;
+}
+
+.tag,
+.story-item span {
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.main-story h3 {
+  font-size: 21px;
+  line-height: 1.3;
+  margin: 5px 0;
+}
+[8/12/2026 12:09 PM] Yang Sotheapanha: .main-story small,
+.story-item small {
+  color: #888;
+  font-size: 11px;
+}
+
+.main-story p {
+  color: #777;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+
+/* Small stories */
+
+.small-stories {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.story-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 15px;
+}
+
+.story-item img {
+  height: 95px;
+  border-radius: 12px;
+}
+
+.story-item h3 {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+.highlight {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  align-self: start;
+}
+
+.avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.profile h3 {
+  font-size: 13px;
+}
+
+.profile p {
+  font-size: 11px;
+  color: #777;
+}
+
+.highlight-text h3 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.highlight-text p {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.highlight-text a {
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.highlight-image,
+.video-card img {
+  height: 210px;
+  border-radius: 16px;
+}
+
+.video-card {
+  position: relative;
+}
+
+.video-card h4 {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.play {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 0;
+  background: white;
+  cursor: pointer;
+}
+
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter {
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(20, 20, 20, 0.35),
+      rgba(20, 20, 20, 0.35)
+    ),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=80")
+    center / cover;
+  
+  color: white;
+  margin-top: 40px;
+}
+
+.newsletter-content h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.newsletter input {
+  width: 280px;
+  border: 0;
+  outline: 0;
+  padding: 13px 20px;
+  border-radius: 30px;
+}
+
+.newsletter button {
+  border: 0;
+  background: #ed7758;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.newsletter p {
+  margin-top: 15px;
+  font-size: 11px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #fbf8f5;
+  padding-top: 50px;
+}
+
+.footer-container {
+  width: min(1200px, 90%);
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-brand p {
+  margin-top: 25px;
+  font-size: 13px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.socials a {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-column h3 {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  font-size: 12px;
+  color: #777;
+}
+
+.footer-column a:hover {
+  color: #ed7758;
+}
+
+.copyright {
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: #777;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-images {
+    height: 400px;
+  }
+
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stories {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: 88%;
+  }
+
+  .nav {
+    height: 65px;
+  }
+[8/12/2026 12:09 PM] Yang Sotheapanha: .search {
+    display: none;
+  }
+
+  .logo {
+    font-size: 12px;
+  }
+
+  .signin {
+    padding: 8px 15px;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .hero-content {
+    gap: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .hero-text p {
+    font-size: 13px;
+  }
+
+  .hero-images {
+    height: 350px;
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  .section {
+    padding: 35px 0;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .outline-btn {
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-card img {
+    height: 260px;
+  }
+
+  .stories {
+    gap: 30px;
+  }
+
+  .main-story img {
+    height: 280px;
+  }
+
+  .main-story h3 {
+    font-size: 18px;
+  }
+
+  .story-item {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .story-item img {
+    height: 80px;
+  }
+
+  .highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-image,
+  .video-card img {
+    height: 260px;
+  }
+
+  .newsletter {
+    min-height: 400px;
+    padding: 40px 20px;
+  }
+
+  .newsletter-content h2 {
+    font-size: 28px;
+  }
+
+  .newsletter form {
+    flex-direction: column;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100%;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
