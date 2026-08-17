@@ -1,11 +1,1882 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dream Homes | Luxury Real Estate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   GLOBAL
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #e9e9e9;
+    color: #171717;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page {
+    max-width: 1200px;
+    margin: 24px auto;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+}
+
+
+/* =========================
+   NAVIGATION
+
+nav {
+    background: #071624;
+    color: white;
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    font-size: 11px;
+}
+
+.nav-links a {
+    color: white;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #f4a523;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    padding: 8px 15px;
+    border: 1px solid #777;
+    border-radius: 20px;
+    font-size: 9px;
+}
+
+.nav-btn:hover {
+    border-color: #f4a523;
+    color: #f4a523;
+}
+
+.nav-btn.dark {
+    background: #f4a523;
+    border-color: #f4a523;
+    color: white;
+}
+
+
+/* =========================
+   PAGE SECTIONS
+
+.page-section {
+    display: none;
+}
+
+.page-section.active-page {
+    display: block;
+}
+
+
+/* =========================
+   HOME HERO
+
+.hero {
+    min-height: 560px;
+    padding: 120px 12%;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    background:
+        linear-gradient(90deg,rgba(4,17,28,.85),rgba(4,17,28,.15)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=90")
+        center/cover;
+}
+
+.hero-content {
+    max-width: 450px;
+}
+
+.hero-tag {
+    color: #f4a523;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(40px,5vw,64px);
+    line-height: .94;
+    text-transform: uppercase;
+    margin: 15px 0 20px;
+}
+
+.hero p {
+    font-size: 10px;
+    line-height: 1.7;
+    color: #ddd;
+    margin-bottom: 22px;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: #f4a523;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 10px;
+    font-weight: 600;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: #ffb43d;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   HOME SEARCH
+
+.search-box {
+    position: absolute;
+    margin-top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 46px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+}
+
+.search-box button {
+    width: 60px;
+    border: none;
+    background: #f4a523;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* =========================
+   HOME FEATURES
+
+section {
+    padding: 75px 10%;
+}
+
+.features {
+    padding-top: 85px;
+}
+
+.section-title,
+.title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2,
+.title h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.section-title p,
+.title p {
+    font-size: 10px;
+    color: #999;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+.feature-card {
+    background: #f7f7f7;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid #eee;
+    transition: .3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    font-size: 11px;
+    margin-bottom: 7px;
+}
+
+.feature-card p {
+    font-size: 8px;
+    color: #999;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FEATURED HOME
+
+.featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+}
+
+.featured-image {
+    background:
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+}
+
+.featured-content {
+    background: #071624;
+    color: white;
+    padding: 45px 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-content small {
+    color: #f4a523;
+    font-size: 9px;
+}
+
+.featured-content h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.featured-content p {
+    color: #aaa;
+    font-size: 9px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   PAGE HEADERS
+
+.page-header {
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(4,17,28,.8),rgba(4,17,28,.5)),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.page-header h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+}
+
+.page-header p {
+    margin-top: 15px;
+    color: #ddd;
+    font-size: 11px;
+}
+
+
+/* =========================
+   BUY PAGE
+
+.properties {
+    padding: 75px 8%;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.property-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    transition: .3s;
+}
+
+.property-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.12);
+}
+
+.property-image {
+    height: 200px;
+    position: relative;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #f4a523;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 8px;
+}
+
+.property-info {
+    padding: 18px;
+}
+
+.property-info h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.location {
+    font-size: 9px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.property-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.details {
+    color: #999;
+    font-size: 8px;
+    margin-top: 5px;
+}
+
+.view-btn {
+    padding: 8px 13px;
+    border: 1px solid #222;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.view-btn:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* =========================
+   AGENTS PAGE
+
+.agents-header {
+    background:
+        linear-gradient(rgba(4,17,28,.8),rgba(4,17,28,.5)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.agents {
+    padding: 75px 8%;
+}
+
+.agent-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+}
+
+.agent {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background: white;
+    transition: .3s;
+}
+
+.agent:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+
+.agent img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.agent-info {
+    padding: 20px;
+}
+
+.agent-info h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.agent-info p {
+    font-size: 9px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.agent-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #f4a523;
+    color: white;
+    border-radius: 20px;
+    font-size: 9px;
+}
+
+
+/* =========================
+   CONTACT PAGE
+
+.contact-header {
+    background:
+        linear-gradient(rgba(4,17,28,.8),rgba(4,17,28,.55)),
+        url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.contact {
+    padding: 75px 10%;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info h2 {
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.contact-info > p {
+    color: #888;
+    font-size: 10px;
+    line-height: 1.7;
+    max-width: 380px;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    display: grid;
+    place-items: center;
+}
+
+.contact-item h4 {
+    font-size: 9px;
+    margin-bottom: 4px;
+}
+
+.contact-item p {
+    font-size: 9px;
+    color: #888;
+}
+
+
+/* =========================
+   CONTACT FORM
+
+.form {
+    background: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 8px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 9px;
+    background: white;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #f4a523;
+}
+
+.submit {
+    border: none;
+    background: #f4a523;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.message {
+    display: none;
+    color: green;
+    font-size: 9px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   FOOTER
+
+footer {
+    background: #071624;
+    color: white;
+    padding: 35px 8%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    font-size: 9px;
+}
+
+.footer-links a:hover {
+    color: #f4a523;
+}
+
+.footer-text {
+    color: #89939b;
+    font-size: 8px;
+}
+
+
+/* =========================
+   MOBILE
+
+@media(max-width:850px) {
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .agent-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:750px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:550px) {
+
+    .page {
+        margin: 0;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 120px 8%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .search-box {
+        width: 80%;
+    }
+
+    .feature-grid,
+    .property-grid,
+    .agent-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .featured {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-image {
+        min-height: 250px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+</style>
 </head>
+
+
 <body>
-    ai ling
+
+<div class="page">
+
+
+<!-- =====================================================
+     NAVIGATION
+
+<nav>
+
+    <a href="#home" class="logo" onclick="showPage('home')">
+        DREAM
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#home"
+           class="active"
+           data-page="home"
+           onclick="showPage('home')">
+            Home
+        </a>
+
+        <a href="#buy"
+           data-page="buy"
+           onclick="showPage('buy')">
+            Buy
+        </a>
+
+        <a href="#agents"
+           data-page="agents"
+           onclick="showPage('agents')">
+            Agents
+        </a>
+
+        <a href="#contact"
+           data-page="contact"
+           onclick="showPage('contact')">
+            Contact
+        </a>
+
+    </div>
+
+    <div class="nav-buttons">
+
+        <a href="#contact"
+           class="nav-btn"
+           onclick="showPage('contact')">
+            Contact
+        </a>
+
+        <a href="#buy"
+           class="nav-btn dark"
+           onclick="showPage('buy')">
+            Explore Homes
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HOME PAGE
+
+<div id="home" class="page-section active-page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                Premium Real Estate
+            </span>
+
+            <h1>
+                Find Your<br>
+                Luxury Dream<br>
+                Home.
+            </h1>
+
+            <p>
+                Discover exceptional properties designed for
+                modern living, comfort and unforgettable moments.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="showPage('buy')">
+                Explore Homes →
+            </button>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Find your dream home..."
+            >
+
+            <button onclick="searchHome()">
+                🔍
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <section class="features">
+
+        <div class="section-title">
+
+            <h2>Your Dream Home</h2>
+
+            <p>
+                Choose the perfect property according to your lifestyle.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">⌖</div>
+
+                <h3>Location</h3>
+
+                <p>
+                    Find properties in your perfect neighborhood.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">⌂</div>
+
+                <h3>Property Type</h3>
+
+                <p>
+                    Modern homes, villas and luxury apartments.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">▣</div>
+
+                <h3>Budget</h3>
+
+                <p>
+                    Beautiful homes that match your budget.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">☆</div>
+
+                <h3>Expert Agents</h3>
+
+                <p>
+                    Connect with experienced property agents.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="featured">
+
+        <div class="featured-image"></div>
+
+        <div class="featured-content">
+
+            <small>
+                FEATURED PROPERTY
+            </small>
+
+            <h2>
+                Seacrest Ridge
+                Limited Collection
+            </h2>
+
+            <p>
+                Experience sophisticated architecture,
+                panoramic views and elegant interiors.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="showPage('buy')">
+                View Property →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BUY PAGE
+
+<div id="buy" class="page-section">
+
+    <header class="page-header">
+
+        <h1>
+            Find Your Home
+        </h1>
+
+        <p>
+            Explore our collection of premium luxury properties.
+        </p>
+
+    </header>
+
+
+    <section class="properties">
+
+        <div class="title">
+
+            <h2>
+                Luxury Properties
+            </h2>
+
+            <p>
+                Find a home that matches your lifestyle.
+            </p>
+
+        </div>
+
+
+        <div class="property-grid">
+
+
+            <!-- PROPERTY 1 -->
+
+            <article class="property-card">
+
+                <div class="property-image">
+
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85">
+
+                    <span class="tag">
+                        FEATURED
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Modern Glass Villa
+                    </h3>
+
+                    <div class="location">
+                        📍 Los Angeles, California
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <div>
+
+                            <div class="price">
+                                $2,450,000
+                            </div>
+
+                            <div class="details">
+                                4 Beds · 3 Baths · 3,200 sq ft
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewHome('Modern Glass Villa')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 2 -->
+
+            <article class="property-card">
+
+                <div class="property-image">
+
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85">
+
+                    <span class="tag">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Ocean View Residence
+                    </h3>
+
+                    <div class="location">
+                        📍 Miami, Florida
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <div>
+
+                            <div class="price">
+                                $3,150,000
+                            </div>
+
+                            <div class="details">
+                                5 Beds · 4 Baths · 4,100 sq ft
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewHome('Ocean View Residence')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 3 -->
+
+            <article class="property-card">
+
+                <div class="property-image">
+
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85">
+
+                    <span class="tag">
+                        LUXURY
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Mountain Modern Estate
+                    </h3>
+
+                    <div class="location">
+                        📍 Denver, Colorado
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <div>
+
+                            <div class="price">
+                                $1,890,000
+                            </div>
+
+                            <div class="details">
+                                4 Beds · 4 Baths · 3,700 sq ft
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewHome('Mountain Modern Estate')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 4 -->
+
+            <article class="property-card">
+
+                <div class="property-image">
+
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85">
+
+                    <span class="tag">
+                        PREMIUM
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Sunset Luxury Villa
+                    </h3>
+
+                    <div class="location">
+                        📍 Beverly Hills, California
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <div>
+
+                            <div class="price">
+                                $4,250,000
+                            </div>
+
+                            <div class="details">
+                                6 Beds · 5 Baths · 5,200 sq ft
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewHome('Sunset Luxury Villa')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 5 -->
+
+            <article class="property-card">
+
+                <div class="property-image">
+
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85">
+
+                    <span class="tag">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Contemporary Estate
+                    </h3>
+
+                    <div class="location">
+                        📍 Austin, Texas
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <div>
+
+                            <div class="price">
+                                $2,100,000
+                            </div>
+
+                            <div class="details">
+                                5 Beds · 4 Baths · 4,000 sq ft
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewHome('Contemporary Estate')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 6 -->
+
+            <article class="property-card">
+
+                <div class="property-image">
+
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=85">
+
+                    <span class="tag">
+                        LUXURY
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Forest Glass House
+                    </h3>
+
+                    <div class="location">
+                        📍 Seattle, Washington
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <div>
+
+                            <div class="price">
+                                $2,750,000
+                            </div>
+
+                            <div class="details">
+                                4 Beds · 4 Baths · 3,900 sq ft
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewHome('Forest Glass House')">
+                            View
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     AGENTS PAGE
+
+<div id="agents" class="page-section">
+
+    <header class="page-header agents-header">
+
+        <h1>
+            Our Agents
+        </h1>
+
+        <p>
+            Meet the professionals who will help you find your dream home.
+        </p>
+
+    </header>
+
+
+    <section class="agents">
+
+        <div class="title">
+
+            <h2>
+                Meet Our Experts
+            </h2>
+
+            <p>
+                Experienced real estate professionals ready to help.
+            </p>
+
+        </div>
+
+
+        <div class="agent-grid">
+
+
+            <div class="agent">
+
+                <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                <div class="agent-info">
+
+                    <h3>
+                        Michael Johnson
+                    </h3>
+
+                    <p>
+                        Luxury Property Specialist
+                    </p>
+
+                    <button
+                        class="agent-btn"
+                        onclick="showPage('contact')">
+                        Contact Agent
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="agent">
+
+                <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                <div class="agent-info">
+
+                    <h3>
+                        Sarah Williams
+                    </h3>
+
+                    <p>
+                        Senior Real Estate Agent
+                    </p>
+
+                    <button
+                        class="agent-btn"
+                        onclick="showPage('contact')">
+                        Contact Agent
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="agent">
+
+                <img src="https://randomuser.me/api/portraits/men/41.jpg">
+
+                <div class="agent-info">
+
+                    <h3>
+                        David Anderson
+                    </h3>
+
+                    <p>
+                        Property Consultant
+                    </p>
+
+                    <button
+                        class="agent-btn"
+                        onclick="showPage('contact')">
+                        Contact Agent
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="agent">
+
+                <img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+                <div class="agent-info">
+
+                    <h3>
+                        Emily Carter
+                    </h3>
+
+                    <p>
+                        Luxury Home Advisor
+                    </p>
+
+                    <button
+                        class="agent-btn"
+                        onclick="showPage('contact')">
+                        Contact Agent
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     CONTACT PAGE
+
+<div id="contact" class="page-section">
+
+    <header class="page-header contact-header">
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            Let's find the perfect luxury home for you.
+        </p>
+
+    </header>
+
+
+    <section class="contact">
+
+        <div class="contact-grid">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <h2>
+                    Let's find your<br>
+                    dream home.
+                </h2>
+
+                <p>
+                    Have questions about a property?
+                    Our team is ready to help you find the perfect
+                    luxury home.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <div class="icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            PHONE
+                        </h4>
+
+                        <p>
+                            +1 800 555 0199
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            EMAIL
+                        </h4>
+
+                        <p>
+                            hello@dreamhomes.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="icon">
+                        ⌖
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            OFFICE
+                        </h4>
+
+                        <p>
+                            120 Luxury Avenue, California
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <form
+                class="form"
+                id="contactForm">
+
+                <h3>
+                    Send Us A Message
+                </h3>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Interested In
+                    </label>
+
+                    <select required>
+
+                        <option value="">
+                            Select an option
+                        </option>
+
+                        <option>
+                            Buying a home
+                        </option>
+
+                        <option>
+                            Selling a home
+                        </option>
+
+                        <option>
+                            Speak with an agent
+                        </option>
+
+                        <option>
+                            General question
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        placeholder="Tell us what you're looking for..."
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    class="submit"
+                    type="submit">
+                    Send Message →
+                </button>
+
+
+                <div
+                    class="message"
+                    id="message">
+                    ✓ Thank you! Your message has been received.
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-logo">
+            DREAM HOMES
+        </div>
+
+        <div class="footer-text">
+            © 2026 Dream Luxury Homes
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#home"
+               onclick="showPage('home')">
+                Home
+            </a>
+
+            <a href="#buy"
+               onclick="showPage('buy')">
+                Buy
+            </a>
+
+            <a href="#agents"
+               onclick="showPage('agents')">
+                Agents
+            </a>
+
+            <a href="#contact"
+               onclick="showPage('contact')">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+
+<script>
+
+/* =========================
+   CHANGE PAGE
+
+function showPage(pageName) {
+
+    // Hide all pages
+    const pages =
+        document.querySelectorAll(".page-section");
+
+    pages.forEach(function(page) {
+
+        page.classList.remove("active-page");
+
+    });
+
+
+    // Show selected page
+    const selectedPage =
+        document.getElementById(pageName);
+
+    if (selectedPage) {
+
+        selectedPage.classList.add("active-page");
+
+    }
+
+
+    // Update active navigation link
+    const navLinks =
+        document.querySelectorAll(".nav-links a");
+
+    navLinks.forEach(function(link) {
+
+        link.classList.remove("active");
+
+        if (link.dataset.page === pageName) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+
+    // Change browser URL hash
+    window.location.hash = pageName;
+
+    // Go to top
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   LOAD PAGE FROM URL
+
+function loadPage() {
+
+    const page =
+        window.location.hash.replace("#", "");
+
+    if (
+        page === "home" ||
+        page === "buy" ||
+        page === "agents" ||
+        page === "contact"
+    ) {
+
+        showPage(page);
+
+    } else {
+
+        showPage("home");
+
+    }
+
+}
+
+
+/* =========================
+   HOME SEARCH
+
+function searchHome() {
+
+    const value =
+        document.getElementById("search").value;
+
+    if (value.trim() === "") {
+
+        alert(
+            "Please enter a location or property."
+        );
+
+        return;
+
+    }
+
+    showPage("buy");
+
+    alert(
+        "Searching for: " + value
+    );
+}
+
+
+/* =========================
+   PROPERTY BUTTON
+
+function viewHome(name) {
+
+    alert(
+        "You selected " +
+        name +
+        ".\n\nPlease contact one of our agents to arrange a viewing."
+    );
+
+}
+
+
+/* =========================
+   CONTACT FORM
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    document
+    .getElementById("message")
+    .style.display = "block";
+
+    this.reset();
+
+});
+
+
+/* =========================
+   INITIAL PAGE
+
+window.addEventListener(
+    "load",
+    loadPage
+);
+
+</script>
+
 </body>
 </html>
