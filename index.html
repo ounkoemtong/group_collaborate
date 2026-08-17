@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Your Trip - Globe Trekker</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#E06D53',
+            brandHover: '#c85b42',
+            bgLight: '#FAF7F2',
+            cardBg: '#FFFFFF',
+            darkFooter: '#181818'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bgLight text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- NAVIGATION -->
+  <nav class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between w-full">
+    <a href="#" class="flex items-center space-x-2 font-bold text-xl tracking-tight">
+      <span class="text-brand">✕</span>
+      <span>GLOBE TREKKER</span>
+    </a>
+    
+    <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+      <a href="#" class="hover:text-black">Destinations</a>
+      <a href="#" class="hover:text-black">Travel Style</a>
+      <a href="#" class="hover:text-black">Inspiration</a>
+      <a href="#" class="hover:text-black">Video</a>
+      <a href="#" class="hover:text-black">Shop</a>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <button class="text-gray-600 hover:text-black" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a href="#" class="hidden sm:inline-block bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800">Sign In</a>
+      <button class="md:hidden text-gray-700 text-xl" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="max-w-4xl mx-auto px-6 text-center pt-8 pb-10">
+    <span class="text-xs font-semibold uppercase tracking-widest text-brand">Custom Itinerary</span>
+    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-2">Plan Your Next Adventure</h1>
+    <p class="mt-4 text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+      Tell us your travel preferences, and we will craft a personalized journey tailored to your style, budget, and dream destinations.
+    </p>
+  </header>
+
+  <!-- MAIN FORM CONTAINER -->
+  <main class="max-w-4xl mx-auto px-6 pb-20 w-full">
+    <form class="bg-cardBg rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 space-y-8">
+
+      <!-- STEP 1: DESTINATION & DATES -->
+      <div>
+        <h2 class="text-xl font-bold text-gray-900 flex items-center gap-3 mb-4">
+          <span class="w-7 h-7 rounded-full bg-brand text-white flex items-center justify-center text-xs">1</span>
+          Where & When
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" for="destination">Destination</label>
+            <div class="relative">
+              <i class="fa-solid fa-location-dot absolute left-4 top-3.5 text-gray-400"></i>
+              <input type="text" id="destination" placeholder="e.g. Kyoto, Japan or Amalfi Coast" class="w-full bg-bgLight pl-11 pr-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" for="travel-dates">Travel Dates</label>
+            <div class="relative">
+              <i class="fa-regular fa-calendar absolute left-4 top-3.5 text-gray-400"></i>
+              <input type="text" id="travel-dates" placeholder="Select dates or season" class="w-full bg-bgLight pl-11 pr-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <!-- STEP 2: TRAVEL STYLE -->
+      <div>
+        <h2 class="text-xl font-bold text-gray-900 flex items-center gap-3 mb-4">
+          <span class="w-7 h-7 rounded-full bg-brand text-white flex items-center justify-center text-xs">2</span>
+          Travel Style
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <label class="cursor-pointer">
+            <input type="checkbox" name="style" value="adventure" class="peer hidden">
+            <div class="p-4 rounded-2xl bg-bgLight border-2 border-transparent peer-checked:border-brand peer-checked:bg-orange-50 text-center transition">
+              <i class="fa-solid fa-compass text-2xl text-gray-600 mb-2 block peer-checked:text-brand"></i>
+              <span class="text-xs font-semibold">Adventure</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="checkbox" name="style" value="culture" class="peer hidden">
+            <div class="p-4 rounded-2xl bg-bgLight border-2 border-transparent peer-checked:border-brand peer-checked:bg-orange-50 text-center transition">
+              <i class="fa-solid fa-landmark text-2xl text-gray-600 mb-2 block peer-checked:text-brand"></i>
+              <span class="text-xs font-semibold">Culture & Art</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="checkbox" name="style" value="relaxation" class="peer hidden">
+            <div class="p-4 rounded-2xl bg-bgLight border-2 border-transparent peer-checked:border-brand peer-checked:bg-orange-50 text-center transition">
+              <i class="fa-solid fa-umbrella-beach text-2xl text-gray-600 mb-2 block peer-checked:text-brand"></i>
+              <span class="text-xs font-semibold">Relaxation</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="checkbox" name="style" value="food" class="peer hidden">
+            <div class="p-4 rounded-2xl bg-bgLight border-2 border-transparent peer-checked:border-brand peer-checked:bg-orange-50 text-center transition">
+              <i class="fa-solid fa-utensils text-2xl text-gray-600 mb-2 block peer-checked:text-brand"></i>
+              <span class="text-xs font-semibold">Foodie</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <!-- STEP 3: BUDGET & TRAVELERS -->
+      <div>
+        <h2 class="text-xl font-bold text-gray-900 flex items-center gap-3 mb-4">
+          <span class="w-7 h-7 rounded-full bg-brand text-white flex items-center justify-center text-xs">3</span>
+          Trip Details
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" for="travelers">Number of Travelers</label>
+            <select id="travelers" class="w-full bg-bgLight px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-brand focus:outline-none text-sm text-gray-700">
+              <option>Solo Traveler</option>
+              <option>Couple (2 people)</option>
+
+              <option>Family / Group (3-5 people)</option>
+              <option>Large Group (6+ people)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" for="budget">Estimated Budget</label>
+            <select id="budget" class="w-full bg-bgLight px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-brand focus:outline-none text-sm text-gray-700">
+              <option>Budget-Friendly ($)</option>
+              <option selected>Moderate ($$)</option>
+              <option>Luxury ($$$)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: CONTACT INFO & SUBMIT -->
+      <hr class="border-gray-100">
+
+      <div>
+        <h2 class="text-xl font-bold text-gray-900 flex items-center gap-3 mb-4">
+          <span class="w-7 h-7 rounded-full bg-brand text-white flex items-center justify-center text-xs">4</span>
+          Contact Information
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" for="name">Full Name</label>
+            <input type="text" id="name" placeholder="John Doe" class="w-full bg-bgLight px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" class="w-full bg-bgLight px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-brand focus:outline-none text-sm">
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 text-center">
+        <button type="submit" class="bg-brand text-white text-base font-medium px-10 py-4 rounded-full shadow-md hover:bg-brandHover transition w-full sm:w-auto">
+          Request My Custom Itinerary
+        </button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-darkFooter text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div class="md:col-span-1">
+        <div class="flex items-center space-x-2 font-bold text-white text-lg tracking-tight mb-4">
+          <span class="text-brand">✕</span>
+          <span>GLOBE TREKKER</span>
+        </div>
+        <p class="text-xs mb-4">Follow us on</p>
+        <div class="flex space-x-3 text-white">
+          <a href="#" class="hover:text-brand" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="hover:text-brand" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-brand" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="hover:text-brand" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="hover:text-brand" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-3">About Us</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:underline">About Globe Trekker</a></li>
+          <li><a href="#" class="hover:underline">Contact Us</a></li>
+          <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+          <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-3">Travel Interest</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:underline">Family Vacation</a></li>
+          <li><a href="#" class="hover:underline">Destination</a></li>
+          <li><a href="#" class="hover:underline">Adventure Travel</a></li>
+          <li><a href="#" class="hover:underline">Art & Culture</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-3">Top Destinations</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:underline">Paris</a></li>
+          <li><a href="#" class="hover:underline">London</a></li>
+          <li><a href="#" class="hover:underline">Tokyo</a></li>
+          <li><a href="#" class="hover:underline">Kyoto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-3">Guidebook Shop</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:underline">Destination Guides</a></li>
+          <li><a href="#" class="hover:underline">Non-English Guides</a></li>
+          <li><a href="#" class="hover:underline">Pictorial Books</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
