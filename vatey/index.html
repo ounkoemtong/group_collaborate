@@ -1,0 +1,478 @@
+c<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loem Somavattey | Botanical Sanctuary</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --accent: #52b788;
+            --light-green: #d8f3dc;
+            --dark-bg: #0b130e;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-dark: #1b4332;
+            --text-muted: #6c757d;
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f4f9f5;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #2d6a4f, #52b788);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark); 
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .nav-icons i {
+            transition: transform 0.2s;
+        }
+
+        .nav-icons i:hover {
+            transform: scale(1.15);
+            color: var(--accent);
+        }
+
+        /* Hero Banner */
+        .hero {
+            margin: 20px 8%;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+            border-radius: 30px;
+            padding: 60px 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(45, 106, 79, 0.15);
+        }
+
+        .hero-text {
+            max-width: 500px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: var(--light-green);
+            margin-bottom: 25px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            background: var(--light-green);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+        }
+
+        .hero-emoji {
+            font-size: 12rem;
+            opacity: 0.15;
+            position: absolute;
+            right: 5%;
+            user-select: none;
+        }
+
+        /* Section Styling */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 8% 20px 8%;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .arrows i {
+            background: white;
+            padding: 10px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            margin-left: 5px;
+        }
+
+        .arrows i:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Products Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 0 8% 40px 8%;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(45, 106, 79, 0.1);
+        }
+
+        .card-icons {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .card:hover .card-icons {
+            opacity: 1;
+        }
+
+        .card-icons i {
+            cursor: pointer;
+            background: rgba(240, 240, 240, 0.8);
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
+
+        .card-icons i:hover {
+            color: #e63946;
+            background: #ffe6e6;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.08));
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card .subtext {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .card .price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Banner Split Section */
+        .banner-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 8% 40px 8%;
+        }
+
+        .split-card {
+            background: #d8f3dc;
+            border-radius: var(--radius);
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-card.dark {
+            background: #1b4332;
+            color: white;
+        }
+
+        .split-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .split-card p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .split-card input[type="email"] {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0b130e;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        footer strong {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner-split { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Loem Somavattey</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Plants</a></li>
+            <li><a href="#">Care Guide</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Discover Our Various Collections of Houseplants 🌿</h1>
+            <p>Bring calm aesthetic vibes into your room with hand-picked, low-maintenance green besties.</p>
+            <a href="#shop" class="btn-main">Shop Now</a>
+        </div>
+        <div class="hero-emoji">🪴</div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <div class="section-header">
+        <h2>New Arrivals ✨</h2>
+        <div class="arrows">
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+
+    <section class="product-grid">
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Anthurium Red</h3>
+            <p class="subtext">Pot Included</p>
+            <div class="price">$49.99</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Peperomia Green</h3>
+            <p class="subtext">Pot Included</p>
+            <div class="price">$29.99</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Succulent Arrangement</h3>
+            <p class="subtext">Ceramic Bowl Included</p>
+            <div class="price">$39.99</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Snake Plant Trio</h3>
+            <p class="subtext">Care Guide Included</p>
+            <div class="price">$45.00</div>
+        </div>
+    </section>
+
+    <!-- Split Banner Feature -->
+    <section class="banner-split">
+        <div class="split-card dark">
+            <h3>Bring Your Scoop 🍃</h3>
+            <p>Subscribe to our newsletter for secret drop alerts & plant care tips.</p>
+            <input type="email" placeholder="Email Address">
+            <br>
+            <a href="#" class="btn-main" style="padding: 10px 24px; font-size:0.85rem;">Sign Up</a>
+        </div>
+
+        <div class="split-card">
+            <h3>Plant Care Guide 📖</h3>
+            <p>Discover how to keep your green friends alive and thriving effortlessly.</p>
+            <a href="#" class="btn-main" style="background: var(--primary); color:white;">Read Now</a>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <div class="section-header" id="shop">
+        <h2>Pre-Potted Favorites 🪴</h2>
+    </div>
+
+    <section class="product-grid">
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1597055181300-e362395553a0?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Birds of Paradise</h3>
+            <p class="subtext">Black Pot Included</p>
+            <div class="price">$119.99</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Fiddle Leaf Fig</h3>
+            <p class="subtext">High Metal Stand</p>
+            <div class="price">$159.99</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icons">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&auto=format&fit=crop&q=60" alt="Plant">
+            <h3>Cactus Tall Stand</h3>
+            <p class="subtext">Minimalist Pot</p>
+            <div class="price">$149.99</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Curated with ❤️ by <strong>Loem Somavattey</strong> &copy; 2026. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
