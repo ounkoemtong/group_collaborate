@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us - ACZONE</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6ef;
+            color: #173019;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 70px;
+            background: #062b13;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            color: #9bc51f;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo-text strong {
+            font-size: 17px;
+        }
+
+        .logo-text small {
+            display: block;
+            font-size: 7px;
+            color: #b7c2b8;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #9bc51f;
+        }
+
+        .donate-btn {
+            background: #9bc51f;
+            border: none;
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .contact-hero {
+
+            height: 400px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(2, 40, 15, .96),
+                    rgba(2, 40, 15, .65),
+                    rgba(2, 40, 15, .15)
+                ),
+                url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 7%;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            background: rgba(255,255,255,.12);
+
+            padding: 8px 16px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 {
+            font-size: 55px;
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #9bc51f;
+        }
+
+        .hero-content p {
+            color: #d5ddd5;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            max-width: 540px;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        main {
+            width: 86%;
+            max-width: 1200px;
+
+            margin: 45px auto;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            text-align: center;
+
+            max-width: 750px;
+
+            margin: 0 auto 40px;
+        }
+
+        .intro h2 {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .green-line {
+            width: 50px;
+            height: 4px;
+
+            background: #9bc51f;
+
+            margin: 0 auto 15px;
+
+            border-radius: 5px;
+        }
+
+        .intro p {
+            color: #737b73;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= CONTACT AREA ================= */
+
+        .contact-section {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.5fr;
+
+            gap: 25px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* ================= CONTACT INFO ================= */
+
+        .contact-info {
+
+            background: #063016;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            color: white;
+        }
+
+        .contact-info h2 {
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-info > p {
+            color: #c4d0c4;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+
+            width: 42px;
+            height: 42px;
+
+            background: #17451f;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 18px;
+
+            flex-shrink: 0;
+        }
+
+        .info-text h3 {
+            font-size: 12px;
+
+            margin-bottom: 5px;
+        }
+
+        .info-text p {
+            color: #b7c4b7;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        .social-title {
+            margin-top: 25px;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+        .social {
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .social span {
+            width: 32px;
+            height: 32px;
+
+            background: #17451f;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .social span:hover {
+            background: #9bc51f;
+        }
+
+
+        /* ================= CONTACT FORM ================= */
+
+        .contact-form {
+
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,.06);
+        }
+
+        .contact-form h2 {
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+        .contact-form > p {
+            color: #777;
+
+            font-size: 10px;
+
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+            color: #344334;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            border: 1px solid #dce2d8;
+
+            border-radius: 7px;
+
+            padding: 12px;
+
+            outline: none;
+
+            font-size: 11px;
+
+            color: #333;
+
+            background: #fafbf8;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #9bc51f;
+
+            background: white;
+        }
+
+        .form-group textarea {
+
+            height: 130px;
+
+            resize: vertical;
+        }
+
+        .submit-btn {
+
+            background: #9bc51f;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 22px;
+
+            cursor: pointer;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            background: #7e9f16;
+        }
+
+
+        /* ================= FAQ ================= */
+
+        .faq-section {
+
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+        }
+
+        .section-title p {
+
+            color: #777;
+
+            font-size: 10px;
+
+            margin-top: 7px;
+        }
+
+        .faq-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .faq-card {
+
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 2px 8px rgba(0,0,0,.05);
+        }
+
+        .faq-card h3 {
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+            color: #244426;
+        }
+
+        .faq-card p {
+
+            color: #777;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= MAP ================= */
+
+        .map-section {
+
+            margin-bottom: 50px;
+        }
+
+        .map {
+
+            height: 330px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(2,40,15,.15),
+                    rgba(2,40,15,.15)
+                ),
+                url("https://images.unsplash.com/photo-1524666041070-9c876903e3b0?auto=format&fit=crop&w=1500&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .map-box {
+
+            background: white;
+
+            padding: 25px 35px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.15);
+        }
+
+        .map-box .pin {
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+        .map-box h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 5px;
+        }
+
+        .map-box p {
+
+            color: #777;
+
+            font-size: 10px;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+
+            background:
+                linear-gradient(
+                    rgba(2,40,15,.9),
+                    rgba(2,40,15,.9)
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1500&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+            border-radius: 15px;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 50px;
+
+            margin-bottom: 35px;
+        }
+
+        .cta h2 {
+
+            font-size: 31px;
+
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+
+            color: #d2dbd2;
+
+            max-width: 620px;
+
+            margin: auto;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+        .cta button {
+
+            margin-top: 20px;
+
+            background: #9bc51f;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 22px;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #03240f;
+
+            color: white;
+
+            padding: 40px 7% 15px;
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        footer h3 {
+
+            color: #9bc51f;
+
+            margin-bottom: 12px;
+        }
+
+        footer h4 {
+
+            font-size: 12px;
+
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+
+            color: #aab7aa;
+
+            font-size: 10px;
+
+            line-height: 1.9;
+
+            text-decoration: none;
+
+            display: block;
+        }
+
+        footer a:hover {
+            color: #9bc51f;
+        }
+
+        .footer-social {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 12px;
+        }
+
+        .footer-social span {
+
+            width: 28px;
+            height: 28px;
+
+            border-radius: 50%;
+
+            background: #17451f;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .copyright {
+
+            border-top: 1px solid #17451f;
+
+            margin-top: 30px;
+
+            padding-top: 15px;
+
+            text-align: center;
+
+            color: #718074;
+
+            font-size: 9px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            main {
+                width: 92%;
+            }
+
+            .contact-hero {
+                padding: 0 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 25px;
+            }
+
+            .cta {
+                padding: 35px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                AC
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    ACZONE
+                </strong>
+
+                <small>
+                    WILDLIFE FOUNDATION
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="wildlife.html">
+                Wildlife
+            </a>
+
+            <a href="conservation.html">
+                Conservation
+            </a>
+
+            <a href="education.html">
+                Education
+            </a>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="contact.html" class="active">
+                Contact
+            </a>
+
+            <button class="donate-btn">
+                Donate Now
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="contact-hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                📩 Get In Touch
+            </div>
+
+            <h1>
+                Let's Protect
+                <span>Wildlife Together.</span>
+            </h1>
+
+            <p>
+                Have a question, want to volunteer, or interested
+                in supporting our conservation work? We would love
+                to hear from you.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <main>
+
+
+        <!-- ================= INTRO ================= -->
+
+        <section class="intro">
+
+            <h2>
+                Contact ACZONE
+            </h2>
+
+            <div class="green-line"></div>
+
+            <p>
+                Whether you have a question, want to collaborate,
+                volunteer, donate, or learn more about wildlife
+                conservation, our team is here to help.
+            </p>
+
+        </section>
+
+
+        <!-- ================= CONTACT SECTION ================= -->
+
+        <section class="contact-section">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <h2>
+                    Contact Information
+                </h2>
+
+                <p>
+                    Reach out to us through any of the following
+                    channels. Our team will respond as soon as possible.
+                </p>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📍
+                    </div>
+
+                    <div class="info-text">
+
+                        <h3>
+                            Our Office
+                        </h3>
+
+                        <p>
+                            Phnom Penh, Cambodia
+                            <br>
+                            Wildlife Conservation Center
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📞
+                    </div>
+
+                    <div class="info-text">
+
+                        <h3>
+                            Phone
+                        </h3>
+
+                        <p>
+                            +855 12 123 456
+                            <br>
+                            Monday - Friday
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        ✉
+                    </div>
+
+                    <div class="info-text">
+
+                        <h3>
+                            Email
+                        </h3>
+
+                        <p>
+                            info@aczone.org
+                            <br>
+                            support@aczone.org
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🕐
+                    </div>
+
+                    <div class="info-text">
+
+                        <h3>
+                            Office Hours
+                        </h3>
+
+                        <p>
+                            Monday - Friday: 8:00 AM - 5:00 PM
+                            <br>
+                            Saturday: 8:00 AM - 12:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="social-title">
+                    Follow Our Work
+                </div>
+
+                <div class="social">
+
+                    <span>f</span>
+                    <span>𝕏</span>
+                    <span>◎</span>
+                    <span>▶</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="contact-form">
+
+                <h2>
+                    Send Us a Message
+                </h2>
+
+                <p>
+                    Fill out the form below and our team will
+                    get back to you.
+                </p>
+
+
+                <form
+                    onsubmit="sendMessage(event)"
+                >
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="firstName">
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                placeholder="Enter your first name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="lastName">
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                placeholder="Enter your last name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter your phone"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <select
+                            id="subject"
+                            required
+                        >
+
+                            <option value="">
+                                Select a subject
+                            </option>
+
+                            <option>
+                                General Question
+                            </option>
+
+                            <option>
+                                Volunteer
+                            </option>
+
+                            <option>
+                                Donation
+                            </option>
+
+                            <option>
+                                Conservation Project
+                            </option>
+
+                            <option>
+                                Education Program
+                            </option>
+
+                            <option>
+                                Partnership
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Send Message →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FAQ ================= -->
+
+        <section class="faq-section">
+
+            <div class="section-title">
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+                <p>
+                    Quick answers to common questions.
+                </p>
+
+            </div>
+
+
+            <div class="faq-grid">
+
+
+                <div class="faq-card">
+
+                    <h3>
+                        How can I volunteer with ACZONE?
+                    </h3>
+
+                    <p>
+                        You can contact our team through the
+                        form above and select "Volunteer" as
+                        your subject. We will provide information
+                        about available opportunities.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-card">
+
+                    <h3>
+                        Can I support a conservation project?
+                    </h3>
+
+                    <p>
+                        Yes. We welcome support for our wildlife
+                        and conservation projects. Contact us to
+                        learn about current projects.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-card">
+
+                    <h3>
+                        Do you offer education programs?
+                    </h3>
+
+                    <p>
+                        Yes. ACZONE provides wildlife education
+                        programs for students, teachers, and
+                        local communities.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-card">
+
+                    <h3>
+                        Can organizations partner with ACZONE?
+                    </h3>
+
+                    <p>
+                        We welcome partnerships with organizations
+                        that share our commitment to wildlife
+                        conservation and environmental education.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MAP ================= -->
+
+        <section class="map-section">
+
+            <div class="section-title">
+
+                <h2>
+                    Find Us
+                </h2>
+
+                <p>
+                    Visit the ACZONE Wildlife Foundation.
+                </p>
+
+            </div>
+
+
+            <div class="map">
+
+                <div class="map-box">
+
+                    <div class="pin">
+                        📍
+                    </div>
+
+                    <h3>
+                        ACZONE Wildlife Foundation
+                    </h3>
+
+                    <p>
+                        Phnom Penh, Cambodia
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta">
+
+            <h2>
+                Every Conversation Can Make a Difference
+            </h2>
+
+            <p>
+                Your questions, ideas, support, and partnerships
+                can help create a safer future for wildlife.
+                Get in touch and become part of the conservation
+                community.
+            </p>
+
+            <button onclick="scrollToForm()">
+                Contact Us Today →
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    ACZONE
+                </h3>
+
+                <p>
+                    Together, we can protect wildlife
+                    and build a sustainable future.
+                </p>
+
+                <div class="footer-social">
+
+                    <span>f</span>
+                    <span>𝕏</span>
+                    <span>◎</span>
+                    <span>▶</span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="wildlife.html">
+                    Wildlife
+                </a>
+
+                <a href="conservation.html">
+                    Conservation
+                </a>
+
+                <a href="education.html">
+                    Education
+                </a>
+
+                <a href="news.html">
+                    News
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Get Involved
+                </h4>
+
+                <a href="#">
+                    Donate
+                </a>
+
+                <a href="#">
+                    Volunteer
+                </a>
+
+                <a href="#">
+                    Partner With Us
+                </a>
+
+                <a href="#">
+                    Education
+                </a>
+
+                <a href="#">
+                    Conservation
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contact Us
+                </h4>
+
+                <p>
+                    📞 +855 12 123 456
+                </p>
+
+                <p>
+                    ✉ info@aczone.org
+                </p>
+
+                <p>
+                    📍 Phnom Penh, Cambodia
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 ACZONE. All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            const firstName =
+                document.getElementById("firstName").value;
+
+            alert(
+                "Thank you, " +
+                firstName +
+                "! Your message has been received."
+            );
+
+            event.target.reset();
+
+        }
+
+
+        function scrollToForm() {
+
+            document
+                .querySelector(".contact-form")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
