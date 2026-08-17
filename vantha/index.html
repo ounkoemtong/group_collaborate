@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QCCC SHOP - Discover Products You'll Love</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <div class="top-announcement-bar">
+    <div class="announcement-item"><i class="fa-solid fa-truck-fast"></i> Free Worldwide Shipping Over $50</div>
+    <span class="bar-divider">|</span>
+    <div class="announcement-item"><i class="fa-solid fa-bolt"></i> Summer Sale Up To 70% Off</div>
+    <span class="bar-divider">|</span>
+    <div class="announcement-item"><i class="fa-solid fa-clock"></i> Limited Time Flash Deals</div>
+  </div>
+
+  <!-- 2. MAIN HEADER / NAVIGATION -->
+  <header class="main-header">
+    <div class="site-container header-inner">
+      <!-- Touch Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" id="mobileMenuOpen" aria-label="Open Navigation Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <a href="#" class="brand-logo">QCCC SHOP</a>
+      
+      <!-- Desktop Navigation Links -->
+      <nav class="navigation-links" id="desktopNav">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">New Arrivals</a>
+        <a href="#" class="nav-link">Best Sellers</a>
+        <a href="#" class="nav-link dropdown-link">Categories <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Icons -->
+      <div class="header-action-icons">
+        <button class="icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+        <button class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+        <button class="icon-btn cart-btn" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Touch-Friendly) -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="drawer-header">
+      <span class="brand-logo">QCCC SHOP</span>
+      <button class="close-drawer-btn" id="mobileMenuClose" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#" class="mobile-nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Shop</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-fire"></i> New Arrivals</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-crown"></i> Best Sellers</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-layer-group"></i> Categories</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="#" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <div class="site-container">
+    <!-- 3. HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-banner-container">
+        <!-- Left Hero Content -->
+        <div class="hero-text-content">
+          <span class="hero-kicker">COLLECTION TRENDING</span>
+          <h1 class="hero-heading">The Best Goods<br>You'll Love</h1>
+          <p class="hero-description">Trending products curated for modern lifestyles.</p>
+          
+          <div class="hero-action-buttons">
+            <a href="#" class="btn btn-primary">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="btn btn-outline">Explore Collection</a>
+          </div>
+
+          <div class="customer-social-proof">
+            <div class="avatar-stack">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Customer avatar 1">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Customer avatar 2">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Customer avatar 3">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Customer avatar 4">
+            </div>
+            <span class="social-proof-text">Loved by 50,000+ customers worldwide</span>
+          </div>
+        </div>
+
+        <!-- Right Hero Display -->
+        <div class="hero-visual-wrapper">
+          <div class="red-curved-backdrop"></div>
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80" class="hero-person-img" alt="Model presenting featured items">
+
+          <!-- Floating Product Cards -->
+          <div class="floating-product-card pos-top-left">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&auto=format&fit=crop&q=80" alt="Air Max 270">
+            <div class="floating-info">
+              <span class="item-name">Air Max 270</span>
+              <span class="item-price">$129.99</span>
+            </div>
+          </div>
+
+          <div class="floating-product-card pos-top-right">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=120&auto=format&fit=crop&q=80" alt="Smart Watch">
+            <div class="floating-info">
+              <span class="item-name">Smart Watch</span>
+              <span class="item-price">$199.99</span>
+            </div>
+          </div>
+
+          <div class="floating-product-card pos-bottom-left">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=120&auto=format&fit=crop&q=80" alt="Wireless Headphones">
+            <div class="floating-info">
+              <span class="item-name">Wireless Headphones</span>
+              <span class="item-price">$99.99</span>
+            </div>
+          </div>
+
+          <div class="floating-product-card pos-bottom-right">
+            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=120&auto=format&fit=crop&q=80" alt="Water Bottle">
+            <div class="floating-info">
+              <span class="item-name">Water Bottle</span>
+              <span class="item-price">$24.99</span>
+            </div>
+          </div>
+
+          <!-- Carousel Indicators -->
+          <div class="hero-carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. VALUE PROPOSITION BAR -->
+    <section class="value-props-bar">
+      <div class="prop-item">
+        <div class="prop-icon"><i class="fa-solid fa-truck"></i></div>
+        <div class="prop-details">
+          <h3>Free Delivery</h3>
+          <p>On orders over $50</p>
+        </div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-icon"><i class="fa-solid fa-lock"></i></div>
+        <div class="prop-details">
+          <h3>Secure Payments</h3>
+          <p>100% secure checkout</p>
+        </div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-icon"><i class="fa-solid fa-arrow-rotate-left"></i></div>
+        <div class="prop-details">
+          <h3>Easy Returns</h3>
+          <p>30-day return policy</p>
+        </div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-icon"><i class="fa-solid fa-headset"></i></div>
+        <div class="prop-details">
+          <h3>24/7 Support</h3>
+          <p>We're here for you</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SHOP BY CATEGORIES -->
+    <section class="section-block">
+      <div class="section-title-wrapper">
+        <h2 class="section-heading">Shop by Categories</h2>
+        <a href="#" class="view-all-link">View All Categories <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="grid-6-columns">
+        <div class="category-card">
+          <div class="category-img-container">
+            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&auto=format&fit=crop&q=80" alt="Fashion">
+          </div>
+          <h3>Fashion</h3>
+          <a href="#" class="cat-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-img-container">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&auto=format&fit=crop&q=80" alt="Electronics">
+          </div>
+          <h3>Electronics</h3>
+          <a href="#" class="cat-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-img-container">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&auto=format&fit=crop&q=80" alt="Beauty">
+          </div>
+          <h3>Beauty</h3>
+          <a href="#" class="cat-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-img-container">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=300&auto=format&fit=crop&q=80" alt="Fitness">
+          </div>
+          <h3>Fitness</h3>
+          <a href="#" class="cat-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-img-container">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&auto=format&fit=crop&q=80" alt="Home Decor">
+          </div>
+          <h3>Home Decor</h3>
+          <a href="#" class="cat-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-img-container">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&auto=format&fit=crop&q=80" alt="Accessories">
+          </div>
+          <h3>Accessories</h3>
+          <a href="#" class="cat-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. NEW ARRIVALS SECTION -->
+    <section class="section-block">
+      <div class="section-title-wrapper">
+        <h2 class="section-heading">New Arrivals</h2>
+        <a href="#" class="view-all-link">View All New Arrivals <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="grid-6-columns slider-relative">
+        <button class="slider-arrow arrow-left" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+
+        <!-- Product Item 1: Essential Hoodie -->
+        <div class="product-item-card">
+          <span class="product-badge badge-black">New</span>
+          <button class="wishlist-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="product-thumb">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&auto=format&fit=crop&q=80" alt="Essential Hoodie">
+          </div>
+          <h4 class="product-title">Essential Hoodie</h4>
+          <div class="price-row"><span class="current-price">$59.99</span></div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="review-count">(128)</span>
+          </div>
+          <button class="add-to-cart-btn" aria-label="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+        </div>
+
+        <!-- Product Item 2: Air Max 270 -->
+        <div class="product-item-card">
+          <span class="product-badge badge-orange">-20%</span>
+          <button class="wishlist-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="product-thumb">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80" alt="Air Max 270">
+          </div>
+          <h4 class="product-title">Air Max 270</h4>
+          <div class="price-row">
+            <span class="current-price">$129.99</span>
+            <span class="original-price">$159.99</span>
+          </div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="review-count">(89)</span>
+          </div>
+          <button class="add-to-cart-btn" aria-label="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+        </div>
+
+        <!-- Product Item 3: Wireless Smart Band (ADDED NEW ITEM) -->
+        <div class="product-item-card">
+          <span class="product-badge badge-black">New</span>
+          <button class="wishlist-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="product-thumb">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&auto=format&fit=crop&q=80" alt="Wireless Smart Band">
+          </div>
+          <h4 class="product-title">Wireless Smart Band</h4>
+          <div class="price-row">
+            <span class="current-price">$49.99</span>
+            <span class="original-price">$69.99</span>
+          </div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="review-count">(94)</span>
+          </div>
+          <button class="add-to-cart-btn" aria-label="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+        </div>
+
+        <!-- Product Item 4: Wireless Headphones -->
+        <div class="product-item-card">
+          <span class="product-badge badge-black">New</span>
+          <button class="wishlist-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="product-thumb">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&auto=format&fit=crop&q=80" alt="Wireless Headphones">
+          </div>
+          <h4 class="product-title">Wireless Headphones</h4>
+          <div class="price-row"><span class="current-price">$99.99</span></div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="review-count">(156)</span>
+          </div>
+          <button class="add-to-cart-btn" aria-label="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+        </div>
+
+        <!-- Product Item 5: Minimalist Desk Lamp (ADDED NEW ITEM) -->
+        <div class="product-item-card">
+          <span class="product-badge badge-orange">-15%</span>
+          <button class="wishlist-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="product-thumb">
+            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&auto=format&fit=crop&q=80" alt="Minimalist Desk Lamp">
+          </div>
+          <h4 class="product-title">Minimalist Desk Lamp</h4>
+          <div class="price-row">
+            <span class="current-price">$39.99</span>
+            <span class="original-price">$49.99</span>
+          </div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="review-count">(62)</span>
+          </div>
+          <button class="add-to-cart-btn" aria-label="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+        </div>
+
+        <!-- Product Item 6: Aviator Sunglasses -->
+        <div class="product-item-card">
+          <span class="product-badge badge-orange">-10%</span>
+          <button class="wishlist-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="product-thumb">
+            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&auto=format&fit=crop&q=80" alt="Aviator Sunglasses">
+          </div>
+          <h4 class="product-title">Aviator Sunglasses</h4>
+          <div class="price-row">
+            <span class="current-price">$89.99</span>
+            <span class="original-price">$99.99</span>
+          </div>
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="review-count">(57)</span>
+          </div>
+          <button class="add-to-cart-btn" aria-label="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+        </div>
+
+        <button class="slider-arrow arrow-right" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- 7. BEST SELLERS SECTION -->
+    <section class="section-block">
+      <div class="section-title-wrapper">
+        <h2 class="section-heading">Best Sellers</h2>
+        <a href="#" class="view-all-link">View All Best Sellers <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="grid-3-columns">
+        <div class="bestseller-horizontal-card">
+          <div class="bs-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&auto=format&fit=crop&q=80" alt="Classic Hoodie">
+          </div>
+          <div class="bs-details">
+            <span class="badge-gold">Bestseller</span>
+            <h4 class="bs-title">Classic Hoodie</h4>
+            <span class="bs-price">$59.99</span>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span class="review-count">(256)</span>
+            </div>
+            <p class="bs-desc">Premium quality hoodie perfect for everyday wear.</p>
+            <button class="btn-quick-add">Quick Add</button>
+          </div>
+        </div>
+
+        <div class="bestseller-horizontal-card">
+          <div class="bs-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=300&auto=format&fit=crop&q=80" alt="Air Max 270">
+          </div>
+          <div class="bs-details">
+            <span class="badge-gold">Bestseller</span>
+            <h4 class="bs-title">Air Max 270</h4>
+            <span class="bs-price">$129.99</span>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span class="review-count">(189)</span>
+            </div>
+            <p class="bs-desc">Iconic comfort meets modern style.</p>
+            <button class="btn-quick-add">Quick Add</button>
+          </div>
+        </div>
+
+        <div class="bestseller-horizontal-card">
+          <div class="bs-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=300&auto=format&fit=crop&q=80" alt="Sony WH-1000XM5">
+          </div>
+          <div class="bs-details">
+            <span class="badge-gold">Bestseller</span>
+            <h4 class="bs-title">Sony WH-1000XM5</h4>
+            <span class="bs-price">$349.99</span>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span class="review-count">(324)</span>
+            </div>
+            <p class="bs-desc">Industry-leading noise cancellation.</p>
+            <button class="btn-quick-add">Quick Add</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PROMO BANNER CARDS -->
+    <section class="section-block grid-2-columns">
+      <!-- Flash Sale Banner -->
+      <div class="banner-card flash-sale-banner">
+        <div class="banner-content">
+          <span class="banner-label">Flash Sale</span>
+          <h2 class="banner-title">Up To 70% Off</h2>
+          
+          <div class="countdown-timer">
+            <div class="time-block"><span class="num">02</span><span class="lbl">Days</span></div>
+            <span class="colon">:</span>
+            <div class="time-block"><span class="num">15</span><span class="lbl">Hours</span></div>
+            <span class="colon">:</span>
+            <div class="time-block"><span class="num">45</span><span class="lbl">Mins</span></div>
+            <span class="colon">:</span>
+            <div class="time-block"><span class="num">30</span><span class="lbl">Secs</span></div>
+          </div>
+
+          <a href="#" class="btn btn-white-pill">Shop Sale Now</a>
+        </div>
+        <div class="banner-image-container">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=80" alt="Flash Sale Sneaker">
+        </div>
+      </div>
+
+      <!-- Summer Banner -->
+      <div class="banner-card dark-summer-banner">
+        <div class="banner-content">
+          <span class="banner-label">New Collection</span>
+          <h2 class="banner-title">Summer Collection</h2>
+          <p class="banner-subtext">Discover the latest trends and fresh styles.</p>
+          <a href="#" class="btn btn-white-pill">Shop Collection</a>
+        </div>
+        <div class="banner-image-container dark-banner-img">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&auto=format&fit=crop&q=80" alt="Summer Collection Model">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 9. FOOTER TRUST STRIP -->
+  <footer class="footer-trust-strip">
+    <div class="site-container footer-trust-inner">
+      <div class="trust-badge-item">
+        <div class="trust-icon"><i class="fa-regular fa-square-check"></i></div>
+        <div class="trust-text">
+          <strong>Premium Quality</strong>
+          <span>Made with the finest materials</span>
+        </div>
+      </div>
+      <div class="trust-badge-item">
+        <div class="trust-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+        <div class="trust-text">
+          <strong>Fast Delivery</strong>
+          <span>Quick and reliable shipping</span>
+        </div>
+      </div>
+      <div class="trust-badge-item">
+        <div class="trust-icon"><i class="fa-solid fa-lock"></i></div>
+        <div class="trust-text">
+          <strong>Secure Checkout</strong>
+          <span>Your data is protected</span>
+        </div>
+      </div>
+      <div class="trust-badge-item">
+        <div class="trust-icon"><i class="fa-regular fa-face-smile"></i></div>
+        <div class="trust-text">
+          <strong>Customer Satisfaction</strong>
+          <span>100% satisfaction guarantee</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Touch & Mobile Navigation JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const openBtn = document.getElementById('mobileMenuOpen');
+      const closeBtn = document.getElementById('mobileMenuClose');
+      const drawer = document.getElementById('mobileNavDrawer');
+      const overlay = document.getElementById('mobileOverlay');
+
+      function toggleMenu(show) {
+        if (show) {
+          drawer.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        } else {
+          drawer.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      openBtn?.addEventListener('click', () => toggleMenu(true));
+      closeBtn?.addEventListener('click', () => toggleMenu(false));
+      overlay?.addEventListener('click', () => toggleMenu(false));
+
+      // Wishlist toggle interactivity
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const icon = btn.querySelector('i');
+          icon.classList.toggle('fa-regular');
+          icon.classList.toggle('fa-solid');
+          icon.classList.toggle('active-heart');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
