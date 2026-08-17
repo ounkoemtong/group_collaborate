@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bufflo — Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header"><a class="logo" href="index.html">✦ Bufflo<span>.</span></a>
+            <header class="header">
+                <a class="logo" href="index.html">Bufflo.</a>
+                <button id="theme-btn" class="theme-toggle-btn">🌙 Dark Mode</button>
+            </header>
+            <nav class="nav"><a class="active" href="index.html">Shop</a><a href="promos.html">Promos</a><a
+                    href="blog.html">Blog</a></nav>
+            <div class="header-actions"><button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button><button
+                    class="icon-btn" onclick="toast('Account area coming next ✨')"
+                    aria-label="Account">◯</button><button class="icon-btn" id="cartBtn" aria-label="Cart">🛒<span
+                        class="cart-count">0</span></button><button class="icon-btn mobile-menu"
+                    onclick="openModal('<h2>Menu</h2><p><a href=&quot;index.html&quot;>Shop</a></p><p><a href=&quot;promos.html&quot;>Promos</a></p><p><a href=&quot;blog.html&quot;>Blog</a></p>')">☰</button>
+            </div>
+        </header>
+        <main>
+            <section class="hero"><img src="assets/hero.svg" alt="Modern living room">
+                <div class="hero-copy"><span class="eyebrow">New collection · 2026</span>
+                    <h1>Seth Shop</h1>
+                    <p>Thoughtfully picked tech, home essentials and little upgrades that make everyday life better.</p>
+                    <a class="btn light" href="#products">Explore products →</a>
+                </div>
+            </section>
+            <section class="section" id="products">
+                <div class="section-head">
+                    <div><span class="eyebrow" style="color:#888">Give All You Need</span>
+                        <h2>Find your next favorite.</h2>
+                    </div>
+                    <div class="searchbox"><input id="productSearch" placeholder="Search products...">⌕</div>
+                </div>
+                <div class="shop-layout">
+                    <aside class="sidebar">
+                        <h4>Categories</h4><button class="filter-btn active" data-cat="All">All products</button><button
+                            class="filter-btn" data-cat="Audio">Audio</button><button class="filter-btn"
+                            data-cat="Accessories">Accessories</button><button class="filter-btn"
+                            data-cat="Smart Home">Smart Home</button><button class="filter-btn"
+                            data-cat="Tech">Tech</button>
+                    </aside>
+                    <div class="products" id="productGrid"></div>
+                </div>
+            </section>
+            <section class="section recommend">
+                <div class="section-head">
+                    <div><span class="eyebrow" style="color:#888">Curated for you</span>
+                        <h2>Explore our recommendations</h2>
+                    </div><a class="btn outline" href="promos.html">See deals →</a>
+                </div>
+                <div class="products">
+                    <article class="card reveal">
+                        <div class="product-image"><img src="assets/headphones.svg" alt="TWS Buds"></div>
+                        <div class="card-body"><span class="tag">Audio</span>
+                            <h3>TWS Buds</h3>
+                            <div class="price-row"><span class="price">29.90$</span><button class="add"
+                                    onclick="addToCart(null,7)">Add</button></div>
+                        </div>
+                    </article>
+                    <article class="card reveal">
+                        <div class="product-image"><img src="assets/cleaner.svg" alt="Headset White"></div>
+                        <div class="card-body"><span class="tag">Audio</span>
+                            <h3>Headset White</h3>
+                            <div class="price-row"><span class="price">52.00$</span><button class="add"
+                                    onclick="addToCart(null,8)">Add</button></div>
+                        </div>
+                    </article>
+                    <article class="card reveal">
+                        <div class="product-image"><img src="assets/camera.svg" alt="Studio Speaker"></div>
+                        <div class="card-body"><span class="tag">Audio</span>
+                            <h3>Studio Speaker</h3>
+                            <div class="price-row"><span class="price">129.00$</span><button class="add"
+                                    onclick="addToCart(null,9)">Add</button></div>
+                        </div>
+                    </article>
+                    <article class="card reveal">
+                        <div class="product-image"><img src="assets/cleaner.svg" alt="CCTV Mini"></div>
+                        <div class="card-body"><span class="tag">Smart Home</span>
+                            <h3>CCTV Mini</h3>
+                            <div class="price-row"><span class="price">60.00$</span><button class="add"
+                                    onclick="addToCart(null,4)">Add</button></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="cta">
+                <div><span class="eyebrow">Fresh arrivals</span>
+                    <h2>Ready to get our new stuff?</h2>
+                </div>
+                <div>
+                    <p>Small upgrades. Big mood. Discover the latest pieces before everyone else does.</p><a
+                        class="btn light" href="promos.html">Shop new arrivals</a>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div><a class="logo" href="index.html">✦ Bufflo.</a>
+                <p>A friendly little shop for modern everyday things.</p>
+            </div>
+            <div>
+                <h4>About</h4><a href="#">Our story</a><a href="#">Careers</a><a href="#">Journal</a>
+            </div>
+            <div>
+                <h4>Support</h4><a href="#">Help center</a><a href="#">Shipping</a><a href="#">Returns</a>
+            </div>
+            <div>
+                <h4>Follow</h4>
+                <div class="socials"><span>ig</span><span>tt</span><span>in</span><span>p</span></div>
+            </div>
+        </footer>
+    </div>
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div id="modal"></div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

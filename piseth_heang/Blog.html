@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bufflo — Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="header"><a class="logo" href="index.html">✦ Bufflo.</a>
+            <nav class="nav"><a href="index.html">Shop</a><a href="promos.html">Promos</a><a class="active"
+                    href="blog.html">Blog</a></nav>
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="theme-btn">🌙 Dark Mode</button>
+                <button class="icon-btn" id="searchBtn">⌕</button>
+                <button class="icon-btn">◯</button>
+                <button class="icon-btn" id="cartBtn">🛒<span class="cart-count">0</span></button>
+                <button class="icon-btn mobile-menu"
+                    onclick="openModal('<h2>Menu</h2><p><a href=&quot;index.html&quot;>Shop</a></p><p><a href=&quot;promos.html&quot;>Promos</a></p><p><a href=&quot;blog.html&quot;>Blog</a></p>')">☰</button>
+            </div>
+        </header>
+        <main>
+            <section class="page-hero"><span class="eyebrow">Stories, ideas & tiny obsessions</span>
+                <h1>Our Blog</h1>
+                <p>Notes on gadgets, good design, useful tech and making everyday life feel a little nicer.</p>
+            </section>
+            <section class="section">
+                <div class="blog-tools">
+                    <div class="category-pills"><button class="pill active" data-cat="All"
+                            onclick="blogFilter('All')">All</button><button class="pill" data-cat="Technology"
+                            onclick="blogFilter('Technology')">Technology</button><button class="pill"
+                            data-cat="Gadgets" onclick="blogFilter('Gadgets')">Gadgets</button><button class="pill"
+                            data-cat="Lifestyle" onclick="blogFilter('Lifestyle')">Lifestyle</button><button
+                            class="pill" data-cat="Reviews" onclick="blogFilter('Reviews')">Reviews</button><button
+                            class="pill" data-cat="Tips" onclick="blogFilter('Tips')">Tips</button></div>
+                    <div class="searchbox"><input id="blogSearch" placeholder="Search articles...">⌕</div>
+                </div>
+                <article class="featured reveal">
+                    <div class="featured-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/2818779760145910033_0" alt="Laptop workspace"></div>
+                    <div class="featured-copy"><span class="tag">FEATURED · TECHNOLOGY</span>
+                        <h2>How to build a calmer, smarter desk.</h2>
+                        <p>A practical guide to choosing the few tools that make work feel easier without turning your
+                            desk into a spaceship.</p><button class="btn"
+                            onclick="readArticle('How to build a calmer, smarter desk.','Start with the things you touch every day. Choose one excellent keyboard, a comfortable audio setup, warm lighting and a simple charging solution. The best desk setup is not the one with the most gadgets; it is the one that disappears while you work.')">Read
+                            More →</button>
+                    </div>
+                </article>
+                <div class="blog-grid" id="articles">
+                    <article class="card article-card reveal" data-cat="Gadgets">
+                        <div class="article-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/8894089267755996102_0" alt="Wireless Earbuds"></div>
+                        <div class="article-body"><span class="meta">GADGETS · AUG 12, 2026</span>
+                            <h3>What makes wireless earbuds actually worth it?</h3>
+                            <p>Comfort, battery life, controls and the small details that matter.</p><button
+                                class="btn outline" style="margin-top:12px"
+                                onclick="readArticle('What makes wireless earbuds actually worth it?','Good earbuds are about balance. Look beyond big feature lists and focus on fit, reliable connectivity, microphone quality, battery life and how quickly the case charges.')">Read
+                                More</button>
+                        </div>
+                    </article>
+                    <article class="card article-card reveal" data-cat="Lifestyle">
+                        <div class="article-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/2818779760145910033_0" alt="Room Interior Upgrades"></div>
+                        <div class="article-body"><span class="meta">LIFESTYLE · AUG 08, 2026</span>
+                            <h3>The tiny upgrades that change a room.</h3>
+                            <p>Five small additions that make a home feel more considered.</p><button
+                                class="btn outline" style="margin-top:12px"
+                                onclick="readArticle('The tiny upgrades that change a room.','You do not need a renovation. Better lighting, a tidy charging spot, one beautiful speaker, a soft throw and a little greenery can completely shift the mood of a room.')">Read
+                                More</button>
+                        </div>
+                    </article>
+                    <article class="card article-card reveal" data-cat="Reviews">
+                        <div class="article-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/8661487748673997863_0" alt="Over-Ear Headphones"></div>
+                        <div class="article-body"><span class="meta">REVIEWS · AUG 03, 2026</span>
+                            <h3>We tested the new everyday headphones.</h3>
+                            <p>Our notes after two weeks of music, calls and commuting.</p><button class="btn outline"
+                                style="margin-top:12px"
+                                onclick="readArticle('We tested the new everyday headphones.','For an everyday pair, we care most about comfort over long sessions, stable Bluetooth, physical controls and a sound profile that works for both music and podcasts.')">Read
+                                More</button>
+                        </div>
+                    </article>
+                    <article class="card article-card reveal" data-cat="Tips">
+                        <div class="article-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/14760383548727414552_0" alt="Mechanical Keyboard"></div>
+                        <div class="article-body"><span class="meta">TIPS · JUL 29, 2026</span>
+                            <h3>Three ways to declutter your tech.</h3>
+                            <p>Less cable chaos, fewer duplicate devices, more calm.</p><button class="btn outline"
+                                style="margin-top:12px"
+                                onclick="readArticle('Three ways to declutter your tech.','Give every frequently used device a home, remove duplicate chargers and keep only the accessories you use each week within reach. The rest can live in one labeled drawer.')">Read
+                                More</button>
+                        </div>
+                    </article>
+                    <article class="card article-card reveal" data-cat="Technology">
+                        <div class="article-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/17222682309532995226_0" alt="Smart Home Camera"></div>
+                        <div class="article-body"><span class="meta">TECHNOLOGY · JUL 24, 2026</span>
+                            <h3>Smart home, without the headache.</h3>
+                            <p>Start small and build a setup you will actually use.</p><button class="btn outline"
+                                style="margin-top:12px"
+                                onclick="readArticle('Smart home, without the headache.','Begin with one routine: lights, music, climate or security. Once that feels natural, add the next device. A smart home should reduce decisions, not create more of them.')">Read
+                                More</button>
+                        </div>
+                    </article>
+                    <article class="card article-card reveal" data-cat="Gadgets">
+                        <div class="article-img"><img src="http://googleusercontent.com/image_collection/image_retrieval/13448298020196177556_0" alt="Bluetooth Speaker"></div>
+                        <div class="article-body"><span class="meta">GADGETS · JUL 19, 2026</span>
+                            <h3>Our favorite tiny gadgets under $50.</h3>
+                            <p>Useful, giftable and small enough to keep on your desk.</p><button class="btn outline"
+                                style="margin-top:12px"
+                                onclick="readArticle('Our favorite tiny gadgets under $50.','The best inexpensive gadgets solve one small annoyance really well. Think compact chargers, desk speakers, cable organizers and simple smart sensors.')">Read
+                                More</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div><a class="logo" href="index.html">✦ Bufflo.</a>
+                <p>A friendly little shop for modern everyday things.</p>
+            </div>
+            <div>
+                <h4>About</h4><a href="#">Our story</a><a href="#">Careers</a>
+            </div>
+            <div>
+                <h4>Support</h4><a href="#">Help center</a><a href="#">Shipping</a>
+            </div>
+            <div>
+                <h4>Follow</h4>
+                <div class="socials"><span>ig</span><span>tt</span><span>in</span><span>p</span></div>
+            </div>
+        </footer>
+    </div>
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div id="modal"></div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {const input = document.querySelector("#blogSearch"); input?.addEventListener("input", () => {const q = input.value.toLowerCase(); document.querySelectorAll(".article-card").forEach(x => x.style.display = x.innerText.toLowerCase().includes(q) ? "" : "none")})});
+    </script>
+</body>
+
+</html>
