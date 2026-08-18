@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ACZONE - Protect Wildlife</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f6ef;
+      color: #172617;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: #062b13;
+      color: white;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+    }
+
+    .logo-icon {
+      color: #9bc51f;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 17px;
+    }
+
+    .logo-text small {
+      font-size: 7px;
+      color: #b8c4b7;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    nav a:hover {
+      color: #a7ce2b;
+    }
+
+    .donate-btn {
+      background: #9bc51f;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 18px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 440px;
+      background:
+        linear-gradient(90deg, rgba(3, 36, 15, .98) 0%,
+        rgba(3, 36, 15, .90) 40%,
+        rgba(3, 36, 15, .25) 100%),
+        url("https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1400&q=80");
+
+      background-size: cover;
+      background-position: center;
+      padding: 80px 7%;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 530px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.1);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #9bc51f;
+    }
+
+    .hero p {
+      color: #d5ddd2;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      background: white;
+      border-radius: 30px;
+      display: flex;
+      padding: 5px;
+      max-width: 490px;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 12px 18px;
+      border-radius: 25px;
+    }
+
+    .search-box button {
+      background: #9bc51f;
+      border: none;
+      color: white;
+      border-radius: 25px;
+      padding: 0 25px;
+      cursor: pointer;
+    }
+
+    .stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 35px;
+    }
+
+    .stat h3 {
+      font-size: 20px;
+    }
+
+    .stat p {
+      font-size: 10px;
+      margin: 0;
+      color: #b7c4b7;
+    }
+
+    /* ================= MAIN ================= */
+
+    main {
+      width: 86%;
+      max-width: 1250px;
+      margin: 25px auto;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+    }
+
+    .view-all {
+      font-size: 11px;
+      color: #527218;
+    }
+
+    /* ================= WILDLIFE CARDS ================= */
+
+    .wildlife-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .animal-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .animal-card img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+    }
+
+    .animal-info {
+      padding: 12px;
+    }
+
+    .animal-info h3 {
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .animal-info p {
+      font-size: 10px;
+      color: #777;
+    }
+
+    .rating {
+      color: #8cab1b;
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    /* ================= MISSION ================= */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .mission {
+      min-height: 260px;
+      border-radius: 12px;
+      padding: 25px;
+      color: white;
+      background:
+        linear-gradient(rgba(0,40,17,.82), rgba(0,40,17,.88)),
+        url("https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=900&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .mission h2 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .mission p {
+      color: #d5dfd2;
+      font-size: 12px;
+      line-height: 1.7;
+      max-width: 430px;
+    }
+
+    .mission-list {
+      margin-top: 15px;
+      display: grid;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .learn-btn {
+      margin-top: 20px;
+      background: #9bc51f;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+    }
+
+    /* ================= SUPPORT ================= */
+
+    .support {
+      margin-top: 20px;
+      min-height: 150px;
+      border-radius: 12px;
+      padding: 25px;
+      color: white;
+      background:
+        linear-gradient(rgba(0,40,17,.75), rgba(0,40,17,.8)),
+        url("https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1000&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .support h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .support p {
+      font-size: 11px;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    /* ================= HELP ================= */
+
+    .help {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .help h2 {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .help-item {
+      padding: 15px;
+      border: 1px solid #e3e8df;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .help-item .icon {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .help-item h4 {
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .help-item p {
+      font-size: 9px;
+      color: #777;
+    }
+
+    /* ================= UPDATES ================= */
+
+    .updates {
+      margin-top: 20px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .update-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .update {
+      display: flex;
+      gap: 10px;
+    }
+
+    .update img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .update h4 {
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .update p {
+      font-size: 9px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    /* ================= NEWSLETTER ================= */
+
+    .newsletter {
+      margin-top: 20px;
+      padding: 25px;
+      background:
+        linear-gradient(rgba(0,40,17,.75), rgba(0,40,17,.8)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80");
+      background-size: cover;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .newsletter h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .newsletter p {
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+
+    .newsletter form {
+      display: flex;
+      max-width: 400px;
+    }
+
+    .newsletter input {
+      flex: 1;
+      padding: 11px;
+      border: none;
+      outline: none;
+    }
+
+    .newsletter button {
+      background: #9bc51f;
+      border: none;
+      color: white;
+      padding: 0 20px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      margin-top: 20px;
+      min-height: 230px;
+      border-radius: 12px;
+      color: white;
+      padding: 40px;
+      background:
+        linear-gradient(rgba(0,40,17,.55), rgba(0,40,17,.7)),
+        url("https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cta h2 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      font-size: 12px;
+      max-width: 450px;
+      line-height: 1.6;
+    }
+
+    .cta button {
+      margin-top: 18px;
+      background: #9bc51f;
+      border: none;
+      padding: 11px 22px;
+      color: white;
+      border-radius: 20px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #03240f;
+      color: white;
+      padding: 40px 7% 15px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      color: #9bc51f;
+    }
+
+    footer h4 {
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #aab7aa;
+      font-size: 10px;
+      line-height: 1.8;
+      text-decoration: none;
+      display: block;
+    }
+
+    .social {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .social span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #17451f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #17451f;
+      margin-top: 30px;
+      padding-top: 15px;
+      color: #718074;
+      font-size: 9px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .wildlife-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 0 5%;
+      }
+
+      main {
+        width: 92%;
+      }
+
+      .hero {
+        padding: 60px 5%;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .stats {
+        gap: 15px;
+      }
+
+      .wildlife-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .update-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <div class="logo">
+      <div class="logo-icon">AC</div>
+
+      <div class="logo-text">
+        <span>ACZONE</span>
+        <small>WILDLIFE FOUNDATION</small>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Wildlife</a>
+      <a href="#">Conservation</a>
+      <a href="#">Education</a>
+      <a href="#">News</a>
+      <a href="#">Contact</a>
+      <a href="#">⌕</a>
+      <button class="donate-btn">Donate Now</button>
+    </nav>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="tag">
+        🌱 For a Better Tomorrow
+      </div>
+
+      <h1>
+        Protect Wildlife.<br>
+        <span>Preserve Our Future.</span>
+      </h1>
+
+      <p>
+        Together, we can protect wildlife and build a
+        sustainable future for generations to come.
+      </p>
+
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search wildlife..."
+        />
+
+        <button>Search</button>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <h3>100K+</h3>
+          <p>Animals Protected</p>
+        </div>
+
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Conservation Projects</p>
+        </div>
+
+        <div class="stat">
+          <h3>25K+</h3>
+          <p>Volunteers</p>
+        </div>
+
+        <div class="stat">
+          <h3>120+</h3>
+          <p>Species Saved</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+    <!-- Wildlife -->
+
+    <section>
+
+      <div class="section-title">
+        <h2>🌿 Explore Wildlife</h2>
+        <span class="view-all">View All →</span>
+      </div>
+
+      <div class="wildlife-grid">
+
+        <div class="animal-card">
+          <img
+            src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=500&q=80"
+            alt="Bengal Tiger"
+          >
+
+          <div class="animal-info">
+            <h3>Bengal Tiger</h3>
+            <p>Endangered Species</p>
+            <div class="rating">★ 4.8</div>
+          </div>
+        </div>
+
+
+        <div class="animal-card">
+          <img
+            src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=500&q=80"
+            alt="Mountain Gorilla"
+          >
+
+          <div class="animal-info">
+            <h3>Mountain Gorilla</h3>
+            <p>Endangered Species</p>
+            <div class="rating">★ 4.7</div>
+          </div>
+        </div>
+
+
+        <div class="animal-card">
+          <img
+            src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=500&q=80"
+            alt="African Elephant"
+          >
+
+          <div class="animal-info">
+            <h3>African Elephant</h3>
+            <p>Vulnerable Species</p>
+            <div class="rating">★ 4.9</div>
+          </div>
+        </div>
+
+
+        <div class="animal-card">
+          <img
+            src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=500&q=80"
+            alt="Snow Leopard"
+          >
+
+          <div class="animal-info">
+            <h3>Snow Leopard</h3>
+            <p>Endangered Species</p>
+            <div class="rating">★ 4.8</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Mission -->
+
+    <section class="two-column">
+
+      <div class="mission">
+
+        <h2>Our Mission</h2>
+
+        <p>
+          To protect wildlife, restore habitats, and inspire
+          communities to create a sustainable future.
+        </p>
+
+        <div class="mission-list">
+          <div>✓ Protect Wildlife</div>
+          <div>✓ Save Habitats</div>
+          <div>✓ Educate Communities</div>
+          <div>✓ Build a Sustainable Future</div>
+        </div>
+
+        <button class="learn-btn">
+          Learn More →
+        </button>
+
+      </div>
+
+
+      <div class="help">
+
+        <h2>How You Can Help</h2>
+
+        <div class="help-grid">
+
+          <div class="help-item">
+            <div class="icon">💚</div>
+            <h4>Donate</h4>
+            <p>Support our conservation work.</p>
+          </div>
+
+          <div class="help-item">
+            <div class="icon">🌱</div>
+            <h4>Volunteer</h4>
+            <p>Join our wildlife projects.</p>
+          </div>
+
+          <div class="help-item">
+            <div class="icon">🐾</div>
+            <h4>Adopt</h4>
+            <p>Help protect an animal.</p>
+          </div>
+
+          <div class="help-item">
+            <div class="icon">📢</div>
+            <h4>Spread Awareness</h4>
+            <p>Share our conservation message.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Support -->
+
+    <section class="support">
+
+      <h2>Support Our Cause</h2>
+
+      <p>
+        Every action counts. Your support helps protect
+        endangered wildlife, restore habitats, and create
+        a better future for animals.
+      </p>
+
+      <button class="learn-btn">
+        Donate Now →
+      </button>
+
+    </section>
+
+
+    <!-- Recent Updates -->
+
+    <section class="updates">
+
+      <div class="section-title">
+        <h2>Recent Updates</h2>
+        <span class="view-all">View All →</span>
+      </div>
+
+      <div class="update-list">
+
+        <div class="update">
+          <img
+            src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=300&q=80"
+            alt=""
+          >
+
+          <div>
+            <h4>Protecting Our Forests</h4>
+            <p>
+              Discover how conservation teams
+              are protecting wildlife habitats.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="update">
+          <img
+            src="https://images.unsplash.com/photo-1504006833117-8886a355efbf?auto=format&fit=crop&w=300&q=80"
+            alt=""
+          >
+
+          <div>
+            <h4>Ocean Life Matters</h4>
+            <p>
+              Learn more about protecting marine
+              animals and ecosystems.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="update">
+          <img
+            src="https://images.unsplash.com/photo-1535338454770-8be927b5a00b?auto=format&fit=crop&w=300&q=80"
+            alt=""
+          >
+
+          <div>
+            <h4>Saving Endangered Animals</h4>
+            <p>
+              Our latest projects are helping
+              endangered species survive.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Newsletter -->
+
+    <section class="newsletter">
+
+      <h2>Subscribe to Our Newsletter</h2>
+
+      <p>
+        Get wildlife news, conservation updates and
+        stories delivered to your inbox.
+      </p>
+
+      <form>
+
+        <input
+          type="email"
+          placeholder="Enter your email"
+        >
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+      <h2>Small Actions Today.<br>A Better Tomorrow.</h2>
+
+      <p>
+        Together, we can make a difference.
+        Join us in protecting wildlife and
+        preserving our planet.
+      </p>
+
+      <button>
+        Take Action →
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>ACZONE</h3>
+
+        <p>
+          Together, we can protect wildlife
+          and build a sustainable future.
+        </p>
+
+        <div class="social">
+          <span>f</span>
+          <span>𝕏</span>
+          <span>◎</span>
+          <span>▶</span>
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h4>Quick Links</h4>
+
+        <a href="#">About Us</a>
+        <a href="#">Wildlife</a>
+        <a href="#">Conservation</a>
+        <a href="#">Education</a>
+        <a href="#">News</a>
+        <a href="#">Contact</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Conservation</h4>
+
+        <a href="#">Our Projects</a>
+        <a href="#">Endangered Species</a>
+        <a href="#">Forest Protection</a>
+        <a href="#">Ocean Conservation</a>
+        <a href="#">Save Animals</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>Contact Us</h4>
+
+        <p>📞 +855 12 123 456</p>
+        <p>✉ info@aczone.org</p>
+        <p>📍 Phnom Penh, Cambodia</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 ACZONE. All rights reserved.
+    </div>
+
+  </footer>
+
+</body>
+</html>
